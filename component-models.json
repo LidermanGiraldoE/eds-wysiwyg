@@ -209,24 +209,5 @@
          "value": ""
        }
      ]
-  },
-  {
-    "id": "promotionCode",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
-      }
-    ]
   }
 ]

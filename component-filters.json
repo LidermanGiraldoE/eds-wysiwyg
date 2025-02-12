@@ -16,8 +16,7 @@
       "cards",
       "columns",
       "fragment",
-      "quote",
-      "promotionsCodeBar"
+      "quote"
     ]
   },
   {
@@ -39,12 +38,6 @@
       "image",
       "button",
       "title"
-    ]
-  },
-  {
-    "id": "promotionsCodeBar",
-    "components": [
-      "promotionCode"
     ]
   }
 ]
