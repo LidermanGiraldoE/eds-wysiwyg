@@ -214,24 +214,17 @@
     "id": "promotionCode",
     "fields": [
       {
-        "component": "text",
+        "component": "richtext",
         "name": "title",
         "value": "",
         "label": "Title",
         "valueType": "string"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "name": "description",
         "value": "",
         "label": "Description",
-        "valueType": "string"
-      },
-      {
-        "component": "text",
-        "name": "linkUrl",
-        "value": "",
-        "label": "Link URL",
         "valueType": "string"
       }
     ]
