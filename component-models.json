@@ -226,6 +226,13 @@
         "name": "description",
         "label": "Descripción",
         "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "linkurl",
+        "label": "Link URL",
+        "value": ""
       }
     ]
   }
