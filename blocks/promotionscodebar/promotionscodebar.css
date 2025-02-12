@@ -4,17 +4,17 @@
 }
 
 .promotionscodebar {
-    background-color: #F6F6F6; 
+    background-color: #f6f6f6;
     height: 68px;
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
 }
 
 .promotionscodebar-list {
-    align-items: center; 
+    align-items: center;
     display: flex;
-    flex-wrap: nowrap; 
-    justify-content: center; 
+    flex-wrap: nowrap;
+    justify-content: center;
     margin: 0 auto;
     max-width: 1360px;
     padding: 0;
@@ -28,16 +28,17 @@
 
 .promotionscodebar-item {
     align-items: center;
-    border-right: 1px solid #D4D4D4; 
+    border-right: 1px solid #d4d4d4;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column; 
-    flex: 0 1 424px; 
+    flex-direction: column;
+    flex: 0 1 424px;
     justify-content: center;
-    max-width: 424px; 
-    min-width: 200px; 
-    padding: 0 20px; 
+    max-width: 424px;
+    min-width: 200px;
+    padding: 0 20px;
     text-align: center;
+    text-decoration: none !important;
 }
 
 .promotionscodebar-item:last-child {
@@ -51,12 +52,61 @@
 }
 
 .promotionscodebar-item p:first-child {
-    color: #000; 
+    color: #000;
     font-weight: bold;
     letter-spacing: 0.3px;
 }
 
 .promotionscodebar-item p:last-child {
-    color: #505050; 
+    color: #505050;
     letter-spacing: 0.36px;
+}
+
+@media (width <= 1024px) {
+    .promotionscodebar {
+        height: 82px;
+        padding: 16px;
+    }
+
+    .promotionscodebar-list {
+        display: none;
+    }
+
+    .promotionscodebar-swiper {
+        width: 100%;
+    }
+
+    .promotionscodebar .swiper-slide {
+        display: flex;
+        justify-content: center;
+    }
+
+    .promotionscodebar-item {
+        flex: 1;
+        padding: 0;
+        max-width: 100%;
+        min-width: auto;
+    }
+
+    .promotionscodebar .swiper-pagination {
+        position: static;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        padding: 2px;
+        margin-top: 8px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        border: 0.5px solid #000;
+        background: transparent;
+        border-radius: 50%;
+        opacity: 100;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #000;
+    }
 }
