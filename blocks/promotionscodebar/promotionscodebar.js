@@ -13,14 +13,14 @@ export default function decorate(block) {
       if (index === 0) {
         const p = document.createElement('p');
         p.textContent = child.textContent;
-        a.append(p);
         moveInstrumentation(child, p);
+        a.append(p);
         child.remove();
       } else if (index === 1) {
         const p = document.createElement('p');
         p.textContent = child.textContent;
-        a.append(p);
         moveInstrumentation(child, p);
+        a.append(p);
         child.remove();
       } else if (index === rowChildren.length - 1) {
         const url = child.querySelector('p')?.textContent.trim();
