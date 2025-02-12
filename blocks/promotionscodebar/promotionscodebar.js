@@ -1,40 +1,14 @@
-/* import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  
-  const ul = document.createElement('ul');
+  const div = document.createElement('div');
   [...block.children].forEach((row) => {
-    const li = document.createElement('li');
-    moveInstrumentation(row, li);
-    while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
-    });
-    ul.append(li);
-  });
-  ul.querySelectorAll('picture > img').forEach((img) => {
-    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-    moveInstrumentation(img, optimizedPic.querySelector('img'));
-    img.closest('picture').replaceWith(optimizedPic);
+    const a = document.createElement('a');
+    moveInstrumentation(row, a);
+    while (row.firstElementChild) a.append(row.firstElementChild);
+    div.className = 'promotionscodebar-list';
+    div.append(a);
   });
   block.textContent = '';
-  block.append(ul);
-} */
-
-import { moveInstrumentation } from '../../scripts/scripts.js';
-
-export default function decorate(block) {
-    console.log('block', block);
-    const div = document.createElement('div');
-    [...block.children].forEach((row) => {
-        const a = document.createElement('a');
-        moveInstrumentation(row, a);
-        while (row.firstElementChild) a.append(row.firstElementChild);
-        div.className = 'promotionscodebar-list';
-        div.append(a);
-    });
-    block.textContent = '';
-    block.append(div);
+  block.append(div);
 }
