@@ -40,21 +40,21 @@
                     "valueType": "string",
                     "name": "title",
                     "label": "Titulo",
-                    "value": ""
+                    "value": "Ahorra 10% con el código FREE10"
                 },
                 {
                     "component": "text",
                     "valueType": "string",
                     "name": "description",
                     "label": "Descripción",
-                    "value": ""
+                    "value": "Belleza al mejor precio."
                 },
                 {
                     "component": "text",
                     "valueType": "string",
                     "name": "linkurl",
                     "label": "Link URL",
-                    "value": ""
+                    "value": "wwww.google.com"
                 }
             ]
         }
