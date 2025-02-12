@@ -1,5 +1,5 @@
 export default function decorate(block) {
-  const container = document.createElement('div');
+  /* const container = document.createElement('div');
   container.classList.add('promotionscodebar-list');
 
   [...block.children].forEach((row) => {
@@ -12,5 +12,5 @@ export default function decorate(block) {
   });
 
   block.textContent = '';
-  block.append(container);
+  block.append(container); */
 }
