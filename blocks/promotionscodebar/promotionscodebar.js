@@ -10,16 +10,9 @@ export default function decorate(block) {
 
     const rowChildren = [...row.children];
     rowChildren.forEach((child, index) => {
-      if (index === 0) {
+      if (index === 0 || index === 1) {
         const p = document.createElement('p');
         p.textContent = child.textContent;
-        moveInstrumentation(child, p);
-        a.append(p);
-        child.remove();
-      } else if (index === 1) {
-        const p = document.createElement('p');
-        p.textContent = child.textContent;
-        moveInstrumentation(child, p);
         a.append(p);
         child.remove();
       } else if (index === rowChildren.length - 1) {
