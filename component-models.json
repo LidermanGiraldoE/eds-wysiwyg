@@ -237,7 +237,7 @@
     ]
   },
   {
-    "id": "ulta-main-banner-text",
+    "id": "ulta-main-banner-texts",
     "fields": [
       {
         "component": "richtext",
