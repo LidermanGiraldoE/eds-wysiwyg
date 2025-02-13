@@ -218,7 +218,7 @@
     ]
   },
   {
-    "id": "ulta-main-banner",
+    "id": "ulta-main-banner-imgs",
     "fields": [
       {
         "component": "reference",
@@ -233,7 +233,12 @@
         "name": "imageAlt",
         "label": "Alt",
         "value": ""
-      },
+      }
+    ]
+  },
+  {
+    "id": "ulta-main-banner-text",
+    "fields": [
       {
         "component": "richtext",
         "name": "tagline",
