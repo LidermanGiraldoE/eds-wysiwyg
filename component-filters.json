@@ -51,6 +51,9 @@
   {
     "id": "ulta-main-banner",
     "components": [
+      "image",
+      "ulta-main-banner-imgs",
+      "ulta-main-banner-texts",
       "ulta-button"
     ]
   }
