@@ -221,35 +221,43 @@
     "id": "ulta-main-banner",
     "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": true
-      },
-      {
-        "component": "richtext",
-        "name": "tagline",
-        "value": "",
-        "label": "Tagline",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "title",
-        "value": "",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "value": "",
-        "label": "Description",
-        "valueType": "string"
+        "component": "collapsibleGroup",
+        "name": "mainContent",
+        "label": "Main Content",
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "image",
+            "label": "Image",
+            "multi": true
+          },
+          {
+            "component": "richtext",
+            "name": "tagline",
+            "value": "",
+            "label": "Tagline",
+            "valueType": "string"
+          },
+          {
+            "component": "richtext",
+            "name": "title",
+            "value": "",
+            "label": "Title",
+            "valueType": "string"
+          },
+          {
+            "component": "richtext",
+            "name": "description",
+            "value": "",
+            "label": "Description",
+            "valueType": "string"
+          }
+        ]
       }
     ]
-  },
+  }
+  ,
   {
     "id": "ulta-button",
     "fields": [
