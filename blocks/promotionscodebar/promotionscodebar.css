@@ -51,13 +51,13 @@
     text-align: center;
 }
 
-.promotionscodebar-item p:first-child {
+.promotionscodebar-item div:first-child p{
     color: #000;
     font-weight: bold;
     letter-spacing: 0.3px;
 }
 
-.promotionscodebar-item p:last-child {
+.promotionscodebar-item div:last-child p{
     color: #505050;
     letter-spacing: 0.36px;
 }
