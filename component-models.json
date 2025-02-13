@@ -286,19 +286,19 @@
         "options": [
           {
             "name": "button-primary-large",
-            "value": "button-primary-large"
+            "value": "ulta-button-primary-large"
           },
           {
             "name": "button-primary-small",
-            "value": "button-primary-small"
+            "value": "ulta-button-primary-small"
           },
           {
             "name": "button-secondary-large",
-            "value": "button-secondary-large"
+            "value": "ulta-button-secondary-large"
           },
           {
             "name": "button-secondary-small",
-            "value": "button-secondary-small"
+            "value": "ulta-button-secondary-small"
           }
         ]
       }
