@@ -228,13 +228,6 @@
         "multi": true
       },
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      },
-      {
         "component": "richtext",
         "name": "tagline",
         "value": "",
@@ -254,20 +247,6 @@
         "value": "",
         "label": "Description",
         "valueType": "string"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttontext",
-        "label": "Button text",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttonlink",
-        "label": "Button URL",
-        "value": ""
       }
     ]
   }
