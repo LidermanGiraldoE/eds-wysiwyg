@@ -1,0 +1,84 @@
+.ulta-banner {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+}
+
+.ulta-banner-wrapper {
+    max-width: unset;
+    height: 100%;
+    padding: 0;
+}
+
+.ulta-banner-wrapper picture {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+.ulta-banner-texts {
+    position: absolute;
+    top: 86px;
+    left: 220px;
+    color: white;
+    z-index: 1;
+    text-align: left;
+}
+
+.ulta-banner-texts p {
+    margin: 0;
+}
+
+.ulta-banner-tagline p {
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    color: black;
+}
+
+.ulta-banner-title p {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+
+.ulta-banner-description {
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.ulta-banner-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ulta-banner-button:hover {
+    background-color: #333;
+}
+
+@media (width <= 900px) {
+    .ulta-banner-texts {
+        left: 24px;
+        right: 24px;
+        top: 40px;
+    }
+
+    .ulta-banner-title p {
+        font-size: 32px;
+    }
+
+    .ulta-banner-description {
+        font-size: 16px;
+    }
+}

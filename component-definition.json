@@ -196,57 +196,12 @@
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "ULTA Banner Principal",
-                  "filter": "ulta-main-banner"
+                  "model": "ulta-main-banner"
                 }
               }
             }
           }
-        },
-        {
-          "title": "ULTA Banner Principal Imágenes",
-          "id": "ulta-main-banner-imgs",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "ULTA Banner Principal Imágenes",
-                  "model": "ulta-main-banner-imgs"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "ULTA Banner Principal Textos",
-          "id": "ulta-main-banner-texts",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/block/item",
-                "template": {
-                  "name": "ULTA Banner Principal Textos",
-                  "model": "ulta-main-banner-texts"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "ULTA Botón",
-          "id": "ulta-button",
-          "plugins": {
-              "xwalk": {
-                  "page": {
-                      "resourceType": "core/franklin/components/block/v1/block/item",
-                      "template": {
-                          "name": "ULTA Botón",
-                          "model": "ulta-button"
-                      }
-                  }
-              }
-          }
-      }
+        }
       ]
     }
   ]
