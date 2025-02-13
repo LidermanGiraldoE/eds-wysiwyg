@@ -218,7 +218,7 @@
     ]
   },
   {
-    "id": "ulta-main-banner-imgs",
+    "id": "ulta-main-banner",
     "fields": [
       {
         "component": "reference",
@@ -227,18 +227,6 @@
         "label": "Image",
         "multi": true
       },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      }
-    ]
-  },
-  {
-    "id": "ulta-main-banner-texts",
-    "fields": [
       {
         "component": "richtext",
         "name": "tagline",
@@ -259,25 +247,6 @@
         "value": "",
         "label": "Description",
         "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "ulta-button",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "text",
-        "label": "Texto del botón",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "link",
-        "label": "Link del botón",
-        "value": ""
       }
     ]
   }
