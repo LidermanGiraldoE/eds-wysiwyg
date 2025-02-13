@@ -201,7 +201,22 @@
               }
             }
           }
-        }
+        },
+        {
+          "title": "ULTA Botón",
+          "id": "ulta-button",
+          "plugins": {
+              "xwalk": {
+                  "page": {
+                      "resourceType": "core/franklin/components/button/v1/button",
+                      "template": {
+                          "name": "ULTA Botón",
+                          "model": "ulta-button"
+                      }
+                  }
+              }
+          }
+      }
       ]
     }
   ]

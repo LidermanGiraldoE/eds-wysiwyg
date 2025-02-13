@@ -249,5 +249,47 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "ulta-button",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonText",
+        "label": "Texto del botón",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonLink",
+        "label": "Link del botón",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "name": "buttonType",
+        "label": "Tipo de botón",
+        "options": [
+          {
+            "name": "Botón primario grande",
+            "value": "largePrimaryButton"
+          },
+          {
+            "name": "Botón primario pequeño",
+            "value": "smallPrimaryButton"
+          },
+          {
+            "name": "Botón secundario grande",
+            "value": "smallSecundaryButton"
+          },
+          {
+            "name": "Botón secundario pequeño",
+            "value": "smallSecondaryButton"
+          }
+        ]
+      }
+    ]
   }
 ]
