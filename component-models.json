@@ -221,24 +221,18 @@
     "id": "ulta-main-banner",
     "fields": [
       {
-        "component": "group",
-        "name": "imageGroup",
-        "label": "Image Group",
-        "fields": [
-          {
-            "component": "reference",
-            "valueType": "string",
-            "name": "image",
-            "label": "Image",
-            "multi": false
-          },
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "imageAlt",
-            "label": "Alt"
-          }
-        ]
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
       },
       {
         "component": "richtext",
@@ -267,27 +261,19 @@
     "id": "ulta-button",
     "fields": [
       {
-        "component": "group",
-        "name": "buttonGroup",
-        "label": "Button Group",
-        "fields": [
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "buttonText",
-            "label": "Texto del botón",
-            "value": ""
-          },
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "buttonLink",
-            "label": "Link del botón",
-            "value": ""
-          }
-        ]
+        "component": "text",
+        "valueType": "string",
+        "name": "text",
+        "label": "Texto del botón",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link del botón",
+        "value": ""
       }
     ]
   }
-  
 ]
