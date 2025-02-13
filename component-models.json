@@ -263,7 +263,7 @@
     ]
   },
   {
-    "id": "ulta-button",
+    "id": "ulta-main-banner-button",
     "fields": [
       {
         "component": "text",
@@ -278,29 +278,6 @@
         "name": "buttonlink",
         "label": "Button link URL",
         "value": ""
-      },
-      {
-        "component": "select",
-        "name": "typeButton",
-        "label": "Type",
-        "options": [
-          {
-            "name": "button-primary-large",
-            "value": "ulta-button-primary-large"
-          },
-          {
-            "name": "button-primary-small",
-            "value": "ulta-button-primary-small"
-          },
-          {
-            "name": "button-secondary-large",
-            "value": "ulta-button-secondary-large"
-          },
-          {
-            "name": "button-secondary-small",
-            "value": "ulta-button-secondary-small"
-          }
-        ]
       }
     ]
   }

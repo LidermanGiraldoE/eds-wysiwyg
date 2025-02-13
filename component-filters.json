@@ -17,8 +17,7 @@
       "columns",
       "fragment",
       "promotionscodebar",
-      "ulta-main-banner",
-      "ulta-button"
+      "ulta-main-banner"
     ]
   },
   {
@@ -53,7 +52,7 @@
     "components": [
       "ulta-main-banner-img",
       "ulta-main-banner-text",
-      "ulta-button"
+      "ulta-main-banner-button"
     ]
   }
 ]

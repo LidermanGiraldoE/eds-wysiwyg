@@ -1,7 +1,7 @@
 export default function decorate(block) {
   block.classList.add('ulta-banner');
 
-  const [imageContainer, taglineContainer, titleContainer, descriptionContainer] = block.children;
+  const [imageContainer, taglineContainer, titleContainer, descriptionContainer, buttonContainer] = block.children;
 
   if (imageContainer) {
     imageContainer.classList.add('ulta-banner-wrapper');
@@ -25,6 +25,18 @@ export default function decorate(block) {
   if (descriptionContainer) {
     descriptionContainer.classList.add('ulta-banner-description');
     textsContainer.appendChild(descriptionContainer);
+  }
+
+  if (buttonContainer) {
+    const [textElement, hrefElement] = buttonContainer.children;
+    const buttonText = textElement?.querySelector('p')?.textContent.trim();
+    const buttonHref = hrefElement?.querySelector('p')?.textContent.trim();
+
+    const button = document.createElement('a');
+    button.href = buttonHref || '#';
+    button.textContent = buttonText || 'Comprar Ahora';
+    button.className = 'ulta-banner-button';
+    textsContainer.appendChild(button);
   }
 
   block.appendChild(textsContainer);

@@ -54,17 +54,20 @@
 
 .ulta-banner-button {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    font-size: 14px;
-    border-radius: 5px;
+    padding: 13px 24px;
+    background-color: #000;
+    font-size: 12px;
+    letter-spacing: 0.36px;
+    color: #FFFFFF;
     text-decoration: none;
-    font-weight: bold;
+    border-radius: 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .ulta-banner-button:hover {
-    background-color: #333;
+    background-color: #232323;
+    color: #FFFFFF;
 }
 
 @media (width <= 900px) {
