@@ -218,27 +218,15 @@
     ]
   },
   {
-    "id": "ulta-main-banner-img",
+    "id": "ulta-main-banner",
     "fields": [
       {
         "component": "reference",
         "valueType": "string",
         "name": "image",
         "label": "Image",
-        "multi": false
+        "multi": true
       },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      }
-    ]
-  },
-  {
-    "id": "ulta-main-banner-text",
-    "fields": [
       {
         "component": "richtext",
         "name": "tagline",
@@ -259,48 +247,6 @@
         "value": "",
         "label": "Description",
         "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "ulta-button",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttontext",
-        "label": "Button text",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttonlink",
-        "label": "Button link URL",
-        "value": ""
-      },
-      {
-        "component": "select",
-        "name": "buttonType",
-        "label": "Type",
-        "options": [
-          {
-            "name": "button-primary-large",
-            "value": "button-primary-large"
-          },
-          {
-            "name": "button-primary-small",
-            "value": "button-primary-small"
-          },
-          {
-            "name": "button-secondary-large",
-            "value": "button-secondary-large"
-          },
-          {
-            "name": "button-secondary-small",
-            "value": "button-secondary-small"
-          }
-        ]
       }
     ]
   }
