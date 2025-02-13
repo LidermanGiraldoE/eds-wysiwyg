@@ -267,19 +267,27 @@
     "id": "ulta-button",
     "fields": [
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttonText",
-        "label": "Texto del botón",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "buttonLink",
-        "label": "Link del botón",
-        "value": ""
+        "component": "group",
+        "name": "buttonGroup",
+        "label": "Button Group",
+        "fields": [
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "buttonText",
+            "label": "Texto del botón",
+            "value": ""
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "buttonLink",
+            "label": "Link del botón",
+            "value": ""
+          }
+        ]
       }
     ]
   }
+  
 ]
