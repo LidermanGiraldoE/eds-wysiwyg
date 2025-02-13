@@ -13,15 +13,11 @@ export default function decorate(block) {
     const rowChildren = [...row.children];
     rowChildren.forEach((child, index) => {
       if (index === 0 || index === 1) {
-        const p = document.createElement('p');
-        p.textContent = child.textContent;
-        a.append(p);
-        child.remove();
+        a.append(child);
       } else if (index === rowChildren.length - 1) {
         const url = child.querySelector('p')?.textContent.trim();
         if (url) {
           a.href = url;
-          child.remove();
         }
       }
     });
