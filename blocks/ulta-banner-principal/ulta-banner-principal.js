@@ -1,5 +1,3 @@
-import { moveInstrumentation } from '../../scripts/scripts.js';
-
 export default function decorate(block) {
   block.classList.add('ulta-banner');
 
@@ -8,7 +6,6 @@ export default function decorate(block) {
   if (imageContainer) {
     imageContainer.classList.add('ulta-banner-wrapper');
     const img = imageContainer.querySelector('img');
-    moveInstrumentation(imageContainer, img);
     if (img) img.classList.add('ulta-banner-img');
   }
 
