@@ -18,7 +18,7 @@
   ],
   "models": [
     {
-      "id": "ulta-main-banner ",
+      "id": "ulta-main-banner",
       "fields": [
         {
           "component": "reference",
@@ -26,13 +26,6 @@
           "name": "image",
           "label": "Image",
           "multi": true
-        },
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "imageAlt",
-          "label": "Alt",
-          "value": ""
         },
         {
           "component": "richtext",
@@ -54,20 +47,6 @@
           "value": "",
           "label": "Description",
           "valueType": "string"
-        },
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "buttontext",
-          "label": "Button text",
-          "value": ""
-        },
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "buttonlink",
-          "label": "Button URL",
-          "value": ""
         }
       ]
     }
