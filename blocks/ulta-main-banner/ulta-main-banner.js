@@ -9,6 +9,9 @@ export default function decorate(block) {
     if (img) img.classList.add('ulta-banner-img');
   }
 
+  const contentWrapper = document.createElement('div');
+  contentWrapper.classList.add('ulta-banner-content');
+
   const textsContainer = document.createElement('div');
   textsContainer.classList.add('ulta-banner-texts');
 
@@ -28,6 +31,9 @@ export default function decorate(block) {
     });
   }
 
+  contentContainer.remove();
+  contentWrapper.appendChild(textsContainer);
+
   if (buttonContainer) {
     const [textElement, hrefElement] = buttonContainer.children;
     const buttonText = textElement?.querySelector('p')?.textContent.trim();
@@ -37,8 +43,9 @@ export default function decorate(block) {
     button.href = buttonHref || '#';
     button.textContent = buttonText || 'Comprar Ahora';
     button.className = 'ulta-banner-button';
-    textsContainer.appendChild(button);
+    buttonContainer.remove();
+    contentWrapper.appendChild(button);
   }
 
-  block.appendChild(textsContainer);
+  block.appendChild(contentWrapper);
 }

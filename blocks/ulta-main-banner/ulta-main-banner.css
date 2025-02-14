@@ -20,13 +20,22 @@
     box-sizing: border-box;
 }
 
-.ulta-banner-texts {
+.ulta-banner-content {
     position: absolute;
     top: 86px;
     left: 220px;
     color: white;
     z-index: 1;
     text-align: left;
+}
+
+.ulta-banner-texts {
+    /* position: absolute;
+    top: 86px;
+    left: 220px;
+    color: white;
+    z-index: 1;
+    text-align: left; */
 }
 
 .ulta-banner-texts p {
