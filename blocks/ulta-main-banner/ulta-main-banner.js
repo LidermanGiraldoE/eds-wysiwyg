@@ -51,6 +51,7 @@ export default function decorate(block) {
     buttonTextDiv.className = 'ulta-button-text';
     buttonTextDiv.textContent = buttonText || 'Comprar Ahora';
 
+    moveInstrumentation(textElement, buttonTextDiv);
     button.appendChild(buttonTextDiv);
 
     // Mover la instrumentación y eliminar el contenedor original
