@@ -40,21 +40,20 @@ export default function decorate(block) {
   if (buttonContainer) {
     const [textElement, hrefElement] = buttonContainer.children;
     const buttonHref = hrefElement?.querySelector('p')?.textContent.trim();
-  
+
     const button = document.createElement('a');
     button.href = buttonHref || '#';
     button.className = 'ulta-banner-button';
-  
+
     // Reutilizar textElement
     textElement.classList.add('ulta-button-text');
     button.appendChild(textElement);
-  
+
     moveInstrumentation(buttonContainer, button);
     buttonContainer.remove();
-  
+
     contentWrapper.appendChild(button);
   }
-  
 
   block.appendChild(contentWrapper);
 }
