@@ -1,7 +1,13 @@
 export default function decorate(block) {
   block.classList.add('ulta-banner');
 
-  const [imageContainer, taglineContainer, titleContainer, descriptionContainer, buttonContainer] = block.children;
+  const [
+    imageContainer,
+    taglineContainer,
+    titleContainer,
+    descriptionContainer,
+    buttonContainer,
+  ] = block.children;
 
   if (imageContainer) {
     imageContainer.classList.add('ulta-banner-wrapper');

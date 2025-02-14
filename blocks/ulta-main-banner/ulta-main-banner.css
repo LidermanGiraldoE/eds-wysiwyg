@@ -58,7 +58,7 @@
     background-color: #000;
     font-size: 12px;
     letter-spacing: 0.36px;
-    color: #FFFFFF;
+    color: #FFF;
     text-decoration: none;
     border-radius: 20px;
     margin-top: 20px;
@@ -67,7 +67,7 @@
 
 .ulta-banner-button:hover {
     background-color: #232323;
-    color: #FFFFFF;
+    color: #FFF;
 }
 
 @media (width <= 900px) {
