@@ -1,3 +1,5 @@
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
 export default function decorate(block) {
   block.classList.add('ulta-banner');
 
@@ -31,6 +33,7 @@ export default function decorate(block) {
     });
   }
 
+  moveInstrumentation(contentContainer, textsContainer);
   contentContainer.remove();
   contentWrapper.appendChild(textsContainer);
 
@@ -43,6 +46,7 @@ export default function decorate(block) {
     button.href = buttonHref || '#';
     button.textContent = buttonText || 'Comprar Ahora';
     button.className = 'ulta-banner-button';
+    moveInstrumentation(buttonContainer, button);
     buttonContainer.remove();
     contentWrapper.appendChild(button);
   }
