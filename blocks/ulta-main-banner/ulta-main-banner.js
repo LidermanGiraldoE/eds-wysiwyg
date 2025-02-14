@@ -1,13 +1,7 @@
 export default function decorate(block) {
   block.classList.add('ulta-banner');
 
-  const [
-    imageContainer,
-    taglineContainer,
-    titleContainer,
-    descriptionContainer,
-    buttonContainer,
-  ] = block.children;
+  const [imageContainer, contentContainer, buttonContainer] = block.children;
 
   if (imageContainer) {
     imageContainer.classList.add('ulta-banner-wrapper');
@@ -18,19 +12,20 @@ export default function decorate(block) {
   const textsContainer = document.createElement('div');
   textsContainer.classList.add('ulta-banner-texts');
 
-  if (taglineContainer) {
-    taglineContainer.classList.add('ulta-banner-tagline');
-    textsContainer.appendChild(taglineContainer);
-  }
+  if (contentContainer) {
+    const contentElements = Array.from(contentContainer.children);
 
-  if (titleContainer) {
-    titleContainer.classList.add('ulta-banner-title');
-    textsContainer.appendChild(titleContainer);
-  }
-
-  if (descriptionContainer) {
-    descriptionContainer.classList.add('ulta-banner-description');
-    textsContainer.appendChild(descriptionContainer);
+    // Asignar clases según la posición de los elementos en contentContainer
+    contentElements.forEach((element, index) => {
+      if (index === 0) {
+        element.classList.add('ulta-banner-tagline');
+      } else if (index === 1) {
+        element.classList.add('ulta-banner-title');
+      } else if (index === 2) {
+        element.classList.add('ulta-banner-description');
+      }
+      textsContainer.appendChild(element);
+    });
   }
 
   if (buttonContainer) {
