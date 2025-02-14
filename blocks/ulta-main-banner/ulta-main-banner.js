@@ -39,27 +39,22 @@ export default function decorate(block) {
 
   if (buttonContainer) {
     const [textElement, hrefElement] = buttonContainer.children;
-    const buttonText = textElement?.querySelector('p')?.textContent.trim();
     const buttonHref = hrefElement?.querySelector('p')?.textContent.trim();
-
+  
     const button = document.createElement('a');
     button.href = buttonHref || '#';
     button.className = 'ulta-banner-button';
-
-    // Crear el div interno para el texto
-    const buttonTextDiv = document.createElement('div');
-    buttonTextDiv.className = 'ulta-button-text';
-    buttonTextDiv.textContent = buttonText || 'Comprar Ahora';
-
-    moveInstrumentation(textElement, buttonTextDiv);
-    button.appendChild(buttonTextDiv);
-
-    // Mover la instrumentación y eliminar el contenedor original
+  
+    // Reutilizar textElement
+    textElement.classList.add('ulta-button-text');
+    button.appendChild(textElement);
+  
     moveInstrumentation(buttonContainer, button);
     buttonContainer.remove();
-
+  
     contentWrapper.appendChild(button);
   }
+  
 
   block.appendChild(contentWrapper);
 }

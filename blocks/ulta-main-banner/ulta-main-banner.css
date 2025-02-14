@@ -78,6 +78,10 @@
     color: #FFF;
 }
 
+.ulta-button-text p {
+    margin: 0;
+}
+
 @media (width <= 900px) {
     .ulta-banner-texts {
         left: 24px;
