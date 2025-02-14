@@ -17,7 +17,7 @@ export default function decorate(block) {
 
     // Asignar clases según la posición de los elementos en contentContainer
     contentElements.forEach((element, index) => {
-      const text = element.querySelector('p')?.textContent.trim();
+      /* const text = element.querySelector('p')?.textContent.trim(); */
       if (index === 0) {
         element.classList.add('ulta-banner-tagline');
       } else if (index === 1) {
