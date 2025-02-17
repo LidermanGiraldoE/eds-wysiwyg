@@ -221,32 +221,18 @@
     "id": "ulta-main-banner-img",
     "fields": [
       {
-        "component": "object",
-        "name": "images",
-        "label": "Images",
-        "fields": [
-          {
-            "component": "reference",
-            "valueType": "string",
-            "name": "desktopImage",
-            "label": "Image Desktop",
-            "multi": false
-          },
-          {
-            "component": "reference",
-            "valueType": "string",
-            "name": "mobileImage",
-            "label": "Image Mobile",
-            "multi": false
-          },
-          {
-            "component": "text",
-            "valueType": "string",
-            "name": "imageAlt",
-            "label": "Alt",
-            "value": ""
-          }
-        ]
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
       }
     ]
   },
