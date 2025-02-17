@@ -225,7 +225,7 @@
         "valueType": "string",
         "name": "image",
         "label": "Image",
-        "multi": false
+        "multi": true
       },
       {
         "component": "text",
@@ -259,6 +259,25 @@
         "value": "",
         "label": "Description",
         "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "style-text-content",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Content Top",
+            "value": "ulta-banner-content-top"
+          },
+          {
+            "name": "Content middle",
+            "value": "ulta-banner-content-middle"
+          },
+          {
+            "name": "Content bottom",
+            "value": "ulta-banner-content-bottom"
+          }
+        ]
       }
     ]
   },
