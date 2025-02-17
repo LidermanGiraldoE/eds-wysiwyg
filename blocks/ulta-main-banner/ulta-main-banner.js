@@ -3,12 +3,21 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   block.classList.add('ulta-banner');
 
-  const [imageContainer, contentContainer, buttonContainer] = block.children;
+  const [imageDesktopContainer, imageMobileContainer, contentContainer, buttonContainer] = block.children;
 
-  if (imageContainer) {
-    imageContainer.classList.add('ulta-banner-wrapper');
-    const img = imageContainer.querySelector('img');
-    if (img) img.classList.add('ulta-banner-img');
+  if (imageDesktopContainer && imageMobileContainer) {
+    imageDesktopContainer.classList.add('ulta-banner-wrapper');
+    imageMobileContainer.classList.add('ulta-banner-wrapper');
+
+    const imgDesktop = imageDesktopContainer.querySelector('img');
+    const imgMobile = imageMobileContainer.querySelector('img');
+
+    if (imgDesktop) {
+      imgDesktop.classList.add('ulta-banner-img', 'ulta-banner-img-desktop');
+    }
+    if (imgMobile) {
+      imgMobile.classList.add('ulta-banner-img', 'ulta-banner-img-mobile');
+    }
   }
 
   const contentWrapper = document.createElement('div');
@@ -22,7 +31,6 @@ export default function decorate(block) {
 
     contentElements.forEach((element) => {
       const text = element.textContent.trim();
-
       if (text.startsWith('ulta-banner')) {
         contentWrapper.classList.add(text);
         element.remove();

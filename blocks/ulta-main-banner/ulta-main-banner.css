@@ -27,10 +27,14 @@
     box-sizing: border-box;
 }
 
+.ulta-banner-img-mobile {
+    display: none;
+}
+
 .ulta-banner-content {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
     left: 220px;
     color: white;
     z-index: 1;
@@ -43,7 +47,7 @@
     .ulta-banner-content {
         top: 50%;
         left: clamp(200px, 8vw, 160px);
-        transform: translateY(-50%); 
+        transform: translateY(-50%);
     }
 }
 
@@ -93,7 +97,7 @@
     background-color: #000;
     font-size: 12px;
     letter-spacing: 0.36px;
-    color: #FFF;
+    color: #fff;
     text-decoration: none;
     border-radius: 20px;
     margin-top: 28px;
@@ -102,9 +106,18 @@
 
 .ulta-banner-button:hover {
     background-color: #232323;
-    color: #FFF;
+    color: #fff;
 }
 
 .ulta-button-text p {
     margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .ulta-banner-img-desktop {
+        display: none;
+    }
+    .ulta-banner-img-mobile {
+        display: block;
+    }
 }
