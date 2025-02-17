@@ -20,16 +20,26 @@ export default function decorate(block) {
   if (contentContainer) {
     const contentElements = Array.from(contentContainer.children);
 
-    // Asignar clases según la posición de los elementos en contentContainer
-    contentElements.forEach((element, index) => {
-      if (index === 0) {
-        element.classList.add('ulta-banner-tagline');
-      } else if (index === 1) {
-        element.classList.add('ulta-banner-title');
-      } else if (index === 2) {
-        element.classList.add('ulta-banner-description');
+    contentElements.forEach((element) => {
+      const text = element.textContent.trim();
+
+      if (text.startsWith('ulta-banner')) {
+        contentWrapper.classList.add(text);
+        element.remove();
       }
-      textsContainer.appendChild(element);
+    });
+
+    contentElements.forEach((element, index) => {
+      if (element.isConnected) {
+        if (index === 0) {
+          element.classList.add('ulta-banner-tagline');
+        } else if (index === 1) {
+          element.classList.add('ulta-banner-title');
+        } else if (index === 2) {
+          element.classList.add('ulta-banner-description');
+        }
+        textsContainer.appendChild(element);
+      }
     });
   }
 
@@ -45,7 +55,6 @@ export default function decorate(block) {
     button.href = buttonHref || '#';
     button.className = 'ulta-banner-button';
 
-    // Reutilizar textElement
     textElement.classList.add('ulta-button-text');
     button.appendChild(textElement);
 
