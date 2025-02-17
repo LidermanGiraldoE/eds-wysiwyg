@@ -3,7 +3,12 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   block.classList.add('ulta-banner');
 
-  const [imageDesktopContainer, imageMobileContainer, contentContainer, buttonContainer] = block.children;
+  const [
+    imageDesktopContainer,
+    imageMobileContainer,
+    contentContainer,
+    buttonContainer,
+  ] = block.children;
 
   if (imageDesktopContainer && imageMobileContainer) {
     imageDesktopContainer.classList.add('ulta-banner-wrapper');
