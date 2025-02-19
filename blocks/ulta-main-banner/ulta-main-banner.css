@@ -45,9 +45,7 @@
 
 @media (width <= 1300px) {
     .ulta-banner-content {
-        top: 50%;
         left: clamp(200px, 8vw, 160px);
-        transform: translateY(-50%);
     }
 }
 
@@ -121,4 +119,135 @@
     .ulta-banner-img-mobile {
         display: block;
     }
+
+    .ulta-main-banner-container .ulta-main-banner-wrapper {
+        max-width: unset;
+        padding: 0;
+    }
+
+    .ulta-banner {
+        padding: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .ulta-banner-texts {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Banner con el contenido en la parte inferior */
+    .ulta-banner:has(.ulta-banner-content-bottom) {
+        height: 342px;
+    }    
+
+    .ulta-banner-content-bottom {
+        position: absolute;
+        top: auto;
+        left: 16px;
+        bottom: 28px;
+        transform: none;
+        width: 278px;
+    }
+
+    .ulta-banner-content-bottom .ulta-banner-tagline p {
+        font-size: 10px;
+        letter-spacing: 0.25px;
+        color: black;
+        margin: 0;
+    }
+    
+    .ulta-banner-content-bottom .ulta-banner-title p{
+        font-size: 24px;
+        font-weight: bold;
+        color: black;
+        margin: 8px 0 12px 0;
+        line-height: 28px;
+    }
+    
+    .ulta-banner-content-bottom .ulta-banner-description p{
+        font-size: 16px;
+        color: black;
+        line-height: 20px;
+        margin: 0;
+    }
+
+    /* Banner con el contenido en la parte inferior */
+    .ulta-banner:has(.ulta-banner-content-top) {
+        height: 384px;
+    } 
+
+    .ulta-banner-content-top {
+        position: absolute;
+        top: 28px;
+        left: 16px;
+        transform: none;
+        max-width: 258px;
+    }
+
+    .ulta-banner-content-top .ulta-banner-tagline p {
+        font-size: 10px;
+        letter-spacing: 0.25px;
+        color: black;
+        margin: 0;
+        line-height: 20px;
+    }
+    
+    .ulta-banner-content-top .ulta-banner-title p{
+        font-size: 26px;
+        font-weight: bold;
+        color: black;
+        margin: 8px 0;
+        line-height: 30px;
+    }
+    
+    .ulta-banner-content-top .ulta-banner-description p{
+        font-size: 16px;
+        color: black;
+        line-height: 20px;
+        margin: 0;
+    }
+
+    /* Banner con el contenido en la parte central */
+    .ulta-banner:has(.ulta-banner-content-middle) {
+        height: 413px;
+    } 
+
+    .ulta-banner-content-middle {
+        position: absolute;
+        top: 136px;
+        left: 16px;
+        transform: none;
+        max-width: 304px;
+    }
+
+    .ulta-banner-content-middle .ulta-banner-tagline p {
+        font-size: 10px;
+        letter-spacing: 0.25px;
+        color: black;
+        margin: 0;
+        line-height: 20px;
+    }
+    
+    .ulta-banner-content-middle .ulta-banner-title p{
+        font-size: 28px;
+        font-weight: bold;
+        color: black;
+        margin: 4px 0;
+        line-height: 32px;
+    }
+    
+    .ulta-banner-content-middle .ulta-banner-description p{
+        font-size: 16px;
+        color: black;
+        line-height: 20px;
+        margin: 0;
+    }
+
+    .ulta-banner-button {
+        padding: 9px 16px 8px 16px;
+        margin-top: 16px;
+    }
 }
+
