@@ -209,11 +209,9 @@
         "value": ""
       },
       {
-        "component": "text",
-        "valueType": "string",
+        "component": "aem-content",
         "name": "linkurl",
-        "label": "Link URL",
-        "value": ""
+        "label": "Link URL"
       }
     ]
   },
@@ -292,10 +290,34 @@
         "value": ""
       },
       {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-separator",
+    "fields": [
+      {
         "component": "text",
         "valueType": "string",
-        "name": "buttonlink",
-        "label": "Button link URL",
+        "name": "heightDesktop",
+        "label": "Separator Height (Desktop)",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heightMobile",
+        "label": "Separator Height (Mobile)",
+        "value": ""
+      },
+      {
+        "component": "color",
+        "valueType": "string",
+        "name": "separatorColor",
+        "label": "Separator Color",
         "value": ""
       }
     ]

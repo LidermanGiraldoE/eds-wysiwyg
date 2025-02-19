@@ -50,11 +50,9 @@
                     "value": ""
                 },
                 {
-                    "component": "text",
-                    "valueType": "string",
+                    "component": "aem-content",
                     "name": "linkurl",
-                    "label": "Link URL",
-                    "value": ""
+                    "label": "Link URL"
                 }
             ]
         }
