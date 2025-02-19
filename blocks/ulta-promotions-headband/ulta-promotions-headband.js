@@ -4,36 +4,39 @@ export default function decorate(block) {
   const div = document.createElement('div');
   div.className = 'ulta-promotions-headband-list';
 
-  const slides = [];
+  let slides = [];
 
-  [...block.children].forEach((row) => {
-    const a = document.createElement('a');
-    a.className = 'ulta-promotions-headband-item';
+  const extractSlides = () => {
+    slides = [];
 
-    const rowChildren = [...row.children];
-    rowChildren.forEach((child, index) => {
-      if (index === 0 || index === 1) {
-        a.append(child);
-      } else if (index === rowChildren.length - 1) {
-        const url = child.querySelector('p')?.textContent.trim();
-        if (url) {
-          a.href = url;
+    [...block.children].forEach((row) => {
+      const a = document.createElement('a');
+      a.className = 'ulta-promotions-headband-item';
+
+      const rowChildren = [...row.children];
+      rowChildren.forEach((child, index) => {
+        if (index === 0 || index === 1) {
+          a.append(child.cloneNode(true));
+        } else if (index === rowChildren.length - 1) {
+          const url = child.querySelector('p')?.textContent.trim();
+          if (url) {
+            a.href = url;
+          }
         }
-      }
+      });
+
+      moveInstrumentation(row, a);
+
+      const slide = document.createElement('div');
+      slide.className = 'swiper-slide';
+      slide.append(a);
+      slides.push(slide);
     });
+  };
 
-    moveInstrumentation(row, a);
+  let swiperInstance = null;
 
-    // Crear un contenedor para cada slide
-    const slide = document.createElement('div');
-    slide.className = 'swiper-slide';
-    slide.append(a);
-    slides.push(slide);
-  });
-
-  block.textContent = '';
-
-  if (window.innerWidth <= 1024) {
+  const initializeSwiper = () => {
     const swiperContainer = document.createElement('div');
     swiperContainer.className = 'swiper ulta-promotions-headband-swiper';
     swiperContainer.innerHTML = `
@@ -42,11 +45,11 @@ export default function decorate(block) {
       </div>
       <div class="swiper-pagination"></div>
     `;
+    block.innerHTML = '';
     block.append(swiperContainer);
 
-    // Inicializar Swiper usando la instancia global del CDN
     setTimeout(() => {
-      new Swiper('.ulta-promotions-headband-swiper', { // eslint-disable-line no-new, no-undef
+      swiperInstance = new Swiper('.ulta-promotions-headband-swiper', {
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
@@ -55,8 +58,39 @@ export default function decorate(block) {
         slidesPerView: 1,
       });
     }, 0);
-  } else {
-    slides.forEach((slide) => div.append(slide.firstElementChild));
-    block.append(div);
-  }
+  };
+
+  const destroySwiper = () => {
+    if (swiperInstance) {
+      swiperInstance.destroy();
+      swiperInstance = null;
+    }
+  };
+
+  const renderLayout = () => {
+    block.innerHTML = '';
+
+    if (window.innerWidth <= 1024) {
+      initializeSwiper();
+    } else {
+      destroySwiper();
+      div.innerHTML = '';
+
+      slides.forEach((slide) => {
+        const clonedElement = slide.firstElementChild.cloneNode(true);
+        if (clonedElement) {
+          div.append(clonedElement);
+        }
+      });
+
+      block.append(div);
+    }
+  };
+
+  extractSlides();
+  renderLayout();
+
+  window.addEventListener('resize', () => {
+    renderLayout();
+  });
 }
