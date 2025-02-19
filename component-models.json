@@ -299,5 +299,31 @@
         "value": ""
       }
     ]
+  },
+  {
+    "id": "ulta-separator",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heightDesktop",
+        "label": "Separator Height (Desktop)",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heightMobile",
+        "label": "Separator Height (Mobile)",
+        "value": ""
+      },
+      {
+        "component": "color",
+        "valueType": "string",
+        "name": "separatorColor",
+        "label": "Separator Color",
+        "value": ""
+      }
+    ]
   }
 ]
