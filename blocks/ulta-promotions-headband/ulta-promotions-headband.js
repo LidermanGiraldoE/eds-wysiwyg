@@ -9,7 +9,6 @@ export default function decorate(block) {
 
   const extractSlides = () => {
     slides = [];
-
     [...block.children].forEach((row) => {
       const a = document.createElement('a');
       a.className = 'ulta-promotions-headband-item';
