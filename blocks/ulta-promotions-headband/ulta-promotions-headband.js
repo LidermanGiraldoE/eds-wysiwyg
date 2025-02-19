@@ -2,13 +2,13 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const div = document.createElement('div');
-  div.className = 'promotionscodebar-list';
+  div.className = 'ulta-promotions-headband-list';
 
   const slides = [];
 
   [...block.children].forEach((row) => {
     const a = document.createElement('a');
-    a.className = 'promotionscodebar-item';
+    a.className = 'ulta-promotions-headband-item';
 
     const rowChildren = [...row.children];
     rowChildren.forEach((child, index) => {
@@ -35,7 +35,7 @@ export default function decorate(block) {
 
   if (window.innerWidth <= 1024) {
     const swiperContainer = document.createElement('div');
-    swiperContainer.className = 'swiper promotionscodebar-swiper';
+    swiperContainer.className = 'swiper ulta-promotions-headband-swiper';
     swiperContainer.innerHTML = `
       <div class="swiper-wrapper">
         ${slides.map((slide) => slide.outerHTML).join('')}
@@ -46,7 +46,7 @@ export default function decorate(block) {
 
     // Inicializar Swiper usando la instancia global del CDN
     setTimeout(() => {
-      new Swiper('.promotionscodebar-swiper', { // eslint-disable-line no-new, no-undef
+      new Swiper('.ulta-promotions-headband-swiper', { // eslint-disable-line no-new, no-undef
         pagination: {
           el: '.swiper-pagination',
           clickable: true,

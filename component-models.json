@@ -192,30 +192,6 @@
     ]
   },
   {
-    "id": "promotioncode",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Titulo",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "description",
-        "label": "Descripción",
-        "value": ""
-      },
-      {
-        "component": "aem-content",
-        "name": "linkurl",
-        "label": "Link URL"
-      }
-    ]
-  },
-  {
     "id": "ulta-main-banner-img",
     "fields": [
       {
@@ -293,6 +269,30 @@
         "component": "aem-content",
         "name": "buttonlink",
         "label": "Button link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-promotion-code",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Titulo",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Descripción",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "linkurl",
+        "label": "Link URL"
       }
     ]
   },

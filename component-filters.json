@@ -41,17 +41,17 @@
     ]
   },
   {
-    "id": "promotionscodebar",
-    "components": [
-      "promotioncode"
-    ]
-  },
-  {
     "id": "ulta-main-banner",
     "components": [
       "ulta-main-banner-img",
       "ulta-main-banner-text",
       "ulta-main-banner-button"
+    ]
+  },
+  {
+    "id": "ulta-promotions-headband",
+    "components": [
+      "ulta-promotion-code"
     ]
   }
 ]
