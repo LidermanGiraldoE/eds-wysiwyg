@@ -162,7 +162,7 @@
         font-size: 24px;
         font-weight: bold;
         color: black;
-        margin: 8px 0 12px 0;
+        margin: 8px 0 12px;
         line-height: 28px;
     }
     
@@ -246,7 +246,7 @@
     }
 
     .ulta-banner-button {
-        padding: 9px 16px 8px 16px;
+        padding: 9px 16px 8px;
         margin-top: 16px;
     }
 }
