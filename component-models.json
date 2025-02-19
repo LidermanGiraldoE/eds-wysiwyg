@@ -314,11 +314,10 @@
         "value": ""
       },
       {
-        "component": "color",
+        "component": "text",
         "valueType": "string",
         "name": "separatorColor",
-        "label": "Separator Color",
-        "value": ""
+        "label": "Separator Color (Hex Code)"
       }
     ]
   }
