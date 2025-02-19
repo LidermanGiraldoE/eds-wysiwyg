@@ -137,11 +137,9 @@
                     "value": ""
                 },
                 {
-                    "component": "text",
-                    "valueType": "string",
+                    "component": "aem-content",
                     "name": "buttonlink",
-                    "label": "Button link URL",
-                    "value": ""
+                    "label": "Button link URL"
                 }
             ]
         }

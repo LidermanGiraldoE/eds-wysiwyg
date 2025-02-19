@@ -209,11 +209,9 @@
         "value": ""
       },
       {
-        "component": "text",
-        "valueType": "string",
+        "component": "aem-content",
         "name": "linkurl",
-        "label": "Link URL",
-        "value": ""
+        "label": "Link URL"
       }
     ]
   },
@@ -292,11 +290,9 @@
         "value": ""
       },
       {
-        "component": "text",
-        "valueType": "string",
+        "component": "aem-content",
         "name": "buttonlink",
-        "label": "Button link URL",
-        "value": ""
+        "label": "Button link URL"
       }
     ]
   },
