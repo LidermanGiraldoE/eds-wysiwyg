@@ -65,7 +65,7 @@
 @media (width <= 1024px) {
     .ulta-promotions-headband {
         height: 82px;
-        padding: 16px;
+        box-sizing: border-box;
     }
 
     .ulta-promotions-headband-list {
@@ -74,6 +74,7 @@
 
     .ulta-promotions-headband-swiper {
         width: 100%;
+        padding: 16px;
     }
 
     .ulta-promotions-headband .swiper-slide {

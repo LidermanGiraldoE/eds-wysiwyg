@@ -7,7 +7,7 @@ export default function decorate(block) {
   let slides = [];
 
   const extractSlides = () => {
-    slides = [];
+    slides = []; 
 
     [...block.children].forEach((row) => {
       const a = document.createElement('a');
@@ -16,7 +16,7 @@ export default function decorate(block) {
       const rowChildren = [...row.children];
       rowChildren.forEach((child, index) => {
         if (index === 0 || index === 1) {
-          a.append(child.cloneNode(true));
+          a.append(child.cloneNode(true)); 
         } else if (index === rowChildren.length - 1) {
           const url = child.querySelector('p')?.textContent.trim();
           if (url) {
@@ -32,9 +32,23 @@ export default function decorate(block) {
       slide.append(a);
       slides.push(slide);
     });
+
   };
 
-  let swiperInstance = null;
+  let swiperInstance = null; 
+
+  const waitForSwiper = (callback) => {
+    if (typeof Swiper !== 'undefined') {
+      callback(); 
+    } else {
+      const interval = setInterval(() => {
+        if (typeof Swiper !== 'undefined') {
+          clearInterval(interval);
+          callback();
+        }
+      }, 100); 
+    }
+  };
 
   const initializeSwiper = () => {
     const swiperContainer = document.createElement('div');
@@ -45,11 +59,11 @@ export default function decorate(block) {
       </div>
       <div class="swiper-pagination"></div>
     `;
-    block.innerHTML = '';
+    block.innerHTML = ''; 
     block.append(swiperContainer);
 
-    setTimeout(() => {
-      swiperInstance = new Swiper('.ulta-promotions-headband-swiper', {
+    waitForSwiper(() => {
+      swiperInstance = new Swiper('.ulta-promotions-headband-swiper', { 
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
@@ -57,7 +71,7 @@ export default function decorate(block) {
         loop: true,
         slidesPerView: 1,
       });
-    }, 0);
+    });
   };
 
   const destroySwiper = () => {
@@ -68,13 +82,14 @@ export default function decorate(block) {
   };
 
   const renderLayout = () => {
+
     block.innerHTML = '';
 
     if (window.innerWidth <= 1024) {
       initializeSwiper();
     } else {
       destroySwiper();
-      div.innerHTML = '';
+      div.innerHTML = ''; 
 
       slides.forEach((slide) => {
         const clonedElement = slide.firstElementChild.cloneNode(true);
@@ -85,6 +100,7 @@ export default function decorate(block) {
 
       block.append(div);
     }
+
   };
 
   extractSlides();
