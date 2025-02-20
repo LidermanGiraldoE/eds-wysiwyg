@@ -192,6 +192,46 @@
     ]
   },
   {
+    "id": "ulta-category-purchase",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      }
+    ]
+  },
+  {
+    "id": "ulta-category-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "categoryName",
+        "label": "Category name"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "categoryImage",
+        "label": "Category image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "categoryImageAlt",
+        "label": "Category image Alt"
+      },
+      {
+        "component": "aem-content",
+        "name": "linkurl",
+        "label": "Category link URL"
+      }
+    ]
+  },
+  {
     "id": "ulta-main-banner-img",
     "fields": [
       {

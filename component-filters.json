@@ -16,10 +16,7 @@
       "cards",
       "columns",
       "fragment",
-      "ulta-promotions-headband",
-      "ulta-main-banner",
-      "ulta-separator",
-      "ulta-category-purchase"
+      "promotionscodebar"
     ]
   },
   {
@@ -41,6 +38,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "ulta-category-purchase",
+    "components": [
+      "ulta-category-item"
     ]
   },
   {
