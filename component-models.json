@@ -361,7 +361,8 @@
         "component": "richtext",
         "valueType": "string",
         "name": "promotionTitle",
-        "label": "Promotion title"
+        "label": "Promotion title",
+        "collapsible": false
       },
       {
         "component": "richtext",
