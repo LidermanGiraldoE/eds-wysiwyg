@@ -6,8 +6,12 @@ export default function decorate(block) {
   const titleElement = items.shift();
 
   if (titleElement) {
-    const innerElement = titleElement.querySelector('div') || titleElement.firstElementChild || titleElement;
-    document.body.appendChild(innerElement.cloneNode(true));
+    const debugContainer = document.createElement('div');
+    debugContainer.style.border = '2px solid red';
+    debugContainer.style.padding = '10px';
+    debugContainer.style.margin = '10px 0';
+    debugContainer.innerHTML = `<strong>Debug TitleElement:</strong> ${titleElement.innerHTML}`;
+    document.body.appendChild(debugContainer);
   }
 
   const titleText = titleElement ? titleElement.querySelector('p')?.textContent || 'Compra por categoría' : 'Compra por categoría';
