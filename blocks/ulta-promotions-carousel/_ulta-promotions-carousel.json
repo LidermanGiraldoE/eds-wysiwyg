@@ -73,22 +73,29 @@
                     "label": "Promotion image Alt"
                 },
                 {
-                    "component": "richtext",
-                    "valueType": "string",
-                    "name": "brandName",
-                    "label": "Brand name"
-                },
-                {
-                    "component": "richtext",
-                    "valueType": "string",
-                    "name": "promotionTitle",
-                    "label": "Promotion title"
-                },
-                {
-                    "component": "richtext",
-                    "valueType": "string",
-                    "name": "promotionDescription",
-                    "label": "Promotion description"
+                    "component": "composite",
+                    "name": "promotionContent",
+                    "label": "Promotion Content",
+                    "fields": [
+                        {
+                            "component": "richtext",
+                            "valueType": "string",
+                            "name": "brandName",
+                            "label": "Brand name"
+                        },
+                        {
+                            "component": "richtext",
+                            "valueType": "string",
+                            "name": "promotionTitle",
+                            "label": "Promotion title"
+                        },
+                        {
+                            "component": "richtext",
+                            "valueType": "string",
+                            "name": "promotionDescription",
+                            "label": "Promotion description"
+                        }
+                    ]
                 },
                 {
                     "component": "aem-content",
