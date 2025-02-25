@@ -8,25 +8,24 @@ export default function decorate(block) {
   // Inicialización de Swiper
   function initializeSwiper() {
     if (typeof Swiper !== 'undefined') {
-      const swiperInstance = new Swiper('.ulta-category-purchase__swiper', {
+      return new Swiper('.ulta-category-purchase-swiper', {
         slidesPerView: 'auto',
         spaceBetween: 15,
         navigation: {
-          nextEl: '.ulta-category-purchase__button--next',
-          prevEl: '.ulta-category-purchase__button--prev',
+          nextEl: '.ulta-category-purchase-button-next',
+          prevEl: '.ulta-category-purchase-button-prev',
         },
       });
-      return swiperInstance;
     }
     return null;
   }
 
   // Contenedor principal de Swiper
   const swiperContainer = document.createElement('div');
-  swiperContainer.classList.add('ulta-category-purchase__swiper', 'swiper');
+  swiperContainer.classList.add('ulta-category-purchase-swiper', 'swiper');
 
   const swiperWrapper = document.createElement('div');
-  swiperWrapper.classList.add('ulta-category-purchase__wrapper', 'swiper-wrapper');
+  swiperWrapper.classList.add('ulta-category-purchase-wrapper-carrousel', 'swiper-wrapper');
 
   // Crear los slides
   items.forEach((item) => {
@@ -38,16 +37,16 @@ export default function decorate(block) {
     const linkUrl = linkElement?.href || '#';
 
     const slide = document.createElement('div');
-    slide.classList.add('ulta-category-purchase__slide', 'swiper-slide');
+    slide.classList.add('ulta-category-purchase-slide', 'swiper-slide');
 
     slide.innerHTML = `
-          <a href="${linkUrl}" class="ulta-category-purchase__item">
-              <div class="ulta-category-purchase__image">
-                  <img src="${imgSrc}" alt="${imgAlt}">
-              </div>
-              <p class="ulta-category-purchase__name">${categoryName}</p>
-          </a>
-        `;
+      <a href="${linkUrl}" class="ulta-category-purchase-item">
+          <div class="ulta-category-purchase-image">
+              <img src="${imgSrc}" alt="${imgAlt}">
+          </div>
+          <p class="ulta-category-purchase-name">${categoryName}</p>
+      </a>
+    `;
 
     swiperWrapper.appendChild(slide);
   });
@@ -55,17 +54,17 @@ export default function decorate(block) {
   // Botones de navegación
   const createNavButton = (className, imgAlt) => {
     const button = document.createElement('div');
-    button.classList.add('ulta-category-purchase__button', className, `swiper-button-${className.split('--')[1]}`);
-    button.innerHTML = `<img src="https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/icons/arrow.svg" alt="${imgAlt}" class="ulta-category-purchase__arrow">`;
+    button.classList.add('ulta-category-purchase-button', className, `swiper-button-${className.split('-')[2]}`);
+    button.innerHTML = `<img src="https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/icons/arrow.svg" alt="${imgAlt}" class="ulta-category-purchase-arrow">`;
     return button;
   };
 
-  const prevButton = createNavButton('ulta-category-purchase__button--prev', 'Previous');
-  const nextButton = createNavButton('ulta-category-purchase__button--next', 'Next');
+  const prevButton = createNavButton('ulta-category-purchase-button-prev', 'Previous');
+  const nextButton = createNavButton('ulta-category-purchase-button-next', 'Next');
 
   // Título del bloque
   const titleContainer = document.createElement('div');
-  titleContainer.classList.add('ulta-category-purchase__title');
+  titleContainer.classList.add('ulta-category-purchase-title');
   titleContainer.innerHTML = `<h2>${titleText}</h2>`;
 
   // Armar la estructura
