@@ -4,6 +4,16 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   const items = Array.from(block.children);
   const titleElement = items.shift();
+
+  if (titleElement) {
+    const debugTitle = document.createElement('div');
+    debugTitle.style.border = '2px solid red';
+    debugTitle.style.padding = '10px';
+    debugTitle.style.margin = '10px 0';
+    debugTitle.innerHTML = `<strong>Debug Title:</strong> ${titleElement.innerHTML}`;
+    document.body.appendChild(debugTitle);
+  }
+
   const titleText = titleElement ? titleElement.querySelector('p')?.textContent || 'Compra por categoría' : 'Compra por categoría';
 
   // Inicialización de Swiper
