@@ -10,7 +10,7 @@ export default function decorate(block) {
     debugContainer.style.border = '2px solid red';
     debugContainer.style.padding = '10px';
     debugContainer.style.margin = '10px 0';
-    debugContainer.innerHTML = `<strong>Debug TitleElement:</strong> ${titleElement.innerHTML}`;
+    debugContainer.innerHTML = `<strong>Debug TitleElement:</strong> ${titleElement}`;
     document.body.appendChild(debugContainer);
   }
 
