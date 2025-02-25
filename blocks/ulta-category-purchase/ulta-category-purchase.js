@@ -1,4 +1,5 @@
 /* global Swiper */
+import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const items = Array.from(block.children);
@@ -48,6 +49,7 @@ export default function decorate(block) {
       </a>
     `;
 
+    moveInstrumentation(item, slide);
     swiperWrapper.appendChild(slide);
   });
 
