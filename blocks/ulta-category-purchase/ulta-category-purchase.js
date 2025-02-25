@@ -8,7 +8,7 @@ export default function decorate(block) {
   if (titleElement) {
     const innerElement = titleElement.querySelector('div') || titleElement.firstElementChild || titleElement;
     document.body.appendChild(innerElement.cloneNode(true));
-  }  
+  }
 
   const titleText = titleElement ? titleElement.querySelector('p')?.textContent || 'Compra por categoría' : 'Compra por categoría';
 
