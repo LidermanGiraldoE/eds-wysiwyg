@@ -10,7 +10,7 @@
                         "template": {
                             "name": "ulta-promotions-carousel",
                             "model": "ulta-promotions-carousel",
-                            "filter": "ulta-promotions-carousel "
+                            "filter": "ulta-promotions-carousel"
                         }
                     }
                 }
