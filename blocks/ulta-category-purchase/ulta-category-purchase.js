@@ -68,6 +68,7 @@ export default function decorate(block) {
   const titleContainer = document.createElement('div');
   titleContainer.classList.add('ulta-category-purchase-title');
   titleContainer.innerHTML = `<h2>${titleText}</h2>`;
+  moveInstrumentation(titleElement, titleContainer);
 
   // Armar la estructura
   swiperContainer.appendChild(swiperWrapper);
