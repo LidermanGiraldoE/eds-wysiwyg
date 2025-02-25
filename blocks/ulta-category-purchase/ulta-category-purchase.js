@@ -33,6 +33,7 @@ export default function decorate(block) {
 
   // Crear los slides
   items.forEach((item) => {
+    console.log('item', item);
     const categoryName = item.querySelector('p')?.textContent || '';
     const imgElement = item.querySelector('img');
     const imgSrc = imgElement?.src || '';
