@@ -313,6 +313,70 @@
     ]
   },
   {
+    "id": "ulta-promotions-carousel",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-promotion-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "promotionImage",
+        "label": "Promotion image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "promotionImageAlt",
+        "label": "Promotion image Alt"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "brandName",
+        "label": "Brand name"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "promotionTitle",
+        "label": "Promotion title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "promotionDescription",
+        "label": "Promotion description"
+      },
+      {
+        "component": "aem-content",
+        "name": "promotionLinkUrl",
+        "label": "Promotion link URL"
+      }
+    ]
+  },
+  {
     "id": "ulta-promotion-code",
     "fields": [
       {
