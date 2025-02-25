@@ -5,7 +5,7 @@ export default function decorate(block) {
   const items = Array.from(block.children);
   const titleElement = items.shift();
   const titleParagraph = titleElement?.querySelector('p'); // Extraer el <p> interno
-  const titleText = titleParagraph?.textContent.trim() || 'Compra por categoría';
+  const titleText = titleParagraph?.textContent.trim();
 
   // Inicialización de Swiper
   function initializeSwiper() {
