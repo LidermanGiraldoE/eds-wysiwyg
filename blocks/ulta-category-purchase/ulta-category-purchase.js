@@ -4,10 +4,8 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   const items = Array.from(block.children);
   const titleElement = items.shift();
-
-  console.log('titleElement', titleElement);
-
-  const titleText = titleElement ? titleElement.querySelector('p')?.textContent || 'Compra por categoría' : 'Compra por categoría';
+  const titleParagraph = titleElement?.querySelector('p'); // Extraer el <p> interno
+  const titleText = titleParagraph?.textContent.trim() || 'Compra por categoría';
 
   // Inicialización de Swiper
   function initializeSwiper() {
@@ -33,7 +31,6 @@ export default function decorate(block) {
 
   // Crear los slides
   items.forEach((item) => {
-    console.log('item', item);
     const categoryName = item.querySelector('p')?.textContent || '';
     const imgElement = item.querySelector('img');
     const imgSrc = imgElement?.src || '';
@@ -75,8 +72,9 @@ export default function decorate(block) {
   const titleH2 = document.createElement('h2');
   titleH2.textContent = titleText;
 
-  // Aplicamos moveInstrumentation al h2, no al contenedor
-  moveInstrumentation(titleElement, titleH2);
+  if (titleParagraph) {
+    moveInstrumentation(titleParagraph, titleH2);
+  }
 
   titleContainer.appendChild(titleH2);
 
