@@ -45,6 +45,12 @@
     ]
   },
   {
+    "id": "ulta-banner-daily-offers",
+    "components": [
+      "ulta-daily-offer"
+    ]
+  },
+  {
     "id": "ulta-category-purchase",
     "components": [
       "ulta-category-item"
