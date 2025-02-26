@@ -34,7 +34,7 @@
     ],
     "models": [
         {
-            "id": "ulta-promotions-carousel",
+            "id": "ulta-banner-daily-offers",
             "fields": [
                 {
                     "component": "text",
