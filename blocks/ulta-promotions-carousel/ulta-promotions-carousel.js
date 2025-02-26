@@ -6,12 +6,13 @@ export default function decorate(block) {
 
   // Extraer el título y el botón "Ver todo"
   const titleElement = items.shift();
-  const titleParagraph = titleElement?.querySelector('p');
+  const titleParagraph = titleElement?.querySelector('p'); // Párrafo dentro del título
   const buttonElement = items.shift();
+  const buttonParagraph = buttonElement?.querySelector('p'); // Párrafo dentro del botón
   const linkElement = items.shift();
 
   const titleText = titleParagraph?.textContent.trim();
-  const buttonText = buttonElement?.querySelector('p')?.textContent.trim();
+  const buttonText = buttonParagraph?.textContent.trim();
   const buttonLink = linkElement?.querySelector('a')?.href || '#';
 
   // Crear contenedor de Swiper
@@ -73,15 +74,22 @@ export default function decorate(block) {
   const headerContainer = document.createElement('div');
   headerContainer.classList.add('ulta-promotions-header');
 
+  // Título
   const titleH2 = document.createElement('h2');
   titleH2.textContent = titleText;
   moveInstrumentation(titleParagraph, titleH2);
 
+  // Botón "Ver todo"
   const viewAllButton = document.createElement('a');
   viewAllButton.classList.add('ulta-promotions-view-all');
   viewAllButton.href = buttonLink;
-  viewAllButton.textContent = buttonText;
-  moveInstrumentation(buttonElement, viewAllButton);
+
+  // Crear párrafo para el botón
+  const viewAllText = document.createElement('p');
+  viewAllText.textContent = buttonText;
+  moveInstrumentation(buttonParagraph, viewAllText);
+
+  viewAllButton.appendChild(viewAllText);
 
   headerContainer.appendChild(titleH2);
   headerContainer.appendChild(viewAllButton);
