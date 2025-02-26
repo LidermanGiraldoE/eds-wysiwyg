@@ -6,10 +6,11 @@ export default function decorate(block) {
 
   // Extraer el título y el botón "Ver todo"
   const titleElement = items.shift();
+  const titleParagraph = titleElement?.querySelector('p');
   const buttonElement = items.shift();
   const linkElement = items.shift();
 
-  const titleText = titleElement?.querySelector('p')?.textContent.trim();
+  const titleText = titleParagraph?.textContent.trim();
   const buttonText = buttonElement?.querySelector('p')?.textContent.trim();
   const buttonLink = linkElement?.querySelector('a')?.href || '#';
 
@@ -74,7 +75,7 @@ export default function decorate(block) {
 
   const titleH2 = document.createElement('h2');
   titleH2.textContent = titleText;
-  moveInstrumentation(titleElement, titleH2);
+  moveInstrumentation(titleParagraph, titleH2);
 
   const viewAllButton = document.createElement('a');
   viewAllButton.classList.add('ulta-promotions-view-all');
