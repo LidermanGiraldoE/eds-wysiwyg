@@ -4,26 +4,15 @@
 }
 
 .ulta-beauty-trends-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 24px;
 }
 
 .ulta-beauty-trends-header h2 {
     font-size: 24px;
-    letter-spacing: 0.72px;
+    letter-spacing: 0;
     line-height: 28px;
     color: #000;
-    margin: 0;
-}
-
-.ulta-beauty-trends-view-all {
-    font-size: 14px;
-    letter-spacing: 0.35px;
-    line-height: 20px;
-    color: #0d0d0d;
-    text-decoration: underline;
+    margin: 0 0 4px;
 }
 
 .ulta-beauty-trends-swiper {
@@ -47,7 +36,7 @@
 }
 
 .ulta-beauty-trend-image {
-    height: 328px;
+    height: 264px;
 }
 
 .ulta-beauty-trend-info {
@@ -55,16 +44,22 @@
     max-width: 320px;
 }
 
-.ulta-beauty-trend-info h3,
-p {
+.ulta-beauty-trend-info h3, p {
     margin: 0;
+}
+
+.ulta-beauty-trends-header  p {
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    line-height: 20px;
+    color: #000;
 }
 
 .ulta-beauty-trend-brand {
     font-size: 12px;
     letter-spacing: 0.12px;
     line-height: 16px;
-    color: #0d0d0d;
+    color: #000;
     text-transform: uppercase;
     margin-bottom: 8px;
 }
@@ -74,7 +69,6 @@ p {
     letter-spacing: 0;
     line-height: 28px;
     color: #000;
-    margin-bottom: 4px !important;
 }
 
 .ulta-beauty-trend-description {
@@ -136,6 +130,10 @@ p {
         line-height: 24px;
     }
 
+    .ulta-beauty-trends-header p {
+        letter-spacing: 0;
+    }
+
     .ulta-beauty-trends-button {
         display: none;
     }
@@ -145,7 +143,7 @@ p {
     }
 
     .ulta-beauty-trend-image {
-        height: 224px;
+        height: 180px;
     }
 
     .ulta-beauty-trend-info {
