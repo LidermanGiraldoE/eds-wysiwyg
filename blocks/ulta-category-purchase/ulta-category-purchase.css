@@ -99,6 +99,11 @@
     display: none;
 }
 
+.ulta-category-purchase-button.swiper-button-disabled {
+    display: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
 /* RESPONSIVE */
 
 @media (width <= 450px) {
