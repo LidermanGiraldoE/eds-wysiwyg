@@ -268,14 +268,9 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "buttontext",
-        "label": "Button text",
+        "name": "description",
+        "label": "Block Description",
         "value": ""
-      },
-      {
-        "component": "aem-content",
-        "name": "buttonlink",
-        "label": "Button link URL"
       }
     ]
   },
@@ -298,20 +293,14 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "brandName",
-        "label": "Brand name"
+        "name": "trendCategory",
+        "label": "Trend category"
       },
       {
         "component": "richtext",
         "valueType": "string",
         "name": "title",
         "label": "Trend title"
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "description",
-        "label": "Trend description"
       },
       {
         "component": "aem-content",

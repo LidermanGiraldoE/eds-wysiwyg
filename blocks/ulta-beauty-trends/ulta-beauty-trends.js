@@ -7,13 +7,11 @@ export default function decorate(block) {
   // Extraer el título y el botón "Ver todo"
   const titleElement = items.shift();
   const titleParagraph = titleElement?.querySelector('p'); // Párrafo dentro del título
-  const buttonElement = items.shift();
-  const buttonParagraph = buttonElement?.querySelector('p'); // Párrafo dentro del botón
-  const linkElement = items.shift();
+  const descriptionElement = items.shift();
+  const descriptionParagraph = descriptionElement?.querySelector('p'); // Párrafo dentro del botón
 
   const titleText = titleParagraph?.textContent.trim();
-  const buttonText = buttonParagraph?.textContent.trim();
-  const buttonLink = linkElement?.querySelector('a')?.href || '#';
+  const descriptionText = descriptionParagraph?.textContent.trim();
 
   // Crear contenedor de Swiper
   const swiperContainer = document.createElement('div');
@@ -29,9 +27,8 @@ export default function decorate(block) {
     const imgAlt = imgElement?.alt || 'Beauty trend image';
 
     const texts = item.querySelectorAll('p');
-    const brandName = texts[0]?.textContent.trim() || '';
+    const trendCategory = texts[0]?.textContent.trim() || '';
     const trendTitle = texts[1]?.textContent.trim() || '';
-    const trendDescription = texts[2]?.textContent.trim() || '';
 
     const link = item.querySelector('a');
     const linkUrl = link?.href || '#';
@@ -46,9 +43,8 @@ export default function decorate(block) {
             <img src="${imgSrc}" alt="${imgAlt}">
           </div>
           <div class="ulta-beauty-trend-info">
-            <p class="ulta-beauty-trend-brand">${brandName}</p>
+            <p class="ulta-beauty-trend-brand">${trendCategory}</p>
             <h3 class="ulta-beauty-trend-title">${trendTitle}</h3>
-            <p class="ulta-beauty-trend-description">${trendDescription}</p>
           </div>
         </a>
       </div>
@@ -79,20 +75,13 @@ export default function decorate(block) {
   titleH2.textContent = titleText;
   moveInstrumentation(titleParagraph, titleH2);
 
-  // Botón "Ver todo"
-  const viewAllButton = document.createElement('a');
-  viewAllButton.classList.add('ulta-beauty-trends-view-all');
-  viewAllButton.href = buttonLink;
-
   // Crear párrafo para el botón
   const viewAllText = document.createElement('p');
-  viewAllText.textContent = buttonText;
-  moveInstrumentation(buttonParagraph, viewAllText);
-
-  viewAllButton.appendChild(viewAllText);
+  viewAllText.textContent = descriptionText;
+  moveInstrumentation(descriptionParagraph, viewAllText);
 
   headerContainer.appendChild(titleH2);
-  headerContainer.appendChild(viewAllButton);
+  headerContainer.appendChild(viewAllText);
 
   // Armar la estructura final
   swiperContainer.appendChild(swiperWrapper);
