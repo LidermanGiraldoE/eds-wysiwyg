@@ -350,6 +350,59 @@
     ]
   },
   {
+    "id": "ulta-corporate-commitments",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      }
+    ]
+  },
+  {
+    "id": "ulta-corporate-commitment",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "corporateCommitmentImage",
+        "label": "corporate commitment image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "corporateCommitmentImageAlt",
+        "label": "Corporate commitment image Alt"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Corporate commitment title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Corporate commitment description"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
     "id": "ulta-main-banner-img",
     "fields": [
       {
