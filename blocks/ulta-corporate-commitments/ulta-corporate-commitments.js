@@ -60,12 +60,11 @@ export default function decorate(block) {
 
     const title = document.createElement('h3');
     title.textContent = commitmentTitle;
-    console.log(texts[0]);
+    console.log('texts', texts);
     moveInstrumentation(texts[0], title);
 
     const description = document.createElement('p');
     description.textContent = commitmentDescription;
-    console.log(texts[1]);
     moveInstrumentation(texts[1], description);
 
     // Botón
