@@ -34,8 +34,8 @@ export default function decorate(block) {
     // Seleccionar los divs con los textos (en lugar de usar `data-aue-prop`)
     const textContainers = item.querySelectorAll('div');
 
-    // Filtramos los divs que contienen un párrafo dentro
-    const textDivs = Array.from(textContainers).filter(div => div.querySelector('p'));
+    // Filtramos los divs que contienen un párrafo dentro (corregido)
+    const textDivs = Array.from(textContainers).filter((div) => div.querySelector('p'));
 
     const commitmentTitle = textDivs[0]?.querySelector('p')?.textContent.trim() || '';
     const commitmentDescription = textDivs[1]?.querySelector('p')?.textContent.trim() || '';
