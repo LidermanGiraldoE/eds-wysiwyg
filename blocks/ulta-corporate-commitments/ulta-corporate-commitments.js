@@ -31,15 +31,16 @@ export default function decorate(block) {
     const imgSrc = imgElement?.src || '';
     const imgAlt = imgElement?.alt || 'Corporate Commitment Image';
 
-    // Seleccionar los divs con textos (título y descripción están dentro de divs)
+    // Título y descripción están dentro de divs padres
     const textDivs = Array.from(item.children).filter((div) => div.querySelector('p'));
+    console.log('textDivs', textDivs);
 
     const titleDiv = textDivs[0] || null;
     const descriptionDiv = textDivs[1] || null;
     const buttonParagraph = textDivs[2]?.querySelector('p') || null;
 
-    const commitmentTitleText = titleDiv?.querySelector('p')?.textContent.trim() || '';
-    const commitmentDescriptionText = descriptionDiv?.querySelector('p')?.textContent.trim() || '';
+    const commitmentTitleText = titleDiv?.textContent.trim() || '';
+    const commitmentDescriptionText = descriptionDiv?.textContent.trim() || '';
     const buttonText = buttonParagraph?.textContent.trim() || '';
 
     const linkElement = item.querySelector('a');
@@ -66,12 +67,16 @@ export default function decorate(block) {
     // Título
     const title = document.createElement('h3');
     title.textContent = commitmentTitleText;
-    if (titleDiv) moveInstrumentation(titleDiv, title);
+    if (titleDiv) {
+      moveInstrumentation(titleDiv, title);
+    }
 
     // Descripción
     const description = document.createElement('p');
     description.textContent = commitmentDescriptionText;
-    if (descriptionDiv) moveInstrumentation(descriptionDiv, description);
+    if (descriptionDiv) {
+      moveInstrumentation(descriptionDiv, description);
+    }
 
     // Botón
     const button = document.createElement('a');
