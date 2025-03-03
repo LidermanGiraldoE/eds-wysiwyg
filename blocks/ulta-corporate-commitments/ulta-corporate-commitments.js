@@ -6,7 +6,7 @@ export default function decorate(block) {
   // Extraer el título del bloque
   const titleElement = items.shift();
   const titleParagraph = titleElement?.querySelector('p');
-  const titleText = titleParagraph?.textContent.trim();
+  const blockTitleText = titleParagraph?.textContent.trim();
 
   // Crear contenedor principal
   const container = document.createElement('div');
@@ -17,7 +17,7 @@ export default function decorate(block) {
   titleContainer.classList.add('ulta-corporate-commitments-header');
 
   const titleH2 = document.createElement('h2');
-  titleH2.textContent = titleText;
+  titleH2.textContent = blockTitleText;
   moveInstrumentation(titleParagraph, titleH2);
   titleContainer.appendChild(titleH2);
 
@@ -32,14 +32,14 @@ export default function decorate(block) {
     const imgAlt = imgElement?.alt || 'Corporate Commitment Image';
 
     // Seleccionar los divs con textos (título y descripción están dentro de divs)
-    const textDivs = Array.from(item.children).filter(div => div.querySelector('p'));
+    const textDivs = Array.from(item.children).filter((div) => div.querySelector('p'));
 
     const titleDiv = textDivs[0] || null;
     const descriptionDiv = textDivs[1] || null;
     const buttonParagraph = textDivs[2]?.querySelector('p') || null;
 
-    const titleText = titleDiv?.querySelector('p')?.textContent.trim() || '';
-    const descriptionText = descriptionDiv?.querySelector('p')?.textContent.trim() || '';
+    const commitmentTitleText = titleDiv?.querySelector('p')?.textContent.trim() || '';
+    const commitmentDescriptionText = descriptionDiv?.querySelector('p')?.textContent.trim() || '';
     const buttonText = buttonParagraph?.textContent.trim() || '';
 
     const linkElement = item.querySelector('a');
@@ -65,12 +65,12 @@ export default function decorate(block) {
 
     // Título
     const title = document.createElement('h3');
-    title.textContent = titleText;
+    title.textContent = commitmentTitleText;
     if (titleDiv) moveInstrumentation(titleDiv, title);
 
     // Descripción
     const description = document.createElement('p');
-    description.textContent = descriptionText;
+    description.textContent = commitmentDescriptionText;
     if (descriptionDiv) moveInstrumentation(descriptionDiv, description);
 
     // Botón
