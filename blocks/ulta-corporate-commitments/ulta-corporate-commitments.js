@@ -3,7 +3,7 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default function decorate(block) {
   const items = Array.from(block.children);
 
-  // Extraer el título del bloque (primer <p>)
+  // Extraer el título (primer elemento)
   const titleElement = items.shift();
   const titleParagraph = titleElement?.querySelector('p');
   const titleText = titleParagraph?.textContent.trim();
@@ -31,15 +31,15 @@ export default function decorate(block) {
     const imgSrc = imgElement?.src || '';
     const imgAlt = imgElement?.alt || 'Corporate Commitment Image';
 
-    // Buscar los <p> dentro del item (se asume que el orden es: título, descripción, botón)
-    const paragraphs = item.querySelectorAll('p');
-    const commitmentTitleElement = paragraphs[0] || document.createElement('p'); // Título
-    const commitmentDescriptionElement = paragraphs[1] || document.createElement('p'); // Descripción
-    const buttonElement = paragraphs[2] || document.createElement('p'); // Botón
+    // Seleccionar los divs con los textos (en lugar de usar `data-aue-prop`)
+    const textContainers = item.querySelectorAll('div');
 
-    const commitmentTitle = commitmentTitleElement.textContent.trim() || '';
-    const commitmentDescription = commitmentDescriptionElement.textContent.trim() || '';
-    const buttonText = buttonElement.textContent.trim() || '';
+    // Filtramos los divs que contienen un párrafo dentro
+    const textDivs = Array.from(textContainers).filter(div => div.querySelector('p'));
+
+    const commitmentTitle = textDivs[0]?.querySelector('p')?.textContent.trim() || '';
+    const commitmentDescription = textDivs[1]?.querySelector('p')?.textContent.trim() || '';
+    const buttonText = textDivs[2]?.querySelector('p')?.textContent.trim() || '';
 
     const linkElement = item.querySelector('a');
     const linkUrl = linkElement?.href || '#';
@@ -62,13 +62,15 @@ export default function decorate(block) {
     const infoContainer = document.createElement('div');
     infoContainer.classList.add('ulta-corporate-commitment-info');
 
+    // Título
     const title = document.createElement('h3');
     title.textContent = commitmentTitle;
-    moveInstrumentation(commitmentTitleElement, title);
+    if (textDivs[0]) moveInstrumentation(textDivs[0], title);
 
+    // Descripción
     const description = document.createElement('p');
     description.textContent = commitmentDescription;
-    moveInstrumentation(commitmentDescriptionElement, description);
+    if (textDivs[1]) moveInstrumentation(textDivs[1], description);
 
     // Botón
     const button = document.createElement('a');
@@ -77,7 +79,7 @@ export default function decorate(block) {
 
     const buttonTextElement = document.createElement('p');
     buttonTextElement.textContent = buttonText;
-    moveInstrumentation(buttonElement, buttonTextElement);
+    if (textDivs[2]) moveInstrumentation(textDivs[2], buttonTextElement);
 
     button.appendChild(buttonTextElement);
 
