@@ -44,7 +44,7 @@
     max-width: 283px;
 }
 
-.ulta-corporate-commitment-info h3 {
+.ulta-corporate-commitment-info .ulta-corporate-commitment-title {
     font-size: 16px;
     letter-spacing: 0.4px;
     line-height: 20px;
@@ -52,7 +52,7 @@
     color: #000;
 }
 
-.ulta-corporate-commitment-info p {
+.ulta-corporate-commitment-info .ulta-corporate-commitment-description {
     font-size: 14px;
     letter-spacing: 0.35px;
     line-height: 20px;
