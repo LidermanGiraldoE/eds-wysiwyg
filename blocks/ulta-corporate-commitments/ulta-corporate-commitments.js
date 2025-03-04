@@ -32,7 +32,7 @@ export default function decorate(block) {
 
     // Extraer título y descripción sin modificar el contenido richText
     const textDivs = Array.from(item.children).filter((div) => div.querySelector('p') || div.querySelector('a'));
-    
+
     const titleDiv = textDivs[0] || null;
     const descriptionDiv = textDivs[1] || null;
     const buttonParagraph = textDivs[2]?.querySelector('p') || null;
@@ -79,11 +79,11 @@ export default function decorate(block) {
     const button = document.createElement('a');
     button.classList.add('ulta-corporate-commitment-button');
     button.href = linkUrl;
-    
+
     const buttonTextElement = document.createElement('p');
     buttonTextElement.textContent = buttonParagraph?.textContent.trim() || '';
     moveInstrumentation(buttonParagraph, buttonTextElement);
-    
+
     button.appendChild(buttonTextElement);
     infoContainer.appendChild(button);
 
