@@ -5,8 +5,7 @@ export default function decorate(block) {
 
   // Extraer el título del bloque
   const titleElement = items.shift();
-  const titleParagraph = titleElement?.querySelector('p');
-  const blockTitleText = titleParagraph?.textContent.trim();
+  const blockTitleText = titleElement?.innerHTML.trim();
 
   // Crear contenedor principal
   const container = document.createElement('div');
@@ -17,8 +16,8 @@ export default function decorate(block) {
   titleContainer.classList.add('ulta-corporate-commitments-header');
 
   const titleH2 = document.createElement('h2');
-  titleH2.textContent = blockTitleText;
-  moveInstrumentation(titleParagraph, titleH2);
+  titleH2.innerHTML = blockTitleText;
+  moveInstrumentation(titleElement, titleH2);
   titleContainer.appendChild(titleH2);
 
   // Contenedor de los compromisos
@@ -31,18 +30,12 @@ export default function decorate(block) {
     const imgSrc = imgElement?.src || '';
     const imgAlt = imgElement?.alt || 'Corporate Commitment Image';
 
-    // Título y descripción están dentro de divs padres
-    const textDivs = Array.from(item.children).filter((div) => div.querySelector('p'));
-    console.log('textDivs', textDivs);
-
+    // Extraer título y descripción sin modificar el contenido richText
+    const textDivs = Array.from(item.children).filter((div) => div.querySelector('p') || div.querySelector('a'));
+    
     const titleDiv = textDivs[0] || null;
     const descriptionDiv = textDivs[1] || null;
     const buttonParagraph = textDivs[2]?.querySelector('p') || null;
-
-    const commitmentTitleText = titleDiv?.textContent.trim() || '';
-    const commitmentDescriptionText = descriptionDiv?.textContent.trim() || '';
-    const buttonText = buttonParagraph?.textContent.trim() || '';
-
     const linkElement = item.querySelector('a');
     const linkUrl = linkElement?.href || '#';
 
@@ -64,36 +57,37 @@ export default function decorate(block) {
     const infoContainer = document.createElement('div');
     infoContainer.classList.add('ulta-corporate-commitment-info');
 
-    // Título
-    const title = document.createElement('h3');
-    title.textContent = commitmentTitleText;
+    // Título (conservando richText)
     if (titleDiv) {
+      const title = document.createElement('div');
+      title.classList.add('ulta-corporate-commitment-title');
+      title.innerHTML = titleDiv.innerHTML;
       moveInstrumentation(titleDiv, title);
+      infoContainer.appendChild(title);
     }
 
-    // Descripción
-    const description = document.createElement('p');
-    description.textContent = commitmentDescriptionText;
+    // Descripción (conservando richText)
     if (descriptionDiv) {
+      const description = document.createElement('div');
+      description.classList.add('ulta-corporate-commitment-description');
+      description.innerHTML = descriptionDiv.innerHTML;
       moveInstrumentation(descriptionDiv, description);
+      infoContainer.appendChild(description);
     }
 
     // Botón
     const button = document.createElement('a');
     button.classList.add('ulta-corporate-commitment-button');
     button.href = linkUrl;
-
+    
     const buttonTextElement = document.createElement('p');
-    buttonTextElement.textContent = buttonText;
+    buttonTextElement.textContent = buttonParagraph?.textContent.trim() || '';
     moveInstrumentation(buttonParagraph, buttonTextElement);
-
+    
     button.appendChild(buttonTextElement);
-
-    // Estructura final del compromiso
-    infoContainer.appendChild(title);
-    infoContainer.appendChild(description);
     infoContainer.appendChild(button);
 
+    // Estructura final del compromiso
     commitmentItem.appendChild(imageContainer);
     commitmentItem.appendChild(infoContainer);
 
