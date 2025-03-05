@@ -3,7 +3,7 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default async function decorate(block) {
   console.log('ULTA Learning block JS', block);
 
-  const templatePath = '/blocks/ulta-learning/ulta-learning.html';
+  /* const templatePath = '/blocks/ulta-learning/ulta-learning.html';
 
   try {
     const response = await fetch(templatePath);
@@ -47,5 +47,5 @@ export default async function decorate(block) {
     // document.head.appendChild(link);
   } catch (error) {
     console.error('Error en la decoración del bloque ULTA Learning:', error);
-  }
+  } */
 }
