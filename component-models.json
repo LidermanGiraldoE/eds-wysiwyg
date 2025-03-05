@@ -432,6 +432,17 @@
     ]
   },
   {
+    "id": "ulta-learning",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "text",
+        "label": "Test Ulta Text"
+      }
+    ]
+  },
+  {
     "id": "ulta-main-banner-img",
     "fields": [
       {
