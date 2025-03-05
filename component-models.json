@@ -350,6 +350,35 @@
     ]
   },
   {
+    "id": "ulta-cookies",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "cookiesColor",
+        "label": "Cookies background Color (Hex Code)"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "cookiesText",
+        "label": "Cookies Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
     "id": "ulta-corporate-commitments",
     "fields": [
       {
