@@ -56,7 +56,7 @@ export default function decorate(block) {
   acceptButtonLink.href = '#'; // Puedes cambiar esto si hay una URL específica
 
   if (acceptButtonElement) {
-    acceptButtonLink.innerHTML = acceptButtonElement.innerHTML; // Mover directamente el contenido del botón
+    acceptButtonLink.innerHTML = acceptButtonElement.innerHTML;
     moveInstrumentation(acceptButtonElement, acceptButtonLink);
   } else {
     acceptButtonLink.textContent = 'ACEPTAR TODAS LAS COOKIES';
