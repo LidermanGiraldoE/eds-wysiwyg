@@ -10,7 +10,7 @@ export default function decorate(block) {
     h2.textContent = titleElement.textContent;
 
     // Aplicar moveInstrumentation
-    moveInstrumentation(titleElement, h2);
+    /* moveInstrumentation(titleElement, h2); */
 
     // Reemplazar el párrafo con el h2
     titleElement.replaceWith(h2);
