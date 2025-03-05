@@ -437,8 +437,8 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "text",
-        "label": "Test Ulta Text"
+        "name": "title",
+        "label": "Block Title"
       }
     ]
   },
