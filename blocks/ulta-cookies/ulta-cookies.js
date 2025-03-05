@@ -50,19 +50,17 @@ export default function decorate(block) {
     moveInstrumentation(cookieTextElement, cookieTextDiv);
   }
 
-  // Manejo del botón de aceptación como un <a> que envuelve el <p>
+  // Manejo del botón de aceptación como un <a> con texto adentro
   const acceptButtonLink = document.createElement('a');
   acceptButtonLink.classList.add('ulta-cookies-accept');
   acceptButtonLink.href = '#'; // Puedes cambiar esto si hay una URL específica
 
-  const acceptButtonText = document.createElement('p');
-  acceptButtonText.textContent = acceptButtonElement?.textContent.trim() || 'ACEPTAR TODAS LAS COOKIES';
-
   if (acceptButtonElement) {
-    moveInstrumentation(acceptButtonElement, acceptButtonText);
+    acceptButtonLink.innerHTML = acceptButtonElement.innerHTML; // Mover directamente el contenido del botón
+    moveInstrumentation(acceptButtonElement, acceptButtonLink);
+  } else {
+    acceptButtonLink.textContent = 'ACEPTAR TODAS LAS COOKIES';
   }
-
-  acceptButtonLink.appendChild(acceptButtonText);
 
   // Estructura final del bloque
   cookieContent.appendChild(closeButton);
