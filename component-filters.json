@@ -74,6 +74,12 @@
     ]
   },
   {
+    "id": "ulta-learning",
+    "components": [
+      "ulta-learning-item"
+    ]
+  },
+  {
     "id": "ulta-main-banner",
     "components": [
       "ulta-main-banner-img",
