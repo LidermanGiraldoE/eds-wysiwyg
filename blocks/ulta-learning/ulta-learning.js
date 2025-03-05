@@ -1,4 +1,4 @@
-import { moveInstrumentation } from '../../scripts/scripts.js';
+/* import { moveInstrumentation } from '../../scripts/scripts.js'; */
 
 export default function decorate(block) {
   console.log('ULTA Learning block JS', block);
