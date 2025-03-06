@@ -9,8 +9,8 @@
                         "resourceType": "core/franklin/components/block/v1/block",
                         "template": {
                             "name": "cintillo-descuento",
-                            "model": "cintillo-descuento",
-                            "filter": "cintillo-descuento"
+                            "model": "ulta-cintillo-descuento",
+                            "filter": "ulta-cintillo-descuento"
                         }
                     }
                 }
@@ -26,6 +26,21 @@
                         "template": {
                             "name": "ulta-cintillo-descuento-item",
                             "model": "ulta-cintillo-descuento-item"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "title": "ulta-cintillo-descuento-text",
+            "id": "ulta-cintillo-descuento-text",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/block/v1/block/item",
+                        "template": {
+                            "name": "ulta-cintillo-descuento-text",
+                            "model": "ulta-cintillo-descuento-text"
                         }
                     }
                 }
@@ -92,13 +107,40 @@
                     "label": "Link URL del item"
                 }
             ]
+        },
+        {
+            "id": "ulta-cintillo-descuento-text",
+            "fields": [
+                {
+                    "component": "richtext",
+                    "name": "tagline",
+                    "value": "",
+                    "label": "Tagline",
+                    "valueType": "string"
+                },
+                {
+                    "component": "richtext",
+                    "name": "title",
+                    "value": "",
+                    "label": "Title",
+                    "valueType": "string"
+                },
+                {
+                    "component": "richtext",
+                    "name": "description",
+                    "value": "",
+                    "label": "Description",
+                    "valueType": "string"
+                }
+            ]
         }
     ],
     "filters": [
         {
             "id": "ulta-cintillo-descuento",
             "components": [
-                "ulta-cintillo-descuento-item"
+                "ulta-cintillo-descuento-item",
+                "ulta-cintillo-descuento-text"
             ]
         }
     ]
