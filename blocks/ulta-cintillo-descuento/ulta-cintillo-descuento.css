@@ -33,7 +33,7 @@
     margin-left: 20px;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .cintillo-descuento {
         flex-direction: column;
         text-align: center;
