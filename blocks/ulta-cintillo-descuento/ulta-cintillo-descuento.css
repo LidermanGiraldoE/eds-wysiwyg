@@ -1,0 +1,47 @@
+.cintillo-descuento {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    width: 100%;
+    background-color: var(--background-color, #f6f6f6);
+}
+
+.cintillo-descuento-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d40057;
+    margin-right: 10px;
+}
+
+.cintillo-descuento-description {
+    font-size: 14px;
+    color: #333;
+}
+
+.cintillo-descuento-code {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    margin-left: 10px;
+}
+
+.cintillo-descuento-link {
+    font-size: 14px;
+    color: #000;
+    text-decoration: underline;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .cintillo-descuento {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cintillo-descuento-text, 
+    .cintillo-descuento-description, 
+    .cintillo-descuento-code {
+        margin: 5px 0;
+    }
+}
