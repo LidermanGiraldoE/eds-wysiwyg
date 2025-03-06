@@ -1,8 +1,8 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-    const bgColor = block.dataset.backgroundColor || '#f6f6f6';
-    block.style.backgroundColor = bgColor;
+  const bgColor = block.dataset.backgroundColor || '#f6f6f6';
+  block.style.backgroundColor = bgColor;
 
   const contentWrapper = document.createElement('div');
   contentWrapper.classList.add('ulta-cintillo-descuento');
