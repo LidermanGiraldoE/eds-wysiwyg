@@ -4,16 +4,19 @@ export default function decorate(block) {
     const bgColor = block.dataset.backgroundColor || '#f6f6f6';
     block.style.backgroundColor = bgColor;
 
-    let contentWrapper = document.createElement('div');
+    const contentWrapper = document.createElement('div');
     contentWrapper.classList.add('cintillo-descuento');
     
     let slides = [];
     
     [...block.children].forEach((row) => {
-        const title = row.children[0]?.textContent.trim() || '';
-        const description = row.children[1]?.textContent.trim() || '';
-        const discountCode = row.children[2]?.textContent.trim() || '';
-        const linkElement = row.children[3]?.querySelector('a');
+        const cells = row.children;
+        if (cells.length < 3) return; // Asegurar que hay suficientes celdas
+
+        const title = cells[0]?.textContent.trim() || '';
+        const description = cells[1]?.textContent.trim() || '';
+        const discountCode = cells[2]?.textContent.trim() || '';
+        const linkElement = cells[3]?.querySelector('a');
         const linkUrl = linkElement ? linkElement.href : '';
         const linkText = linkElement ? linkElement.textContent.trim() : 'Ver detalles';
 
@@ -27,11 +30,16 @@ export default function decorate(block) {
             ${linkUrl ? `<a href="${linkUrl}" class="cintillo-descuento-link">${linkText}</a>` : ''}
         `;
 
-        moveInstrumentation(row, content);
+        if (typeof moveInstrumentation === 'function') {
+            moveInstrumentation(row, content);
+        }
+        
         slides.push(content);
     });
     
-    slides.forEach((slide) => contentWrapper.append(slide));
-    block.innerHTML = '';
-    block.append(contentWrapper);
+    if (slides.length > 0) {
+        slides.forEach((slide) => contentWrapper.append(slide));
+        block.innerHTML = '';
+        block.append(contentWrapper);
+    }
 }
