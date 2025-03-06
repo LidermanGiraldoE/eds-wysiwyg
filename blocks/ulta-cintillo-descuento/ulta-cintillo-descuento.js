@@ -1,45 +1,36 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  const bgColor = block.dataset.backgroundColor || '#f6f6f6';
-  block.style.backgroundColor = bgColor;
+    const bgColor = block.dataset.backgroundColor || '#f6f6f6';
+    block.style.backgroundColor = bgColor;
 
-  const contentWrapper = document.createElement('div');
-  contentWrapper.classList.add('ulta-cintillo-descuento');
+    const contentWrapper = document.createElement('div');
+    contentWrapper.classList.add('ulta-cintillo-descuento');
 
-  const slides = [];
+    [...block.children].forEach((row) => {
+        const promoText = row.querySelector('[data-name="promo_text"]')?.textContent.trim() || '';
+        const discountText = row.querySelector('[data-name="discount_text"]')?.textContent.trim() || '';
+        const couponCode = row.querySelector('[data-name="coupon_code"]')?.textContent.trim() || '';
+        const linkElement = row.querySelector('[data-name="cta_link"] a');
+        const linkUrl = linkElement ? linkElement.href : '';
+        const linkText = linkElement ? linkElement.textContent.trim() : 'Ver detalles';
 
-  [...block.children].forEach((row) => {
-    const cells = row.children;
-    if (cells.length < 3) return; // Asegurar que hay suficientes celdas
+        const content = document.createElement('div');
+        content.classList.add('ulta-cintillo-descuento-item');
 
-    const title = cells[0]?.textContent.trim() || '';
-    const description = cells[1]?.textContent.trim() || '';
-    const discountCode = cells[2]?.textContent.trim() || '';
-    const linkElement = cells[3]?.querySelector('a');
-    const linkUrl = linkElement ? linkElement.href : '';
-    const linkText = linkElement ? linkElement.textContent.trim() : 'Ver detalles';
+        content.innerHTML = `
+            <span class="ulta-cintillo-descuento-text">${promoText} ${discountText}</span>
+            <span class="ulta-cintillo-descuento-code">${couponCode}</span>
+            ${linkUrl ? `<a href="${linkUrl}" class="ulta-cintillo-descuento-link">${linkText}</a>` : ''}
+        `;
 
-    const content = document.createElement('div');
-    content.classList.add('ulta-cintillo-descuento-item');
+        if (typeof moveInstrumentation === 'function') {
+            moveInstrumentation(row, content);
+        }
 
-    content.innerHTML = `
-      <span class="ulta-cintillo-descuento-text">${title}</span>
-      <span class="ulta-cintillo-descuento-description">${description}</span>
-      <span class="ulta-cintillo-descuento-code">${discountCode}</span>
-      ${linkUrl ? `<a href="${linkUrl}" class="ulta-cintillo-descuento-link">${linkText}</a>` : ''}
-    `;
+        contentWrapper.append(content);
+    });
 
-    if (typeof moveInstrumentation === 'function') {
-      moveInstrumentation(row, content);
-    }
-
-    slides.push(content);
-  });
-
-  if (slides.length > 0) {
-    slides.forEach((slide) => contentWrapper.append(slide));
     block.innerHTML = '';
     block.append(contentWrapper);
-  }
 }
