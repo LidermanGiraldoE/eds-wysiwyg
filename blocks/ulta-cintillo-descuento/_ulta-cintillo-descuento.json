@@ -8,24 +8,8 @@
                     "page": {
                         "resourceType": "core/franklin/components/block/v1/block",
                         "template": {
-                            "name": "cintillo-descuento",
-                            "model": "ulta-cintillo-descuento",
+                            "name": "ulta-cintillo-descuento",
                             "filter": "ulta-cintillo-descuento"
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "title": "ulta-cintillo-descuento-item",
-            "id": "ulta-cintillo-descuento-item",
-            "plugins": {
-                "xwalk": {
-                    "page": {
-                        "resourceType": "core/franklin/components/block/v1/block/item",
-                        "template": {
-                            "name": "ulta-cintillo-descuento-item",
-                            "model": "ulta-cintillo-descuento-item"
                         }
                     }
                 }
@@ -45,92 +29,77 @@
                     }
                 }
             }
+        },
+        {
+            "title": "ulta-cintillo-descuento-code",
+            "id": "ulta-cintillo-descuento-code",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/block/v1/block/item",
+                        "template": {
+                            "name": "ulta-cintillo-descuento-code",
+                            "model": "ulta-cintillo-descuento-code"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "title": "ulta-cintillo-descuento-link",
+            "id": "ulta-cintillo-descuento-link",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/block/v1/block/item",
+                        "template": {
+                            "name": "ulta-cintillo-descuento-link",
+                            "model": "ulta-cintillo-descuento-link"
+                        }
+                    }
+                }
+            }
         }
     ],
     "models": [
-        {
-            "id": "ulta-cintillo-descuento",
-            "fields": [
-                {
-                    "component": "text",
-                    "valueType": "string",
-                    "name": "title",
-                    "label": "Título",
-                    "value": ""
-                },
-                {
-                    "component": "text",
-                    "valueType": "string",
-                    "name": "description",
-                    "label": "Descripción",
-                    "value": ""
-                },
-                {
-                    "component": "text",
-                    "valueType": "string",
-                    "name": "discount_code",
-                    "label": "Código de Descuento",
-                    "value": ""
-                },
-                {
-                    "component": "color-picker",
-                    "name": "background_color",
-                    "label": "Color de Fondo",
-                    "value": "#f6f6f6"
-                }
-            ]
-        },
-        {
-            "id": "ulta-cintillo-descuento-item",
-            "fields": [
-                {
-                    "component": "text",
-                    "valueType": "string",
-                    "name": "title",
-                    "label": "Título del item"
-                },
-                {
-                    "component": "text",
-                    "valueType": "string",
-                    "name": "description",
-                    "label": "Descripción del item"
-                },
-                {
-                    "component": "text",
-                    "valueType": "string",
-                    "name": "discount_code",
-                    "label": "Código de Descuento del item"
-                },
-                {
-                    "component": "aem-content",
-                    "name": "linkurl",
-                    "label": "Link URL del item"
-                }
-            ]
-        },
         {
             "id": "ulta-cintillo-descuento-text",
             "fields": [
                 {
                     "component": "richtext",
-                    "name": "tagline",
+                    "name": "promo_text",
                     "value": "",
-                    "label": "Tagline",
+                    "label": "Promotional Text",
                     "valueType": "string"
                 },
                 {
                     "component": "richtext",
-                    "name": "title",
+                    "name": "discount_text",
                     "value": "",
-                    "label": "Title",
+                    "label": "Discount Text",
                     "valueType": "string"
-                },
+                }
+            ]
+        },
+        {
+            "id": "ulta-cintillo-descuento-code",
+            "fields": [
                 {
-                    "component": "richtext",
-                    "name": "description",
-                    "value": "",
-                    "label": "Description",
-                    "valueType": "string"
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "coupon_code",
+                    "label": "Coupon Code",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "id": "ulta-cintillo-descuento-link",
+            "fields": [
+                {
+                    "component": "aem-content",
+                    "name": "cta_link",
+                    "label": "CTA Link URL"
                 }
             ]
         }
@@ -139,8 +108,9 @@
         {
             "id": "ulta-cintillo-descuento",
             "components": [
-                "ulta-cintillo-descuento-item",
-                "ulta-cintillo-descuento-text"
+                "ulta-cintillo-descuento-text",
+                "ulta-cintillo-descuento-code",
+                "ulta-cintillo-descuento-link"
             ]
         }
     ]

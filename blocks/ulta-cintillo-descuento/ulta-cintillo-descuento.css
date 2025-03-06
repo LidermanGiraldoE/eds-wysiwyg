@@ -5,6 +5,7 @@
     padding: 16px;
     width: 100%;
     background-color: var(--background-color, #f6f6f6);
+    flex-wrap: wrap; /* Permite que los elementos se acomoden en móviles */
 }
 
 .ulta-cintillo-descuento-text {
@@ -14,16 +15,14 @@
     margin-right: 10px;
 }
 
-.ulta-cintillo-descuento-description {
-    font-size: 14px;
-    color: #333;
-}
-
 .ulta-cintillo-descuento-code {
     font-size: 14px;
     font-weight: bold;
     color: #000;
     margin-left: 10px;
+    background-color: #fff5f8;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .ulta-cintillo-descuento-link {
@@ -33,15 +32,17 @@
     margin-left: 20px;
 }
 
+/* Ajustes para pantallas pequeñas */
 @media (width <= 768px) {
     .ulta-cintillo-descuento {
         flex-direction: column;
         text-align: center;
+        padding: 12px;
     }
 
     .ulta-cintillo-descuento-text, 
-    .ulta-cintillo-descuento-description, 
-    .ulta-cintillo-descuento-code {
+    .ulta-cintillo-descuento-code,
+    .ulta-cintillo-descuento-link {
         margin: 5px 0;
     }
 }
