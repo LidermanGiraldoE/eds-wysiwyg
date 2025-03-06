@@ -18,7 +18,7 @@
   font-size: 16px;
   letter-spacing: 0.4px;
   line-height: 20px;
-  padding: 52px 40px 32px 40px;
+  padding: 52px 40px 32px;
   max-width: 686px;
 }
 
@@ -65,7 +65,7 @@
 
 @media (width <= 400px) {
 .ulta-cookies-text {
-  padding: 40px 24px 20px 24px;
+  padding: 40px 24px 20px;
 }
 
 .ulta-cookies-accept {
