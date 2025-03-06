@@ -5,7 +5,7 @@ export default function decorate(block) {
   block.style.backgroundColor = bgColor;
 
   const contentWrapper = document.createElement('div');
-  contentWrapper.classList.add('cintillo-descuento');
+  contentWrapper.classList.add('ulta-cintillo-descuento');
 
   const slides = [];
 
@@ -21,13 +21,13 @@ export default function decorate(block) {
     const linkText = linkElement ? linkElement.textContent.trim() : 'Ver detalles';
 
     const content = document.createElement('div');
-    content.classList.add('cintillo-descuento-item');
+    content.classList.add('ulta-cintillo-descuento-item');
 
     content.innerHTML = `
-      <span class="cintillo-descuento-text">${title}</span>
-      <span class="cintillo-descuento-description">${description}</span>
-      <span class="cintillo-descuento-code">${discountCode}</span>
-      ${linkUrl ? `<a href="${linkUrl}" class="cintillo-descuento-link">${linkText}</a>` : ''}
+      <span class="ulta-cintillo-descuento-text">${title}</span>
+      <span class="ulta-cintillo-descuento-description">${description}</span>
+      <span class="ulta-cintillo-descuento-code">${discountCode}</span>
+      ${linkUrl ? `<a href="${linkUrl}" class="ulta-cintillo-descuento-link">${linkText}</a>` : ''}
     `;
 
     if (typeof moveInstrumentation === 'function') {

@@ -1,8 +1,8 @@
 {
     "definitions": [
         {
-            "title": "cintillo-descuento",
-            "id": "cintillo-descuento",
+            "title": "ulta-cintillo-descuento",
+            "id": "ulta-cintillo-descuento",
             "plugins": {
                 "xwalk": {
                     "page": {
@@ -17,15 +17,15 @@
             }
         },
         {
-            "title": "cintillo-descuento-item",
-            "id": "cintillo-descuento-item",
+            "title": "ulta-cintillo-descuento-item",
+            "id": "ulta-cintillo-descuento-item",
             "plugins": {
                 "xwalk": {
                     "page": {
                         "resourceType": "core/franklin/components/block/v1/block/item",
                         "template": {
-                            "name": "cintillo-descuento-item",
-                            "model": "cintillo-descuento-item"
+                            "name": "ulta-cintillo-descuento-item",
+                            "model": "ulta-cintillo-descuento-item"
                         }
                     }
                 }
@@ -34,7 +34,7 @@
     ],
     "models": [
         {
-            "id": "cintillo-descuento",
+            "id": "ulta-cintillo-descuento",
             "fields": [
                 {
                     "component": "text",
@@ -66,7 +66,7 @@
             ]
         },
         {
-            "id": "cintillo-descuento-item",
+            "id": "ulta-cintillo-descuento-item",
             "fields": [
                 {
                     "component": "text",
@@ -96,9 +96,9 @@
     ],
     "filters": [
         {
-            "id": "cintillo-descuento",
+            "id": "ulta-cintillo-descuento",
             "components": [
-                "cintillo-descuento-item"
+                "ulta-cintillo-descuento-item"
             ]
         }
     ]

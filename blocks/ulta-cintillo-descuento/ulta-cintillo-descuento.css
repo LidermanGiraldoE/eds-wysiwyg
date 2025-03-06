@@ -1,4 +1,4 @@
-.cintillo-descuento {
+.ulta-cintillo-descuento {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,26 +7,26 @@
     background-color: var(--background-color, #f6f6f6);
 }
 
-.cintillo-descuento-text {
+.ulta-cintillo-descuento-text {
     font-size: 16px;
     font-weight: bold;
     color: #d40057;
     margin-right: 10px;
 }
 
-.cintillo-descuento-description {
+.ulta-cintillo-descuento-description {
     font-size: 14px;
     color: #333;
 }
 
-.cintillo-descuento-code {
+.ulta-cintillo-descuento-code {
     font-size: 14px;
     font-weight: bold;
     color: #000;
     margin-left: 10px;
 }
 
-.cintillo-descuento-link {
+.ulta-cintillo-descuento-link {
     font-size: 14px;
     color: #000;
     text-decoration: underline;
@@ -34,14 +34,14 @@
 }
 
 @media (width <= 768px) {
-    .cintillo-descuento {
+    .ulta-cintillo-descuento {
         flex-direction: column;
         text-align: center;
     }
 
-    .cintillo-descuento-text, 
-    .cintillo-descuento-description, 
-    .cintillo-descuento-code {
+    .ulta-cintillo-descuento-text, 
+    .ulta-cintillo-descuento-description, 
+    .ulta-cintillo-descuento-code {
         margin: 5px 0;
     }
 }
