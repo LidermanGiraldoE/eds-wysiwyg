@@ -682,5 +682,16 @@
         "label": "Block Title"
       }
     ]
+  },
+  {
+    "id": "ulta-title",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Ulta Title"
+      }
+    ]
   }
 ]
