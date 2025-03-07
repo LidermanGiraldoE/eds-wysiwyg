@@ -23,28 +23,28 @@
                 {
                     "component": "text",
                     "valueType": "string",
-                    "name": "texto_descuento",
+                    "name": "textoDescuento",
                     "label": "Texto descuento",
                     "value": ""
                 },
                 {
                     "component": "text",
                     "valueType": "string",
-                    "name": "color_texto",
+                    "name": "colorTexto",
                     "label": "Color de texto",
                     "value": ""
                 },
                 {
                     "component": "text",
                     "valueType": "string",
-                    "name": "text_code",
+                    "name": "textCode",
                     "label": "Texto del Codigo",
                     "value": ""
                 },
                 {
                     "component": "text",
                     "valueType": "string",
-                    "name": "texto_link",
+                    "name": "textoLink",
                     "label": "Texto del Link",
                     "value": ""
                 },
@@ -58,7 +58,7 @@
                 {
                     "component": "text",
                     "valueType": "string",
-                    "name": "texto_fondo",
+                    "name": "textoFondo",
                     "label": "Texto del Color de Fondo",
                     "value": ""
                 }
