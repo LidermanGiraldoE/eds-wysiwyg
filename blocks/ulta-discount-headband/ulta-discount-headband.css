@@ -2,6 +2,7 @@
     display: flex;    
     justify-content: center;
     max-width: 1130px !important;
+    padding: 0 !important;
 }
 
 .ulta-discount-headband {
@@ -14,6 +15,7 @@
 
 .ulta-discount-headband p {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .ulta-discount-headband-text {
@@ -40,6 +42,7 @@
     .ulta-discount-headband-wrapper {
         flex-direction: column;
         text-align: center;
+        margin: 0 16px !important;
     }
 
     .ulta-discount-headband {
@@ -47,6 +50,11 @@
         gap: 0px;
         align-items: flex-start;
         padding-block: 8px;
+        padding-inline: 8px;
+    }
+
+    .ulta-discount-headband-text {
+        margin-bottom: 4px;
     }
 
     .ulta-discount-headband-code {

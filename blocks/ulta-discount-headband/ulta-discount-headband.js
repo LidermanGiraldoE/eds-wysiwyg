@@ -1,7 +1,7 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  console.log('Decorating ulta-discount-headband-wrapper', block);
+  console.log('Decorating ulta-discount-headband block', block);
 
   const items = Array.from(block.children);
 
@@ -21,9 +21,12 @@ export default function decorate(block) {
   const linkUrl = linkUrlElement?.querySelector('a')?.href || '';
   const backgroundColor = backgroundColorElement?.textContent.trim() || '';
 
+  // Asignar el background color a la clase existente
+  block.closest('.ulta-discount-headband-wrapper')?.style.setProperty('background-color', backgroundColor);
+
   // Crear el contenedor principal del cintillo de descuento
   const discountContent = document.createElement('div');
-  discountContent.classList.add('ulta-discount-headband-wrapper');
+  discountContent.classList.add('ulta-discount-headband');
   discountContent.style.backgroundColor = backgroundColor;
   discountContent.style.color = textColor;
 
