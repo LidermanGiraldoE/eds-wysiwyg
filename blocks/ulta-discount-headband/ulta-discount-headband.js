@@ -31,20 +31,20 @@ export default function decorate(block) {
   discountTextDiv.classList.add('ulta-discount-headband-text');
   discountTextDiv.style.color = textColor;
   discountTextDiv.textContent = discountText;
-  moveInstrumentation(discountTextElement, discountTextDiv);
+  if (discountTextElement) moveInstrumentation(discountTextElement, discountTextDiv);
 
   // Manejo del código de descuento
   const discountCodeDiv = document.createElement('div');
   discountCodeDiv.classList.add('ulta-discount-headband-code');
   discountCodeDiv.textContent = discountCode;
-  moveInstrumentation(discountCodeElement, discountCodeDiv);
+  if (discountCodeElement) moveInstrumentation(discountCodeElement, discountCodeDiv);
 
   // Manejo del enlace
   const discountLink = document.createElement('a');
   discountLink.classList.add('ulta-discount-headband-link');
   discountLink.href = linkUrl;
   discountLink.textContent = linkText;
-  moveInstrumentation(linkTextElement, discountLink);
+  if (linkTextElement) moveInstrumentation(linkTextElement, discountLink);
 
   // Estructura final del bloque
   discountContent.appendChild(discountTextDiv);
