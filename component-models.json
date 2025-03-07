@@ -350,6 +350,92 @@
     ]
   },
   {
+    "id": "ulta-cintillo-descuento",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Descripción",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "discount_code",
+        "label": "Código de Descuento",
+        "value": ""
+      },
+      {
+        "component": "color-picker",
+        "name": "background_color",
+        "label": "Color de Fondo",
+        "value": "#f6f6f6"
+      }
+    ]
+  },
+  {
+    "id": "ulta-cintillo-descuento-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Título del item"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Descripción del item"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "discount_code",
+        "label": "Código de Descuento del item"
+      },
+      {
+        "component": "aem-content",
+        "name": "linkurl",
+        "label": "Link URL del item"
+      }
+    ]
+  },
+  {
+    "id": "ulta-cintillo-descuento-text",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "tagline",
+        "value": "",
+        "label": "Tagline",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "",
+        "label": "Description",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "ulta-cookies",
     "fields": [
       {
@@ -675,6 +761,59 @@
         "valueType": "string",
         "name": "separatorColor",
         "label": "Separator Color (Hex Code)"
+      }
+    ]
+  },
+  {
+    "id": "ulta-corporate-commitments",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      }
+    ]
+  },
+  {
+    "id": "ulta-corporate-commitment",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "corporateCommitmentImage",
+        "label": "corporate commitment image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "corporateCommitmentImageAlt",
+        "label": "Corporate commitment image Alt"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title",
+        "label": "Corporate commitment title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Corporate commitment description"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttontext",
+        "label": "Button text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
       }
     ]
   }

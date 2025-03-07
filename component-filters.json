@@ -25,7 +25,8 @@
       "ulta-beauty-trends",
       "ulta-corporate-commitments",
       "ulta-cookies",
-      "ulta-learning"
+      "ulta-learning",
+      "ulta-cintillo-descuento"
     ]
   },
   {
@@ -68,6 +69,13 @@
     ]
   },
   {
+    "id": "ulta-cintillo-descuento",
+    "components": [
+      "ulta-cintillo-descuento-item",
+      "ulta-cintillo-descuento-text"
+    ]
+  },
+  {
     "id": "ulta-corporate-commitments",
     "components": [
       "ulta-corporate-commitment"
@@ -97,6 +105,12 @@
     "id": "ulta-promotions-headband",
     "components": [
       "ulta-promotion-code"
+    ]
+  },
+  {
+    "id": "ulta-corporate-commitments",
+    "components": [
+      "ulta-corporate-commitment"
     ]
   }
 ]
