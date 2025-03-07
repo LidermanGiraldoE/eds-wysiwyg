@@ -44,7 +44,7 @@
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .ulta-discount-headband {
         flex-direction: column;
         text-align: center;
