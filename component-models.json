@@ -432,6 +432,53 @@
     ]
   },
   {
+    "id": "ulta-discount-headband",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textoDescuento",
+        "label": "Texto descuento",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "colorTexto",
+        "label": "Color de texto",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textCode",
+        "label": "Texto del Codigo",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textoLink",
+        "label": "Texto del Link",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textoFondo",
+        "label": "Texto del Color de Fondo",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "ulta-learning",
     "fields": [
       {
