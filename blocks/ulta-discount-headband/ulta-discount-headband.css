@@ -38,6 +38,24 @@
     color: #090808;
 }
 
+@media (width <=1024px) {
+    .ulta-discount-headband-wrapper {
+        margin: 0 32px !important;
+        flex-direction: column;
+    }
+
+    .ulta-discount-headband {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .ulta-discount-headband-code {
+        margin-right: 0;
+    }
+}
+
+
 @media (width <=768px) {
     .ulta-discount-headband-wrapper {
         flex-direction: column;
