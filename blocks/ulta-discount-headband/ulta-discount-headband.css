@@ -1,0 +1,59 @@
+.ulta-discount-headband-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    background-color: var(--secondary-color, #FBF1F3);
+    border-top: 4px solid var(--primary-color, #CC0058);
+}
+
+.ulta-discount-headband {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.ulta-discount-headband-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-color, #CC0058);
+}
+
+.ulta-discount-headband-code {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: black;
+}
+
+.ulta-discount-headband-details {
+    font-size: 14px;
+    color: #333;
+}
+
+.ulta-discount-headband-link {
+    font-size: 14px;
+    color: var(--primary-color, #CC0058);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .ulta-discount-headband {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ulta-discount-headband-text, 
+    .ulta-discount-headband-code, 
+    .ulta-discount-headband-details, 
+    .ulta-discount-headband-link {
+        margin: 5px 0;
+    }
+}
