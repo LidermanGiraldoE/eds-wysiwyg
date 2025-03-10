@@ -11,7 +11,6 @@ export default function decorate(block) {
     slides = [];
     const rows = [...block.children];
     if (rows.length > 3) {
-      console.warn('Se han agregado más de 3 bloques. Solo se mostrarán los primeros 3.');
       while (block.children.length > 3) {
         block.removeChild(block.lastChild);
       }
