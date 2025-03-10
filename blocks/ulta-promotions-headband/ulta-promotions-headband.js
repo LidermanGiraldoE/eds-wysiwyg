@@ -9,15 +9,13 @@ export default function decorate(block) {
 
   const extractSlides = () => {
     slides = [];
-    const rows = [...block.children];    
-
+    const rows = [...block.children];
     if (rows.length > 3) {
-      console.warn("Se han agregado más de 3 bloques. Solo se mostrarán los primeros 3");
+      console.warn('Se han agregado más de 3 bloques. Solo se mostrarán los primeros 3.');
       while (block.children.length > 3) {
         block.removeChild(block.lastChild);
       }
     }
-    
     rows.slice(0, 3).forEach((row) => {
       const a = document.createElement('a');
       a.className = 'ulta-promotions-headband-item';
