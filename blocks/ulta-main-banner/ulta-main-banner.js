@@ -49,19 +49,19 @@ export default function decorate(block) {
           element.classList.add('ulta-banner-tagline');
           // Limitar a 50 caracteres el tagline
           if (text.length > 20) {
-            text = `${text.substring(0, 20)}...`;
+            element.textContent = `${text.substring(0, 20)}...`;
           }
         } else if (index === 1) {
           element.classList.add('ulta-banner-title');
           // Limitar a 100 caracteres el título
           if (text.length > 20) {
-            text = `${text.substring(0, 20)}...`;
+            element.textContent = `${text.substring(0, 20)}...`;
           }
         } else if (index === 2) {
           element.classList.add('ulta-banner-description');
           // Limitar a 200 caracteres la descripción
           if (text.length > 20) {
-            text = `${text.substring(0, 20)}...`;
+            element.textContent = `${text.substring(0, 20)}...`;
           }
         }
         textsContainer.appendChild(element);
