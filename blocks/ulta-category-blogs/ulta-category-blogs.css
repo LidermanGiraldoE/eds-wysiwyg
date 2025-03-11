@@ -38,14 +38,10 @@
     transition: transform 0.3s ease-in-out;
 }
 
-.ulta-category-card:hover {
-    transform: scale(1.05);
-}
-
 /* Imagen dentro de la tarjeta */
 .ulta-category-image img {
-    width: 100%;
-    height: auto;
+    width: 452px;
+    height: 254px;
     display: block;
 }
 
