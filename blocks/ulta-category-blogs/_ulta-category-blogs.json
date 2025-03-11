@@ -81,7 +81,7 @@
         {
           "component": "text",
           "valueType": "string",
-          "name": "buttonText",
+          "name": "textButton",
           "label": "Button Text"
         },
         {
