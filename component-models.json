@@ -310,6 +310,65 @@
     ]
   },
   {
+    "id": "ulta-category-blogs",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title Block"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description Block"
+      }
+    ]
+  },
+  {
+    "id": "ulta-category-blog",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "titleCard",
+        "label": "Title Card"
+      },
+      {
+        "component": "richtext",
+        "name": "descriptionCard",
+        "label": "Description Card",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonText",
+        "label": "Button Text"
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonlink",
+        "label": "Button link URL"
+      }
+    ]
+  },
+  {
     "id": "ulta-category-purchase",
     "fields": [
       {

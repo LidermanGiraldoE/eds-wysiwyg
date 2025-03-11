@@ -27,7 +27,8 @@
       "ulta-cookies",
       "ulta-learning",
       "ulta-discount-headband",
-      "ulta-title"
+      "ulta-title",
+      "ulta-category-blogs"
     ]
   },
   {
@@ -61,6 +62,12 @@
     "id": "ulta-beauty-trends",
     "components": [
       "ulta-beauty-trend"
+    ]
+  },
+  {
+    "id": "ulta-category-blogs",
+    "components": [
+      "ulta-category-blog"
     ]
   },
   {
