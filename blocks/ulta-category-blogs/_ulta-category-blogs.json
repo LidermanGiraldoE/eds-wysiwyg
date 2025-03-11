@@ -47,13 +47,6 @@
           "valueType": "string",
           "name": "description",
           "label": "Description Block"
-        },
-        {
-          "component": "list",
-          "valueType": "array",
-          "name": "blogs",
-          "label": "Blog Items",
-          "model": "ulta-category-blog"
         }
       ]
     },
