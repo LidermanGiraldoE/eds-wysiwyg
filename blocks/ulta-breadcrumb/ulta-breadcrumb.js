@@ -1,83 +1,53 @@
-import { createElement } from '../../scripts/scripts.js';
-
-const getPageTitle = async (url) => {
-  try {
-    const resp = await fetch(url);
-    if (resp.ok) {
-      const html = document.createElement('div');
-      html.innerHTML = await resp.text();
-      return html.querySelector('title')?.innerText.trim() || '';
-    }
-  } catch (error) {
-    console.error(`Error fetching page title for ${url}:`, error);
-  }
-  return '';
-};
-
-const getBreadcrumbPaths = async (paths) => {
-  const result = [];
-  const pathsList = paths.replace(/^\/|\/$/g, '').split('/');
-
-  for (let i = 0; i < pathsList.length - 1; i += 1) {
-    const pathPart = pathsList[i];
-    const prevPath = result[i - 1] ? result[i - 1].path : '';
-    const path = `${prevPath}/${pathPart}`;
-    const url = `${window.location.origin}${path}`;
-    try {
-      /* eslint-disable-next-line no-await-in-loop */
-      const name = await getPageTitle(url);
-      if (name) {
-        result.push({ path, name, url });
-      }
-    } catch (error) {
-      console.warn(`Skipping breadcrumb for ${url} due to error.`);
-    }
-  }
-  return result;
-};
-
-const createLink = (path) => {
-  const pathLink = document.createElement('a');
-  pathLink.href = path.url;
-  pathLink.innerText = path.name;
-  pathLink.classList.add('breadcrumb-link');
-  return pathLink;
-};
-
-export default async function decorate(block) {
+export default function decorate(block) {
   block.innerHTML = '';
-  const breadcrumb = createElement('nav', 'breadcrumb-container', {
-    'aria-label': 'Breadcrumb',
-  });
+
+  const breadcrumb = document.createElement('nav');
+  breadcrumb.classList.add('breadcrumb-container');
+  breadcrumb.setAttribute('aria-label', 'Breadcrumb');
+
   const fragment = document.createDocumentFragment();
+
   // Home link
-  const homeLink = createLink({ path: '', name: 'Home', url: window.location.origin });
+  const homeLink = document.createElement('a');
+  homeLink.href = window.location.origin;
+  homeLink.innerText = 'Home';
+  homeLink.classList.add('breadcrumb-link');
   fragment.appendChild(homeLink);
 
-  // Fetch and build breadcrumb path
-  const path = window.location.pathname;
-  const paths = await getBreadcrumbPaths(path);
+  // Obtener la ruta actual y dividirla en segmentos
+  const path = window.location.pathname.replace(/^\/|\/$/g, '');
+  const pathsList = path ? path.split('/') : [];
 
-  paths.forEach((pathPart) => {
+  let cumulativePath = '';
+  pathsList.forEach((segment) => {
+    cumulativePath += `/${segment}`;
+
     const separator = document.createElement('span');
     separator.innerText = ' / ';
     separator.classList.add('breadcrumb-separator');
     fragment.appendChild(separator);
-    fragment.appendChild(createLink(pathPart));
+
+    const link = document.createElement('a');
+    link.href = window.location.origin + cumulativePath;
+    link.innerText = segment.replace(/[-_]/g, ' ');
+    link.classList.add('breadcrumb-link');
+    fragment.appendChild(link);
   });
 
-  // Current Page (Non-clickable)
-  const currentPage = document.createElement('span');
-  currentPage.innerText = document.querySelector('title')?.innerText.trim() || 'Current Page';
-  currentPage.classList.add('breadcrumb-current');
+  // Último elemento: página actual (no clickeable)
+  if (pathsList.length > 0) {
+    const separator = document.createElement('span');
+    separator.innerText = ' / ';
+    separator.classList.add('breadcrumb-separator');
+    fragment.appendChild(separator);
+  }
 
-  const separator = document.createElement('span');
-  separator.innerText = ' / ';
-  separator.classList.add('breadcrumb-separator');
-  fragment.appendChild(separator);
+  const currentPage = document.createElement('span');
+  currentPage.innerText = document.title || 'Current Page';
+  currentPage.classList.add('breadcrumb-current');
   fragment.appendChild(currentPage);
 
-  // Append breadcrumb to block
+  // Agregar breadcrumb al bloque
   breadcrumb.appendChild(fragment);
   block.appendChild(breadcrumb);
 }
