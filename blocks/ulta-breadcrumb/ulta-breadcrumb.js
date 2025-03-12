@@ -23,7 +23,6 @@ const getBreadcrumbPaths = async (paths) => {
     const prevPath = result[i - 1] ? result[i - 1].path : '';
     const path = `${prevPath}/${pathPart}`;
     const url = `${window.location.origin}${path}`;
-    
     try {
       /* eslint-disable-next-line no-await-in-loop */
       const name = await getPageTitle(url);
@@ -50,9 +49,7 @@ export default async function decorate(block) {
   const breadcrumb = createElement('nav', 'breadcrumb-container', {
     'aria-label': 'Breadcrumb',
   });
-  
   const fragment = document.createDocumentFragment();
-  
   // Home link
   const homeLink = createLink({ path: '', name: 'Home', url: window.location.origin });
   fragment.appendChild(homeLink);
