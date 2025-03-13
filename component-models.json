@@ -752,5 +752,15 @@
         "label": "Ulta Title"
       }
     ]
+  },
+  {
+    "id": "ulta-article-list-block",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link"
+      }
+    ]
   }
 ]

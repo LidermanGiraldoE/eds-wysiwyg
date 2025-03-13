@@ -103,5 +103,17 @@
     "components": [
       "ulta-promotion-code"
     ]
+  },
+  {
+    "id": "ulta-article-list",
+    "components": [
+      "ulta-article-list-block"
+    ]
+  },
+  {
+    "id": "ulta-article-list-block",
+    "components": [
+      "button"
+    ]
   }
 ]
