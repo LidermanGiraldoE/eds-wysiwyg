@@ -757,11 +757,11 @@
     "id": "ulta-article-list",
     "fields": [
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "Titulo",
-        "label": "Titulo",
-        "value": ""
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
       }
     ]
   },
