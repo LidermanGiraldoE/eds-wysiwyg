@@ -33,6 +33,18 @@
   ],
   "models": [
     {
+      "id": "ulta-article-list",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "Titulo",
+          "label": "Titulo",
+          "value": ""
+        }
+      ]
+    },
+    {
       "id": "ulta-article-list-block",
       "fields": [
         {
