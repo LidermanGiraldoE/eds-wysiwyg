@@ -560,7 +560,7 @@
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "name": "Ulta Article List Block",
+                  "name": "Ulta-Article-List-Block",
                   "model": "ulta-article-list-block"
                 }
               }
