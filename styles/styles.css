@@ -61,16 +61,6 @@
   --body-font-family: 'Circular Std', sans-serif;
   --heading-font-family: 'Circular Std', sans-serif;
 
-  /* Pesos de fuente */
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
-  --font-weight-black: 900;
-
-  /* Estilos de fuente */
-  --font-style-normal: normal;
-  --font-style-italic: italic;
-
   /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 19px;
