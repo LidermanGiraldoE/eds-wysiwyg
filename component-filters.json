@@ -109,11 +109,5 @@
     "components": [
       "ulta-article-list-block"
     ]
-  },
-  {
-    "id": "ulta-article-list-block",
-    "components": [
-      "button"
-    ]
   }
 ]
