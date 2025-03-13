@@ -17,7 +17,7 @@
     },
     {
       "title": "Ulta-Article-List-block",
-      "id": "ulta-article-list-slide-block",
+      "id": "ulta-article-list-block",
       "plugins": {
         "xwalk": {
           "page": {
