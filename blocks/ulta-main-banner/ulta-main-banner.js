@@ -55,8 +55,6 @@ export default function decorate(block) {
     button.href = buttonHref || '#';
     button.className = 'ulta-banner-button';
 
-    textElement.textContent = buttonText;
-
     textElement.classList.add('ulta-button-text');
     button.appendChild(textElement);
 
