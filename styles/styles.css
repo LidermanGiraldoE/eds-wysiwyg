@@ -55,7 +55,7 @@
   --heading-font-family: 'Circular Std', sans-serif;
 
   /* fonts weight */
-  --font-weight-normal: 400;
+  --font-weight-book: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700; 
   --font-weight-black: 900; 
@@ -101,7 +101,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-book);
 }
 
 body.appear {
