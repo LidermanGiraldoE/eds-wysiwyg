@@ -41,6 +41,19 @@ export default function decorate(block) {
         element.remove();
       }
     });
+
+    contentElements.forEach((element, index) => {
+      if (element.isConnected) {
+        if (index === 0) {
+          element.classList.add('ulta-banner-tagline');
+        } else if (index === 1) {
+          element.classList.add('ulta-banner-title');
+        } else if (index === 2) {
+          element.classList.add('ulta-banner-description');
+        }
+        textsContainer.appendChild(element);
+      }
+    });
   }
 
   moveInstrumentation(contentContainer, textsContainer);
