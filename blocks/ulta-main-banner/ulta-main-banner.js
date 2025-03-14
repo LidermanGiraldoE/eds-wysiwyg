@@ -41,7 +41,6 @@ export default function decorate(block) {
         element.remove();
       }
     });
-
   }
 
   moveInstrumentation(contentContainer, textsContainer);
@@ -55,8 +54,6 @@ export default function decorate(block) {
     const button = document.createElement('a');
     button.href = buttonHref || '#';
     button.className = 'ulta-banner-button';
-
-    let buttonText = textElement.textContent.trim();
 
     textElement.textContent = buttonText;
 
