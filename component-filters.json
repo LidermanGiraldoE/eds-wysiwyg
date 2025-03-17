@@ -30,7 +30,7 @@
       "ulta-title",
       "ulta-category-blogs",
       "ulta-breadcrumb",
-      "ulta-article-list"
+      "ulta-login-cdc"
     ]
   },
   {
@@ -52,6 +52,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "ulta-article-list",
+    "components": [
+      "ulta-article-list-block"
     ]
   },
   {
@@ -102,12 +108,6 @@
     "id": "ulta-promotions-headband",
     "components": [
       "ulta-promotion-code"
-    ]
-  },
-  {
-    "id": "ulta-article-list",
-    "components": [
-      "ulta-article-list-block"
     ]
   }
 ]

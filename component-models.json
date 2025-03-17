@@ -192,6 +192,27 @@
     ]
   },
   {
+    "id": "ulta-article-list",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "ulta-article-list-block",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link"
+      }
+    ]
+  },
+  {
     "id": "ulta-banner-daily-offers",
     "fields": [
       {
@@ -750,27 +771,6 @@
         "valueType": "string",
         "name": "title",
         "label": "Ulta Title"
-      }
-    ]
-  },
-  {
-    "id": "ulta-article-list",
-    "fields": [
-      {
-        "component": "text",
-        "name": "title",
-        "label": "Title",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "ulta-article-list-block",
-    "fields": [
-      {
-        "component": "aem-content",
-        "name": "link",
-        "label": "Link"
       }
     ]
   }
