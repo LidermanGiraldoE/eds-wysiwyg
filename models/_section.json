@@ -65,7 +65,8 @@
         "ulta-title",
         "ulta-category-blogs",
         "ulta-breadcrumb",
-        "ulta-login-cdc"
+        "ulta-login-cdc",
+        "ulta-login-horizontal-cdc"
       ]
     }
   ]
