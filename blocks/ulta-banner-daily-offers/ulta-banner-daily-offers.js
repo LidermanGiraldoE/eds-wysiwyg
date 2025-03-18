@@ -47,7 +47,7 @@ export default function decorate(block) {
         <div class="ulta-banner-daily-offers-info">
           <div class="ulta-banner-daily-offers-tagline">${offerTagline}</div>
           <p class="ulta-banner-daily-offers-category">${offerCategory}</p>
-          <h3 class="ulta-banner-daily-offers-title">${offerTitle}</h3>
+          <p class="ulta-banner-daily-offers-title">${offerTitle}</p>
           <p class="ulta-banner-daily-offers-description">${offerDescription}</p>
           <a href="${linkUrl}" class="ulta-banner-daily-offers-button">${buttonText}</a>
         </div>
