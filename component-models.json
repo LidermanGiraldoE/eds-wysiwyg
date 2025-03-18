@@ -333,7 +333,7 @@
         "component": "text",
         "valueType": "string",
         "name": "colorTexto",
-        "label": "Color de Texto"
+        "label": "Color de Background"
       },
       {
         "component": "richtext",
