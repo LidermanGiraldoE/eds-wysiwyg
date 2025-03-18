@@ -69,9 +69,9 @@
   --heading-font-size-xxl: 32px;
   --heading-font-size-xl: 24px;
   --heading-font-size-l: 20px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  --heading-font-size-m: 16px;
+  /* --heading-font-size-s: 24px;
+  --heading-font-size-xs: 22px; */
 
   /* nav height */
   --nav-height: 64px;
@@ -89,8 +89,8 @@
     --heading-font-size-xl: 20px;
     --heading-font-size-l: 20px;
     --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    /* --heading-font-size-s: 20px;
+    --heading-font-size-xs: 18px; */
   }
 }
 
@@ -139,8 +139,8 @@ h1 { font-size: var(--heading-font-size-xxl); }
 h2 { font-size: var(--heading-font-size-xl); }
 h3 { font-size: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+/* h5 { font-size: var(--heading-font-size-s); }
+h6 { font-size: var(--heading-font-size-xs); } */
 
 p,
 dl,
