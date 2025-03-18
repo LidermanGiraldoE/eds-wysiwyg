@@ -73,7 +73,9 @@
         "ulta-register-cdc",
         "ulta-newsletter-cdc",
         "ulta-reset-password-cdc",
-        "ulta-update-profile-cdc"
+        "ulta-update-profile-cdc",
+        "ulta-review-form",
+        "ulta-review-list"
       ]
     }
   ]
