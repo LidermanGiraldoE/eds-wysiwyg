@@ -1,7 +1,6 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-
   const items = Array.from(block.children);
 
   // Extraer valores desde los elementos
