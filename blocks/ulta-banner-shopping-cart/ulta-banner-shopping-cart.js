@@ -30,29 +30,41 @@ export default function decorate(block) {
   bannerContent.style.color = textColor;
 
   // Manejo de la imagen del banner
-  const bannerImage = document.createElement('img');
-  bannerImage.classList.add('cart-purchase-banner-image');
-  bannerImage.src = imageBannerSrc;
-  moveInstrumentation(imageBannerElement, bannerImage);
+  if (imageBannerSrc) {
+    const bannerImage = document.createElement('img');
+    bannerImage.classList.add('cart-purchase-banner-image');
+    bannerImage.src = imageBannerSrc;
+    moveInstrumentation(imageBannerElement, bannerImage);
+    bannerContent.appendChild(bannerImage);
+  }
 
   // Manejo de la descripción
-  const descriptionDiv = document.createElement('div');
-  descriptionDiv.classList.add('cart-purchase-banner-description');
-  descriptionDiv.innerHTML = description;
-  moveInstrumentation(descriptionElement, descriptionDiv);
+  if (description) {
+    const descriptionDiv = document.createElement('div');
+    descriptionDiv.classList.add('cart-purchase-banner-description');
+    descriptionDiv.innerHTML = description;
+    moveInstrumentation(descriptionElement, descriptionDiv);
+    bannerContent.appendChild(descriptionDiv);
+  }
 
   // Manejo del enlace
-  const bannerLink = document.createElement('a');
-  bannerLink.classList.add('cart-purchase-banner-link');
-  bannerLink.href = linkUrl;
-  bannerLink.innerHTML = linkText;
-  moveInstrumentation(linkTextElement, bannerLink);
+  if (linkUrl) {
+    const bannerLink = document.createElement('a');
+    bannerLink.classList.add('cart-purchase-banner-link');
+    bannerLink.href = linkUrl;
+    bannerLink.innerHTML = linkText;
+    moveInstrumentation(linkTextElement, bannerLink);
+    bannerContent.appendChild(bannerLink);
+  }
 
   // Manejo de la imagen de la flecha
-  const logoArrowImage = document.createElement('img');
-  logoArrowImage.classList.add('cart-purchase-banner-arrow');
-  logoArrowImage.src = logoArrowSrc;
-  moveInstrumentation(logoArrowElement, logoArrowImage);
+  if (logoArrowSrc) {
+    const logoArrowImage = document.createElement('img');
+    logoArrowImage.classList.add('cart-purchase-banner-arrow');
+    logoArrowImage.src = logoArrowSrc;
+    moveInstrumentation(logoArrowElement, logoArrowImage);
+    bannerContent.appendChild(logoArrowImage);
+  }
 
   // Reemplazar el contenido original del bloque con la nueva estructura
   block.innerHTML = '';

@@ -21,46 +21,42 @@
             "id": "ulta-banner-shopping-cart",
             "fields": [
                 {
-                    "component": "image",
+                    "component": "reference",
                     "valueType": "string",
                     "name": "imageBanner",
-                    "label": "Imagen del Banner",
-                    "value": ""
+                    "label": "Logo del Banner",
+                    "multi": false
                 },
                 {
                     "component": "text",
                     "valueType": "string",
                     "name": "colorTexto",
-                    "label": "Color de Texto",
-                    "value": ""
+                    "label": "Color de Texto"
                 },
                 {
-                    "component": "text",
+                    "component": "richtext",
                     "valueType": "string",
                     "name": "descripcion",
-                    "label": "Descripción",
-                    "value": ""
+                    "label": "Descripción del Banner"
                 },
                 {
                     "component": "text",
                     "valueType": "string",
                     "name": "textoLink",
-                    "label": "Texto del Link",
-                    "value": "Regístrate"
+                    "label": "Texto del Link"
                 },
                 {
                     "component": "aem-content",
                     "valueType": "string",
                     "name": "link",
-                    "label": "Link",
-                    "value": ""
+                    "label": "Link"
                 },
                 {
-                    "component": "image",
+                    "component": "reference",
                     "valueType": "string",
                     "name": "logoFlecha",
                     "label": "Imagen del Logo de Flecha",
-                    "value": "/mnt/data/image.png"
+                    "multi": false
                 }
             ]
         }
