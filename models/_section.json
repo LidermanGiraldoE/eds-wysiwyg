@@ -75,7 +75,8 @@
         "ulta-reset-password-cdc",
         "ulta-update-profile-cdc",
         "ulta-review-form",
-        "ulta-review-list"
+        "ulta-review-list",
+        "ulta-block-text"
       ]
     }
   ]
