@@ -70,7 +70,8 @@
         "ulta-change-password-cdc",
         "ulta-404",
         "ulta-banner-shopping-cart",
-        "ulta-register-cdc"
+        "ulta-register-cdc",
+        "ulta-newsletter-cdc"
       ]
     }
   ]
