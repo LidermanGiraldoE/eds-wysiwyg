@@ -30,7 +30,8 @@
       "ulta-title",
       "ulta-category-blogs",
       "ulta-breadcrumb",
-      "ulta-article-list"
+      "ulta-article-list",
+      "ulta-products-carousel"
     ]
   },
   {
@@ -108,6 +109,12 @@
     "id": "ulta-article-list",
     "components": [
       "ulta-article-list-block"
+    ]
+  },
+  {
+    "id": "ulta-products-carousel",
+    "components": [
+      "ulta-products-carousel-items"
     ]
   }
 ]
