@@ -65,7 +65,19 @@
         "ulta-title",
         "ulta-category-blogs",
         "ulta-breadcrumb",
-        "ulta-products-carousel"
+        "ulta-products-carousel",
+        "ulta-login-cdc",
+        "ulta-login-horizontal-cdc",
+        "ulta-change-password-cdc",
+        "ulta-404",
+        "ulta-banner-shopping-cart",
+        "ulta-register-cdc",
+        "ulta-newsletter-cdc",
+        "ulta-reset-password-cdc",
+        "ulta-update-profile-cdc",
+        "ulta-review-form",
+        "ulta-review-list",
+        "ulta-block-text"
       ]
     }
   ]

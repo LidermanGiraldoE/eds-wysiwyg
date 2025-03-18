@@ -53,6 +53,7 @@
 .ulta-category-purchase-name {
     margin-top: 8px;
     font-size: 12px;
+    font-weight: var(--font-weight-book);
     letter-spacing: 0.36px;
     line-height: 16px;
 }

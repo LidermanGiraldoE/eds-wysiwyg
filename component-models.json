@@ -192,6 +192,48 @@
     ]
   },
   {
+    "id": "ulta-404",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "ulta404Img",
+        "label": "Image 404",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ulta404ImgAlt",
+        "label": "Image 404 Alt"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "title404",
+        "label": "Title 404"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text404",
+        "label": "Text 404"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonText404",
+        "label": "Button text 404",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "buttonLink404",
+        "label": "Button link URL 404"
+      }
+    ]
+  },
+  {
     "id": "ulta-banner-daily-offers",
     "fields": [
       {
@@ -257,6 +299,49 @@
     ]
   },
   {
+    "id": "ulta-banner-shopping-cart",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "imageBanner",
+        "label": "Logo del Banner",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "colorTexto",
+        "label": "Color de Background"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "descripcion",
+        "label": "Descripción del Banner"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "textoLink",
+        "label": "Texto del Link"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Link"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "logoFlecha",
+        "label": "Imagen del Logo de Flecha",
+        "multi": false
+      }
+    ]
+  },
+  {
     "id": "ulta-beauty-trends",
     "fields": [
       {
@@ -306,6 +391,23 @@
         "component": "aem-content",
         "name": "trendLinkUrl",
         "label": "Trend link URL"
+      }
+    ]
+  },
+  {
+    "id": "ulta-block-text",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "maxwidth",
+        "label": "max-width"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "label": "Text"
       }
     ]
   },

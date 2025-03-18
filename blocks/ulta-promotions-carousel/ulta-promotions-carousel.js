@@ -47,7 +47,7 @@ export default function decorate(block) {
           </div>
           <div class="ulta-promotions-info">
             <p class="ulta-promotions-brand">${brandName}</p>
-            <h3 class="ulta-promotions-title">${promoTitle}</h3>
+            <p class="ulta-promotions-title">${promoTitle}</p>
             <p class="ulta-promotions-description">${promoDescription}</p>
           </div>
         </a>
