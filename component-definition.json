@@ -624,6 +624,20 @@
           }
         },
         {
+          "title": "ulta-reset-password-cdc",
+          "id": "ulta-reset-password-cdc",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "ulta-reset-password-cdc"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "ulta-separator",
           "id": "ulta-separator",
           "plugins": {
