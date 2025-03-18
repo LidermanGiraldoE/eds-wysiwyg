@@ -37,7 +37,8 @@
       "ulta-banner-shopping-cart",
       "ulta-register-cdc",
       "ulta-newsletter-cdc",
-      "ulta-reset-password-cdc"
+      "ulta-reset-password-cdc",
+      "ulta-update-profile-cdc"
     ]
   },
   {
