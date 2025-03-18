@@ -1,0 +1,52 @@
+/* Estilo principal para el banner del carrito de compras */
+.cart-purchase-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f8f8; /* Puedes ajustarlo según el color de fondo que se defina */
+  }
+  
+  /* Estilo para la imagen del banner */
+  .cart-purchase-banner-image {
+    max-width: 100%;
+    height: auto;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+  
+  /* Estilo para la descripción del banner */
+  .cart-purchase-banner-description {
+    font-size: 16px;
+    line-height: 1.5;
+    flex-grow: 1;
+    color: inherit; /* Se hereda el color de texto definido en el contenedor */
+  }
+  
+  /* Estilo para el enlace (botón o link) */
+  .cart-purchase-banner-link {
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff; /* Color del texto del enlace (ajustable) */
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Estilo para el enlace al pasar el cursor */
+  .cart-purchase-banner-link:hover {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  /* Estilo para la imagen de la flecha */
+  .cart-purchase-banner-arrow {
+    width: 20px;
+    height: auto;
+    margin-left: 10px;
+    flex-shrink: 0;
+  }
+  

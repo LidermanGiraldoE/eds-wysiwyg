@@ -1,0 +1,69 @@
+{
+    "definitions": [
+        {
+            "title": "ulta-banner-shopping-cart",
+            "id": "ulta-banner-shopping-cart",
+            "plugins": {
+                "xwalk": {
+                    "page": {
+                        "resourceType": "core/franklin/components/block/v1/block",
+                        "template": {
+                            "name": "ulta-banner-shopping-cart",
+                            "model": "ulta-banner-shopping-cart"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "models": [
+        {
+            "id": "ulta-banner-shopping-cart",
+            "fields": [
+                {
+                    "component": "image",
+                    "valueType": "string",
+                    "name": "imageBanner",
+                    "label": "Imagen del Banner",
+                    "value": ""
+                },
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "colorTexto",
+                    "label": "Color de Texto",
+                    "value": ""
+                },
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "descripcion",
+                    "label": "Descripción",
+                    "value": ""
+                },
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "textoLink",
+                    "label": "Texto del Link",
+                    "value": "Regístrate"
+                },
+                {
+                    "component": "aem-content",
+                    "valueType": "string",
+                    "name": "link",
+                    "label": "Link",
+                    "value": ""
+                },
+                {
+                    "component": "image",
+                    "valueType": "string",
+                    "name": "logoFlecha",
+                    "label": "Imagen del Logo de Flecha",
+                    "value": "/mnt/data/image.png"
+                }
+            ]
+        }
+    ],
+    "filters": []
+}
