@@ -69,7 +69,8 @@
         "ulta-login-horizontal-cdc",
         "ulta-change-password-cdc",
         "ulta-404",
-        "ulta-banner-shopping-cart"
+        "ulta-banner-shopping-cart",
+        "ulta-register-cdc"
       ]
     }
   ]
