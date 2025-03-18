@@ -77,7 +77,7 @@
   --nav-height: 64px;
 }
 
-@media (width >= 900px) {
+@media (width <= 900px) {
   :root {
     /* body sizes */
     --body-font-size-m: 18px;

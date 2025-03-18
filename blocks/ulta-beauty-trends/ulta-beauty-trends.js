@@ -44,7 +44,7 @@ export default function decorate(block) {
           </div>
           <div class="ulta-beauty-trend-info">
             <p class="ulta-beauty-trend-brand">${trendCategory}</p>
-            <h3 class="ulta-beauty-trend-title">${trendTitle}</h3>
+            <p class="ulta-beauty-trend-title">${trendTitle}</p>
           </div>
         </a>
       </div>
