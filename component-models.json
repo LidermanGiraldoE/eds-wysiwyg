@@ -197,39 +197,38 @@
       {
         "component": "reference",
         "valueType": "string",
-        "name": "ulta404Img",
-        "label": "Image 404",
-        "multi": false
+        "name": "image",
+        "label": "Image",
+        "seo": {
+          "alt": "Image Alt Text",
+          "title": "Image Title"
+        }
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "ulta404ImgAlt",
-        "label": "Image 404 Alt"
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "title404",
-        "label": "Title 404"
-      },
-      {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "text404",
-        "label": "Text 404"
+        "name": "title",
+        "label": "Title",
+        "seo": {
+          "description": "SEO Title Description"
+        }
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "buttonText404",
-        "label": "Button text 404",
-        "value": ""
+        "name": "description",
+        "label": "Description",
+        "seo": {
+          "description": "SEO Description"
+        }
       },
       {
         "component": "aem-content",
-        "name": "buttonLink404",
-        "label": "Button link URL 404"
+        "name": "link",
+        "label": "Link URL",
+        "seo": {
+          "title": "Link Title"
+        }
       }
     ]
   },

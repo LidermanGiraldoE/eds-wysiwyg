@@ -1,3 +1,4 @@
+/* eslint-disable newline-after-var */
 import {
   loadHeader,
   loadFooter,
@@ -23,6 +24,7 @@ import {
 export function createElement(tagName, classes, props, html) {
   const elem = document.createElement(tagName);
   if (classes) {
+    // eslint-disable-next-line no-extra-parens
     const classesArr = (typeof classes === 'string') ? [classes] : classes;
     elem.classList.add(...classesArr);
   }

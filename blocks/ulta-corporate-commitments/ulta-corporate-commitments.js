@@ -9,19 +9,23 @@ export default function decorate(block) {
 
   // Crear contenedor principal
   const container = document.createElement('div');
+
   container.classList.add('ulta-corporate-commitments-container');
 
   // Crear el título del bloque
   const titleContainer = document.createElement('div');
+
   titleContainer.classList.add('ulta-corporate-commitments-header');
 
   const titleH2 = document.createElement('h3');
+
   titleH2.innerHTML = blockTitleText;
   moveInstrumentation(titleElement, titleH2);
   titleContainer.appendChild(titleH2);
 
   // Contenedor de los compromisos
   const commitmentsWrapper = document.createElement('div');
+
   commitmentsWrapper.classList.add('ulta-corporate-commitments-wrapper');
 
   // Iterar sobre los elementos restantes (cada compromiso)
@@ -41,25 +45,28 @@ export default function decorate(block) {
 
     // Crear estructura de cada compromiso
     const commitmentItem = document.createElement('div');
+
     commitmentItem.classList.add('ulta-corporate-commitment');
 
     // Imagen
     const imageContainer = document.createElement('div');
+
     imageContainer.classList.add('ulta-corporate-commitment-image');
 
     const img = document.createElement('img');
+
     img.src = imgSrc;
     img.alt = imgAlt;
     moveInstrumentation(imgElement, img);
     imageContainer.appendChild(img);
 
     // Información del compromiso
-    const infoContainer = document.createElement('div');
     infoContainer.classList.add('ulta-corporate-commitment-info');
 
     // Título (conservando richText)
     if (titleDiv) {
       const title = document.createElement('div');
+
       title.classList.add('ulta-corporate-commitment-title');
       title.innerHTML = titleDiv.innerHTML;
       moveInstrumentation(titleDiv, title);
@@ -69,6 +76,7 @@ export default function decorate(block) {
     // Descripción (conservando richText)
     if (descriptionDiv) {
       const description = document.createElement('div');
+
       description.classList.add('ulta-corporate-commitment-description');
       description.innerHTML = descriptionDiv.innerHTML;
       moveInstrumentation(descriptionDiv, description);
@@ -77,10 +85,12 @@ export default function decorate(block) {
 
     // Botón
     const button = document.createElement('a');
+
     button.classList.add('ulta-corporate-commitment-button');
     button.href = linkUrl;
 
     const buttonTextElement = document.createElement('p');
+
     buttonTextElement.textContent = buttonParagraph?.textContent.trim() || '';
     moveInstrumentation(buttonParagraph, buttonTextElement);
 

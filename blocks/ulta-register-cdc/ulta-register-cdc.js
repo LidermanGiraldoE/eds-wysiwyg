@@ -4,6 +4,7 @@ function getAccountInfoResponse(response) {
   if (response.errorCode === 0) { // Corregido '==' a '==='
     const { profile } = response; // Uso de destructuración
     const msg = `${profile.firstName} is ${profile.age} years old`;
+
     console.log(msg); // Reemplazo de alert() por console.log()
   } else {
     console.error(`Error: ${response.errorMessage}`); // Reemplazo de alert() por console.error()
@@ -51,6 +52,7 @@ function initializeGigya(container) {
   };
 
   const gigyaScript = document.createElement('script');
+
   gigyaScript.src = 'https://cdns.gigya.com/js/gigya.js?apikey=4_VdOdUO1BkYX2CMMdGd8LhA';
   gigyaScript.onload = () => {
     if (typeof gigya !== 'undefined' && window.gigyaConf.onGigyaServiceReady) {
@@ -65,6 +67,7 @@ export default async function decorate(block) {
   block.innerHTML = '';
 
   const container = document.createElement('div');
+
   container.id = 'ulta-register-cdc-container';
   block.appendChild(container);
   initializeGigya(container);

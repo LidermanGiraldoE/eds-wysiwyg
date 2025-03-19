@@ -26,9 +26,11 @@ export default function decorate(block) {
   }
 
   const contentWrapper = document.createElement('div');
+
   contentWrapper.classList.add('ulta-banner-content');
 
   const textsContainer = document.createElement('div');
+
   textsContainer.classList.add('ulta-banner-texts');
 
   if (contentContainer) {
@@ -36,6 +38,7 @@ export default function decorate(block) {
 
     contentElements.forEach((element) => {
       const text = element.textContent.trim();
+
       if (text.startsWith('ulta-banner')) {
         contentWrapper.classList.add(text);
         element.remove();
@@ -65,6 +68,7 @@ export default function decorate(block) {
     const buttonHref = hrefElement?.querySelector('p')?.textContent.trim();
 
     const button = document.createElement('a');
+
     button.href = buttonHref || '#';
     button.className = 'ulta-banner-button';
 
