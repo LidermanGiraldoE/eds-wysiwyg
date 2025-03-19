@@ -433,6 +433,38 @@
     ]
   },
   {
+    "id": "ulta-brands-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Brand Logo",
+        "seo": {
+          "alt": "Brand Logo Alt Text",
+          "title": "Brand Logo Title"
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "brandName",
+        "label": "Brand Name",
+        "seo": {
+          "description": "SEO Brand Name Description"
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "brandLink",
+        "label": "Brand URL",
+        "seo": {
+          "title": "Link to Brand"
+        }
+      }
+    ]
+  },
+  {
     "id": "ulta-category-blogs",
     "fields": [
       {

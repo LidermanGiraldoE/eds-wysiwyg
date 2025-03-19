@@ -84,6 +84,12 @@
     ]
   },
   {
+    "id": "ulta-brands",
+    "components": [
+      "ulta-brands-item"
+    ]
+  },
+  {
     "id": "ulta-category-blogs",
     "components": [
       "ulta-category-blog"
