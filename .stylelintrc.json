@@ -1,3 +1,58 @@
 {
-  "extends": ["stylelint-config-standard"]
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
+      }
+    ],
+    "custom-property-pattern": [
+      "[a-z_-]",
+      {
+        "message": "Expected custom property name to be BEM methodology"
+      }
+    ],
+    "selector-class-pattern": "[a-z_-]",
+    "indentation": 4,
+    "string-quotes": "single",
+    "no-descending-specificity": null,
+    "selector-max-id": 0,
+    "number-leading-zero": "never",
+    "declaration-no-important": true,
+    "selector-list-comma-newline-after": "always",
+    "selector-list-comma-space-before": "never",
+    "block-no-empty": true,
+    "no-extra-semicolons": true,
+    "length-zero-no-unit": true,
+    "max-nesting-depth": 5,
+    "color-no-invalid-hex": true,
+    "block-opening-brace-space-before": "always",
+    "max-empty-lines": 1,
+    "color-hex-case": "lower",
+    "block-opening-brace-newline-after": "always",
+    "block-closing-brace-newline-before": "always",
+    "selector-combinator-space-after": "always",
+    "selector-combinator-space-before": "always",
+    "declaration-block-no-duplicate-properties": true,
+    "at-rule-semicolon-newline-after": "always",
+    "declaration-block-semicolon-newline-after": "always",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-colon-newline-after": "always-multi-line",
+    "at-rule-no-unknown": null,
+    "import-notation": "string",
+    "comment-empty-line-before": null,
+    "function-no-unknown": null,
+    "selector-not-notation": "simple",
+    "selector-pseudo-element-colon-notation": "double",
+    "color-function-notation": "legacy",
+    "media-feature-range-notation": "prefix"
+  }
 }
