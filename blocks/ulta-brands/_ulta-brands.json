@@ -70,7 +70,8 @@
         {
             "id": "ulta-brands",
             "components": [
-                "ulta-brands-item"
+                "ulta-brands-item",
+                "ulta-separator"
             ]
         }
     ]
