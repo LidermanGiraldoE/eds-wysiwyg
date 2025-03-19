@@ -61,6 +61,8 @@ export default function decorate(block) {
     imageContainer.appendChild(img);
 
     // Información del compromiso
+    const infoContainer = document.createElement('div');
+
     infoContainer.classList.add('ulta-corporate-commitment-info');
 
     // Título (conservando richText)
