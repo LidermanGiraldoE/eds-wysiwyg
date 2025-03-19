@@ -1,6 +1,7 @@
 {
   "extends": [
-    "stylelint-config-standard"
+    "stylelint-config-standard",
+    "stylelint-config-recess-order"
   ],
   "rules": {
     "rule-empty-line-before": [
@@ -56,3 +57,4 @@
     "media-feature-range-notation": "prefix"
   }
 }
+
