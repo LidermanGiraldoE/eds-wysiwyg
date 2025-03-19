@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 export default function decorate(block) {
     const items = Array.from(block.children);
 
