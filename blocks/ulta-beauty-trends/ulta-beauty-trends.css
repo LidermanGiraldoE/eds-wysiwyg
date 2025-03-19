@@ -50,15 +50,9 @@
     max-width: 320px;
 }
 
-.ulta-beauty-trend-info h3, p {
+.ulta-beauty-trend-info h3,
+.ulta-beauty-trend-info p {
     margin: 0;
-}
-
-.ulta-beauty-trends-header  p {
-    font-size: 14px;
-    letter-spacing: 0.35px;
-    line-height: 20px;
-    color: #000;
 }
 
 .ulta-beauty-trend-brand {
