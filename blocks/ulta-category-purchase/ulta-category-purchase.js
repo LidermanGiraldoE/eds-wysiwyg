@@ -54,6 +54,11 @@ export default function decorate(block) {
     swiperWrapper.appendChild(slide);
   });
 
+  // Si hay 9 o menos items, centramos los elementos
+  if (items.length <= 9) {
+    swiperWrapper.classList.add('center-items');
+  }
+
   // Botones de navegación
   const createNavButton = (className, imgAlt) => {
     const button = document.createElement('div');
