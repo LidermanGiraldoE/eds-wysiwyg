@@ -21,7 +21,7 @@ module.exports = {
     requireConfigFile: false,
   },
   rules: {
-    'eqeqeq': [2, 'smart'],
+    eqeqeq: [2, 'smart'],
     'guard-for-in': 2,
     'lines-around-comment': [
       2,
@@ -83,10 +83,10 @@ module.exports = {
     'no-use-before-define': 2,
     'no-with': 2,
     'operator-assignment': [2, 'always'],
-    'radix': 2,
-    'semi': [2, 'always'],
+    radix: 2,
+    semi: [2, 'always'],
     'semi-spacing': 2,
-    'strict': ['error', 'function'],
+    strict: ['error', 'function'],
     'use-isnan': 2,
     'valid-typeof': 2,
     'vars-on-top': 2,
