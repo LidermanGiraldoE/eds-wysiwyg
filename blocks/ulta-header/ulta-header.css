@@ -1,0 +1,145 @@
+/* Contenedor global generado por AEM */
+.ulta-header-container .ulta-header-wrapper {
+  width: 100%;
+  max-width: unset;
+  padding: 0;
+  margin: 0 auto;
+  background-color: #fff; /* Ajusta el color de fondo si es necesario */
+}
+
+/* Contenedor interno limitado a 1360px */
+.ulta-header-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 16px; /* Padding opcional para evitar que el contenido pegue al borde en dispositivos pequeños */
+  box-sizing: border-box;
+}
+
+/* Barra superior */
+.ulta-header-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+.ulta-header-topbar-shipping {
+  background-color: #FBF1F3;
+}
+
+.ulta-header-topbar-shipping span {
+  color: #BB2759; 
+  padding: 4px;
+}
+
+.ulta-header-topbar-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+}
+
+.ulta-header-topbar-links a {
+  text-decoration: none;
+  color: #7D7D7D;
+}
+
+.ulta-header-topbar-links a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor principal del header */
+.ulta-header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  gap: 16px;
+}
+
+/* Logo */
+.ulta-header-logo img {
+  max-height: 40px; 
+  display: block;
+}
+
+/* Navegación principal */
+.ulta-header-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.ulta-header-nav a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Buscador */
+.ulta-header-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1; 
+  max-width: 400px; 
+  font-size: 12px;
+}
+
+.ulta-header-search input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.ulta-header-search button {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.ulta-header-search button img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Íconos (favoritos, cuenta, bolsa) */
+.ulta-header-icons {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.ulta-header-icon img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .ulta-header-main {
+    flex-wrap: wrap;
+  }
+
+  .ulta-header-search {
+    order: 3;
+    width: 100%;
+    max-width: none;
+    margin-top: 8px;
+  }
+
+  .ulta-header-nav {
+    order: 2;
+  }
+
+  .ulta-header-icons {
+    order: 4;
+    margin-top: 8px;
+  }
+}
