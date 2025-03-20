@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* global Swiper */
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
@@ -15,9 +16,11 @@ export default function decorate(block) {
 
   // Crear contenedor de Swiper
   const swiperContainer = document.createElement('div');
+
   swiperContainer.classList.add('ulta-beauty-trends-swiper', 'swiper');
 
   const swiperWrapper = document.createElement('div');
+
   swiperWrapper.classList.add('ulta-beauty-trends-wrapper', 'swiper-wrapper');
 
   // Crear los slides de tendencias de belleza basados en los elementos restantes
@@ -34,6 +37,7 @@ export default function decorate(block) {
     const linkUrl = link?.href || '#';
 
     const slide = document.createElement('div');
+
     slide.classList.add('ulta-beauty-trend-slide', 'swiper-slide');
 
     slide.innerHTML = `
@@ -58,6 +62,7 @@ export default function decorate(block) {
   // Botones de navegación
   const createNavButton = (className, imgAlt) => {
     const button = document.createElement('div');
+
     button.classList.add('ulta-beauty-trends-button', className, `swiper-button-${className.split('-')[2]}`);
     button.innerHTML = `<img src="https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/icons/arrow.svg" alt="${imgAlt}" class="ulta-beauty-trends-arrow">`;
     return button;
@@ -68,15 +73,18 @@ export default function decorate(block) {
 
   // Título y botón "Ver todo"
   const headerContainer = document.createElement('div');
+
   headerContainer.classList.add('ulta-beauty-trends-header');
 
   // Título
   const titleH2 = document.createElement('h2');
+
   titleH2.textContent = titleText;
   moveInstrumentation(titleParagraph, titleH2);
 
   // Crear párrafo para el botón
   const viewAllText = document.createElement('p');
+
   viewAllText.textContent = descriptionText;
   moveInstrumentation(descriptionParagraph, viewAllText);
 

@@ -3,6 +3,7 @@ export default function decorate(block) {
 
   const heightDesktop = paragraphs[0]?.textContent.trim() || '20px';
   const heightMobile = paragraphs[1]?.textContent.trim() || '10px';
+
   let separatorColor = paragraphs[2]?.textContent.trim() || 'FFFFFF';
 
   if (!separatorColor.startsWith('#')) {
@@ -10,6 +11,7 @@ export default function decorate(block) {
   }
 
   const separator = document.createElement('div');
+
   separator.style.backgroundColor = separatorColor;
 
   const setSeparatorHeight = () => {

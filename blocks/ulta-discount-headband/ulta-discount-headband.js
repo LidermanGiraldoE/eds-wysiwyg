@@ -24,12 +24,14 @@ export default function decorate(block) {
 
   // Crear el contenedor principal del cintillo de descuento
   const discountContent = document.createElement('div');
+
   discountContent.classList.add('ulta-discount-headband');
   discountContent.style.backgroundColor = backgroundColor;
   discountContent.style.color = textColor;
 
   // Manejo del texto del descuento
   const discountTextDiv = document.createElement('div');
+
   discountTextDiv.classList.add('ulta-discount-headband-text');
   discountTextDiv.style.color = textColor;
   discountTextDiv.innerHTML = discountText;
@@ -37,12 +39,14 @@ export default function decorate(block) {
 
   // Manejo del código de descuento
   const discountCodeDiv = document.createElement('div');
+
   discountCodeDiv.classList.add('ulta-discount-headband-code');
   discountCodeDiv.innerHTML = discountCode;
   moveInstrumentation(discountCodeElement, discountCodeDiv);
 
   // Manejo del enlace
   const discountLink = document.createElement('a');
+
   discountLink.classList.add('ulta-discount-headband-link');
   discountLink.href = linkUrl;
   discountLink.innerHTML = linkText;

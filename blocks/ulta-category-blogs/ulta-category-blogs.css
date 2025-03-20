@@ -1,7 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .ulta-category-title div p{
     text-align: center;
     letter-spacing: 0.42px;
-    color: #000000;
+    color: #000;
     opacity: 1;
     font-size: 28px;
     line-height: 32px;
@@ -11,9 +12,10 @@
 
 .ulta-category-subtitle div p {
     text-align: center;
-    font: normal normal normal 20px/24px Chronicle Deck;
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font: normal normal normal 20px/24px 'Chronicle Deck';
     letter-spacing: 0.5px;
-    color: #000000;
+    color: #0000;
     opacity: 1;
     line-height: 24px;
     font-size: 20px;
@@ -54,7 +56,7 @@
 /* Estilos diferenciados para el título del servicio */
 .ulta-category-card-title p {
     text-align: left;
-    color: #000000;
+    color: #000;
     opacity: 1;
     line-height: 20px;
     font-size: 16px;
@@ -63,11 +65,12 @@
 }
 
 /* Estilos diferenciados para la descripción */
-.ulta-category-card-description p{
+.ulta-category-card-description p {
     text-align: left;
-    font: normal normal normal 14px/20px Circular Std;
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font: normal normal normal 14px/20px 'Circular Std';
     letter-spacing: 0.14px;
-    color: #000000;
+    color: #000;
     opacity: 1;
     line-height: 20px;
     font-size: 14px;
@@ -79,7 +82,8 @@
 .ulta-category-cta {
     text-align: left;
     text-decoration: underline;
-    font: normal normal normal 14px/20px Circular Std;
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font: normal normal normal 14px/20px 'Circular Std';
     letter-spacing: 0.35px;
     color: #0D0D0D;
     opacity: 1;
@@ -115,8 +119,7 @@
         height: auto;
     }
 
-    .ulta-category-card-description p{
+    .ulta-category-card-description p {
         margin-bottom: 16px;
-
     }
 }

@@ -68,6 +68,12 @@
     ]
   },
   {
+    "id": "ulta-404",
+    "components": [
+      "ulta-404-item"
+    ]
+  },
+  {
     "id": "ulta-article-list",
     "components": [
       "ulta-article-list-block"

@@ -3,6 +3,7 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const div = document.createElement('div');
+
   div.className = 'ulta-promotions-headband-list';
 
   let slides = [];
@@ -10,6 +11,7 @@ export default function decorate(block) {
   const extractSlides = () => {
     slides = [];
     const rows = [...block.children];
+
     if (rows.length > 3) {
       while (block.children.length > 3) {
         block.removeChild(block.lastChild);
@@ -17,14 +19,17 @@ export default function decorate(block) {
     }
     rows.slice(0, 3).forEach((row) => {
       const a = document.createElement('a');
+
       a.className = 'ulta-promotions-headband-item';
 
       const rowChildren = [...row.children];
+
       rowChildren.forEach((child, index) => {
         if (index === 0 || index === 1) {
           a.append(child.cloneNode(true));
         } else if (index === rowChildren.length - 1) {
           const url = child.querySelector('p')?.textContent.trim();
+
           if (url) {
             a.href = url;
           }
@@ -34,6 +39,7 @@ export default function decorate(block) {
       moveInstrumentation(row, a);
 
       const slide = document.createElement('div');
+
       slide.className = 'swiper-slide';
       slide.append(a);
       slides.push(slide);
@@ -57,6 +63,7 @@ export default function decorate(block) {
 
   const initializeSwiper = () => {
     const swiperContainer = document.createElement('div');
+
     swiperContainer.className = 'swiper ulta-promotions-headband-swiper';
     swiperContainer.innerHTML = `
       <div class="swiper-wrapper">
@@ -97,6 +104,7 @@ export default function decorate(block) {
 
       slides.forEach((slide) => {
         const clonedElement = slide.firstElementChild.cloneNode(true);
+
         if (clonedElement) {
           div.append(clonedElement);
         }

@@ -26,16 +26,19 @@ export default function decorate(block) {
 
   // Crear el contenedor principal del banner
   const bannerContent = document.createElement('div');
+
   bannerContent.classList.add('cart-purchase-banner');
   bannerContent.style.backgroundColor = backgroundColor;
 
   // Crear un contenedor para la imagen y la descripción
   const imageAndDescriptionContainer = document.createElement('div');
+
   imageAndDescriptionContainer.classList.add('cart-purchase-banner-image-description-container');
 
   // Manejo de la imagen del banner
   if (imageBannerSrc) {
     const bannerImage = document.createElement('img');
+
     bannerImage.classList.add('cart-purchase-banner-image');
     bannerImage.src = imageBannerSrc;
     moveInstrumentation(imageBannerElement, bannerImage);
@@ -45,6 +48,7 @@ export default function decorate(block) {
   // Manejo de la descripción
   if (description) {
     const descriptionDiv = document.createElement('div');
+
     descriptionDiv.classList.add('cart-purchase-banner-description');
     descriptionDiv.innerHTML = description;
     moveInstrumentation(descriptionElement, descriptionDiv);
@@ -57,16 +61,19 @@ export default function decorate(block) {
   // Manejo del enlace
   if (linkUrl) {
     const bannerLink = document.createElement('a');
+
     bannerLink.classList.add('cart-purchase-banner-link');
     bannerLink.href = linkUrl;
     // Agregar el texto del enlace dentro del enlace
     const linkTextDiv = document.createElement('div');
+
     linkTextDiv.innerHTML = linkText;
     bannerLink.appendChild(linkTextDiv);
 
     // Manejo de la imagen de la flecha dentro del enlace
     if (logoArrowSrc) {
       const logoArrowImage = document.createElement('img');
+
       logoArrowImage.classList.add('cart-purchase-banner-arrow');
       logoArrowImage.src = logoArrowSrc;
       moveInstrumentation(logoArrowElement, logoArrowImage);

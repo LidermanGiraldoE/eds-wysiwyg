@@ -9,6 +9,7 @@ export default function decorate(block) {
 
   // Crear encabezado con clases diferenciadas
   const header = document.createElement('div');
+
   header.classList.add('ulta-category-header');
   if (mainTitle) {
     mainTitle.classList.add('ulta-category-title'); // Clase para título principal
@@ -23,6 +24,7 @@ export default function decorate(block) {
   block.appendChild(header);
   // Crear contenedor de tarjetas
   const blogContainer = document.createElement('div');
+
   blogContainer.classList.add('ulta-category-container');
   items.forEach((item) => {
     // Verificar si el item contiene información relevante
@@ -31,6 +33,7 @@ export default function decorate(block) {
     const cardTitle = item.querySelector('div:nth-of-type(2)');
     const cardDescription = item.querySelector('div:nth-of-type(3)');
     const buttonContainer = item.querySelector('.button-container');
+
     if (!img || !cardTitle || !cardDescription || !buttonContainer) {
       return;
     }
@@ -39,14 +42,17 @@ export default function decorate(block) {
     const href = buttonLink ? buttonLink.getAttribute('href') : '#';
     // Crear tarjeta
     const blogCard = document.createElement('div');
+
     blogCard.classList.add('ulta-category-card');
     // Agregar imagen
     const imgContainer = document.createElement('div');
+
     imgContainer.classList.add('ulta-category-image');
     imgContainer.appendChild(img);
     blogCard.appendChild(imgContainer);
     // Contenedor de texto
     const textContainer = document.createElement('div');
+
     textContainer.classList.add('ulta-category-text');
     // Aplicar clases diferenciadas a título y descripción
     cardTitle.classList.add('ulta-category-card-title'); // Clase para el título del servicio
@@ -55,6 +61,7 @@ export default function decorate(block) {
     textContainer.appendChild(cardDescription);
     // Crear enlace "Saber más"
     const ctaElement = document.createElement('a');
+
     ctaElement.classList.add('ulta-category-cta');
     ctaElement.href = href;
     ctaElement.textContent = 'Saber más';

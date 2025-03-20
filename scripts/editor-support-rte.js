@@ -1,3 +1,6 @@
+/* eslint-disable max-len */
+/* eslint-disable max-depth */
+/* eslint-disable newline-after-var */
 /* eslint-disable no-console */
 /* eslint-disable no-cond-assign */
 /* eslint-disable import/prefer-default-export */

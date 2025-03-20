@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* global Swiper */
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
@@ -24,9 +25,11 @@ export default function decorate(block) {
 
   // Contenedor principal de Swiper
   const swiperContainer = document.createElement('div');
+
   swiperContainer.classList.add('ulta-category-purchase-swiper', 'swiper');
 
   const swiperWrapper = document.createElement('div');
+
   swiperWrapper.classList.add('ulta-category-purchase-wrapper-carrousel', 'swiper-wrapper');
 
   // Crear los slides
@@ -39,6 +42,7 @@ export default function decorate(block) {
     const linkUrl = linkElement?.href || '#';
 
     const slide = document.createElement('div');
+
     slide.classList.add('ulta-category-purchase-slide', 'swiper-slide');
 
     slide.innerHTML = `
@@ -62,6 +66,7 @@ export default function decorate(block) {
   // Botones de navegación
   const createNavButton = (className, imgAlt) => {
     const button = document.createElement('div');
+
     button.classList.add('ulta-category-purchase-button', className, `swiper-button-${className.split('-')[2]}`);
     button.innerHTML = `<img src="https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/icons/arrow.svg" alt="${imgAlt}" class="ulta-category-purchase-arrow">`;
     return button;
@@ -72,9 +77,11 @@ export default function decorate(block) {
 
   // Título del bloque
   const titleContainer = document.createElement('div');
+
   titleContainer.classList.add('ulta-category-purchase-title');
 
   const titleH2 = document.createElement('h2');
+
   titleH2.textContent = titleText;
 
   if (titleParagraph) {

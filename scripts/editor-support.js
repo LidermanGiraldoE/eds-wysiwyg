@@ -1,3 +1,6 @@
+/* eslint-disable max-depth */
+/* eslint-disable max-len */
+/* eslint-disable newline-after-var */
 import {
   decorateBlock,
   decorateBlocks,
