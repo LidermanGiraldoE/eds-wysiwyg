@@ -1,10 +1,10 @@
 export default function decorate(block) {
   const form = document.createElement('form');
   const leftSide = document.createElement('div');
-  const rightSide = document.createElement('img');
+  const formImage = document.createElement('img');
 
   leftSide.classList.add('left-side');
-  rightSide.classList.add('right-side');
+  formImage.classList.add('right-side');
 
   const createPTag = (name, text) => {
     const p = document.createElement('p');
@@ -22,28 +22,33 @@ export default function decorate(block) {
   const productTitle = createPTag('product-title', '*nombre*');
   const calificationTitle = createPTag('calification-title', 'Tu puntuacion*');
 
-  const createInputContainer = (className, title, textArea = false) => {
+  const createInputContainer = (title, textArea = false) => {
     const div = document.createElement('div');
     const p = document.createElement('p');
     const input = document.createElement(textArea ? 'textarea': 'input');
     p.textContent = title;
+    textArea ? input.name = 'Review' : input.type = 'text';
+    input.title = 'input'
 
-    div.classList.add(className);
+    div.classList.add('form-input-container');
     div.replaceChildren(p, input);
     return div;
   }
 
-  const formNameContainer = createInputContainer('form-name-container', 'Nombre o apodo');
-  const formMatterContainer = createInputContainer('form-matter-container', 'Asunto de la reseña');
-  const formReviewContainer = createInputContainer('form-name-container', 'Reseña', true);
+  const formNameContainer = createInputContainer('Nombre o apodo');
+  const formMatterContainer = createInputContainer('Asunto de la reseña');
+  const formReviewContainer = createInputContainer('Reseña', true);
+
+  const formSubmitButton = document.createElement('button');
+  formSubmitButton.setAttribute('type', 'button');
+  formImage.setAttribute('alt', '*alt image*');
+  formSubmitButton.textContent = 'ENVIAR RESEÑA';
 
   productTitleContainer.replaceChildren(formSubTitle, productTitle);
   calificationContainer.replaceChildren(calificationTitle);
   infoContainer.replaceChildren(formNameContainer, formMatterContainer, formReviewContainer);
 
-  leftSide.replaceChildren(formTitle, productTitleContainer, calificationContainer, infoContainer);
-  form.replaceChildren(leftSide, rightSide);
+  leftSide.replaceChildren(formTitle, productTitleContainer, calificationContainer, infoContainer, formSubmitButton);
+  form.replaceChildren(leftSide, formImage);
   block.replaceChildren(form);
-
-  console.log(block);
 }

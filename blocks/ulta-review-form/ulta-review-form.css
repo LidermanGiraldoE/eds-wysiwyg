@@ -1,0 +1,78 @@
+@font-face {
+  font-family: CircularStd-Book;
+  src: url(../../fonts/CircularStd-Book.ttf);
+}
+
+@font-face {
+  font-family: CircularStd-Medium;
+  src: url(../../fonts/CircularStd-Medium.ttf);
+}
+
+@font-face {
+  font-family: CircularStd-Bold;
+  src: url(../../fonts/CircularStd-Bold.ttf);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+
+  > div, img {
+    width: 50%;
+  }
+}
+
+p {
+  margin: 0;
+  letter-spacing: 0px;
+}
+
+.form-title {
+  font-family: CircularStd-Medium;
+  font-size: 24px;
+}
+
+.form-sub-title, 
+.calification-title, 
+.form-input-container > p, 
+button {
+  font-size: 14px;
+  font-family: CircularStd-Book;
+}
+
+.form-sub-title {
+  color: #6E6E6E;
+  letter-spacing: 0.35px;
+}
+
+.product-title {
+  font-family: CircularStd-Bold;
+  font-size: 20px;
+}
+
+.calification-title, .form-input-container > p {
+  color: #373836;
+}
+
+input, textarea {
+  border: black 1px solid;
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  width: 100%;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  padding: 12px 0;
+}
