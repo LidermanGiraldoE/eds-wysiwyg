@@ -35,6 +35,7 @@ p {
 .form-title {
   font-family: CircularStd-Medium;
   font-size: 24px;
+  margin-bottom: 15px;
 }
 
 .form-sub-title, 
@@ -48,15 +49,31 @@ button {
 .form-sub-title {
   color: #6E6E6E;
   letter-spacing: 0.35px;
+  margin-bottom: 5px;
 }
 
 .product-title {
   font-family: CircularStd-Bold;
   font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .calification-title, .form-input-container > p {
   color: #373836;
+}
+
+.calification-title {
+  margin-bottom: 18px;
+}
+
+.form-input-container {
+  > p {
+    margin-bottom: 5px;
+  }
+
+  > input, textarea {
+    margin-bottom: 18px;
+  }
 }
 
 input, textarea {
