@@ -1,12 +1,13 @@
 export default function decorate(block) {
-  // Limpia el contenido existente del bloque
+  // Limpiamos el contenido existente
   block.innerHTML = '';
 
-  // Construimos el HTML "quemado" con la clase renombrada a .ulta-header-inner
+  // Inyectamos HTML quemado
   block.innerHTML = `
-    <div class="ulta-header-inner">
-      <!-- Barra superior -->
-      <div class="ulta-header-topbar">
+    <!-- Barra superior (full-width) -->
+    <div class="ulta-header-topbar">
+      <!-- Contenedor interno limitado a 1360px -->
+      <div class="ulta-header-topbar-inner">
         <div class="ulta-header-topbar-shipping">
           <span>Envío gratuito en órdenes mayores a MXN$600</span>
         </div>
@@ -19,14 +20,17 @@ export default function decorate(block) {
           </ul>
         </div>
       </div>
+    </div>
 
+    <!-- Contenedor interno (máximo 1360px) para el resto del header -->
+    <div class="ulta-header-inner">
       <!-- Contenedor principal -->
       <div class="ulta-header-main">
         <!-- Logo -->
         <div class="ulta-header-logo">
           <a href="#">
             <img 
-              src="https://author-p34631-e1321407.adobeaemcloud.com/ui#/aem/assetdetails.html/content/dam/learning-wysiwyg-con-edge-delivery-services/generales/logos/Logo%20desktop.svg" 
+              src="../icons/Logodesktop.svg" 
               alt="Ulta Beauty Logo"
             />
           </a>
@@ -52,7 +56,7 @@ export default function decorate(block) {
           />
           <button type="button" aria-label="Buscar">
             <img 
-              src="https://via.placeholder.com/16x16?text=🔍" 
+              src="../icons/Search--Streamline-Streamline--3.0.svg" 
               alt="Icono de búsqueda"
             />
           </button>
@@ -62,19 +66,19 @@ export default function decorate(block) {
         <div class="ulta-header-icons">
           <a href="#" class="ulta-header-icon" aria-label="Favoritos">
             <img 
-              src="https://via.placeholder.com/16x16?text=❤" 
+              src="../icons/Grupo200284.svg" 
               alt="Ícono de favoritos"
             />
           </a>
           <a href="#" class="ulta-header-icon" aria-label="Bolsa de compras">
             <img 
-              src="https://via.placeholder.com/16x16?text=🛍" 
+              src="../icons/bag.svg" 
               alt="Ícono de bolsa de compras"
             />
           </a>
           <a href="#" class="ulta-header-icon" aria-label="Mi cuenta">
             <img 
-              src="https://via.placeholder.com/16x16?text=👤" 
+              src="../icons/Grupo201637.svg" 
               alt="Ícono de cuenta"
             />
           </a>
@@ -82,4 +86,23 @@ export default function decorate(block) {
       </div>
     </div>
   `;
+
+  // Agrega el listener al botón "Mi cuenta"
+  const accountButton = block.querySelector('.ulta-header-icon[aria-label="Mi cuenta"]');
+  if (accountButton) {
+    // En tu header.js, dentro del eventListener de "Mi cuenta":
+    // Ejemplo en header.js
+    const accountButton = block.querySelector('.ulta-header-icon[aria-label="Mi cuenta"]');
+    if (accountButton) {
+      accountButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Buscamos el overlay del login
+        const overlay = document.querySelector('.ulta-login-cdc-overlay');
+        if (overlay) {
+          overlay.style.display = 'block'; // Muestra el panel
+        }
+      });
+    }
+  }
 }
+

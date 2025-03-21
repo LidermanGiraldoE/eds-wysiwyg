@@ -67,11 +67,46 @@ function initializeGigya(container) {
 }
 
 export default async function decorate(block) {
-  console.log('block', block);
+  // Limpiamos el contenido existente
   block.innerHTML = '';
 
+  // 1) Creamos el overlay que cubre la pantalla
+  const overlay = document.createElement('div');
+  overlay.classList.add('ulta-login-cdc-overlay');
+  // Por defecto, oculto
+  overlay.style.display = 'none';
+
+  // 2) Creamos el panel lateral
+  const panel = document.createElement('div');
+  panel.classList.add('ulta-login-cdc-panel');
+
+  // 3) Crea un contenedor para el "header" del panel
+  const panelHeader = document.createElement('div');
+  panelHeader.classList.add('ulta-login-cdc-header');
+
+  // 4) Crea el botón de cerrar
+  const closeButton = document.createElement('button');
+  closeButton.classList.add('ulta-login-cdc-close');
+  closeButton.type = 'button';
+  closeButton.innerHTML = '<img src="../icons/X.svg" alt="Cerrar" />';
+
+  // 5) El contenedor para Gigya
   const container = document.createElement('div');
   container.id = 'ulta-login-cdc-container';
-  block.appendChild(container);
+
+  // 6) Arma la estructura
+  panelHeader.appendChild(closeButton);   
+  panel.appendChild(panelHeader);        
+  panel.appendChild(container);
+  overlay.appendChild(panel);
+  block.appendChild(overlay);
+
+  // 7) Inicializa Gigya
   initializeGigya(container);
+
+  // 8) Evento para cerrar el overlay
+  closeButton.addEventListener('click', () => {
+    overlay.style.display = 'none';
+  });
 }
+
