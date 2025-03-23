@@ -88,8 +88,7 @@
   {
     "id": "ulta-brands",
     "components": [
-      "ulta-brands-item",
-      "ulta-separator"
+      "ulta-brands-item"
     ]
   },
   {

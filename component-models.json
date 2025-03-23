@@ -433,28 +433,42 @@
     ]
   },
   {
-    "id": "ulta-brands-item",
+    "id": "ulta-brands",
     "fields": [
       {
-        "component": "reference",
+        "component": "text",
         "valueType": "string",
-        "name": "image",
-        "label": "Brand Logo",
-        "alt": "Brand Logo Alt Text",
-        "title": "Brand Logo Title"
-      },
+        "name": "title",
+        "label": "Block Title"
+      }
+    ]
+  },
+  {
+    "id": "ulta-brands-item",
+    "fields": [
       {
         "component": "text",
         "valueType": "string",
         "name": "brandName",
-        "label": "Brand Name",
-        "description": "SEO Brand Name Description"
+        "label": "Brand name"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "brandImage",
+        "label": "Brand image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "brandImageAlt",
+        "label": "Brand image Alt"
       },
       {
         "component": "aem-content",
-        "name": "brandLink",
-        "label": "Brand URL",
-        "title": "Link to Brand"
+        "name": "linkurl",
+        "label": "Brand link URL"
       }
     ]
   },
