@@ -1,0 +1,177 @@
+/* Bloque principal */
+.ulta-brand {
+    position: relative;
+    max-width: 100%;
+}
+
+/* Título */
+.ulta-brand-title {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.ulta-brand-title h2 {
+    font-size: 32px;
+    line-height: 32px;
+    margin: 0;
+    letter-spacing: 0;
+    min-height: 32px;
+}
+
+/* Swiper */
+.ulta-brand-swiper {
+    overflow: hidden;
+}
+
+.ulta-brand-wrapper-carrousel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Predeterminado a la izquierda */
+}
+
+/* Cuando hay 9 o menos items, centramos los slides */
+.ulta-brand-wrapper-carrousel.center-items {
+    justify-content: center; /* Centramos los elementos */
+}
+
+/* Slides */
+.ulta-brand-slide {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 122px;
+}
+
+/* Elemento categoría */
+.ulta-brand-item {
+    text-decoration: none;
+    color: black;
+}
+
+/* Imagen */
+.ulta-brand-image {
+    width: 122px;
+    height: 122px;
+}
+
+/* Nombre de la categoría */
+.ulta-brand-name {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: var(--font-weight-book);
+    letter-spacing: 0.36px;
+    line-height: 16px;
+}
+
+/* Botones de navegación */
+.ulta-brand-button {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    z-index: 10;
+    opacity: 1 !important;
+}
+
+/* Flechas de navegación */
+.ulta-brand-arrow {
+    width: 16px;
+    height: 14.65px;
+    padding: 12px;
+}
+
+.ulta-brand-button-prev .ulta-brand-arrow {
+    transform: rotate(180deg);
+}
+
+.ulta-brand-button-prev {
+    left: -20px;
+}
+
+.ulta-brand-button-next {
+    right: -20px;
+}
+
+.ulta-brand-button::after {
+    display: none;
+}
+
+.ulta-brand-button.swiper-button-disabled {
+    display: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* RESPONSIVE */
+
+@media (width <= 450px) {
+    .ulta-brand-wrapper {
+        padding: 0 16px !important;
+    }
+
+    .ulta-brand-title h2 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .ulta-brand-button {
+        display: none !important;
+    }
+
+    .ulta-brand-swiper {
+        overflow: visible;
+    }
+
+    .ulta-brand-wrapper-carrousel {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px 8px;
+        transform: none !important;
+    }
+
+    .ulta-brand-slide {
+        width: calc(25% - 8px);
+        max-width: 76px;
+        text-align: center;
+        margin-right: 0 !important;
+    }
+
+    .ulta-brand-image {
+        width: 76px;
+        height: 76px;
+    }
+
+    .ulta-brand-name {
+        font-size: 10px;
+        line-height: 14px;
+        margin-top: 8px;
+    }
+}
+
+@media (width <= 360px) {
+    .ulta-brand-slide {
+        width: calc(33.33% - 8px);
+    }
+}
+
+@media (width <= 280px) {
+    .ulta-brand-slide {
+        width: calc(50% - 8px);
+    }
+}
+
+@media (width <= 200px) {
+    .ulta-brand-slide {
+        width: 100%;
+    }
+}
