@@ -439,7 +439,8 @@
         "component": "text",
         "valueType": "string",
         "name": "title",
-        "label": "Block Title"
+        "label": "Block Title",
+        "value": ""
       }
     ]
   },
@@ -450,25 +451,29 @@
         "component": "text",
         "valueType": "string",
         "name": "brandName",
-        "label": "Brand name"
+        "label": "Brand name",
+        "value": ""
       },
       {
         "component": "reference",
         "valueType": "string",
         "name": "brandImage",
         "label": "Brand image",
-        "multi": false
+        "multi": false,
+        "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "brandImageAlt",
-        "label": "Brand image Alt"
+        "label": "Brand image Alt",
+        "value": ""
       },
       {
         "component": "aem-content",
         "name": "linkurl",
-        "label": "Brand link URL"
+        "label": "Brand link URL",
+        "value": ""
       }
     ]
   },

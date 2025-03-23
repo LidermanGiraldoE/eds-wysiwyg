@@ -12,10 +12,14 @@ export default function decorate(block) {
     if (typeof Swiper !== 'undefined') {
       return new Swiper('.ulta-brand-swiper', {
         slidesPerView: 'auto',
-        spaceBetween: 15,
+        spaceBetween: 14,
         navigation: {
           nextEl: '.ulta-brand-button-next',
           prevEl: '.ulta-brand-button-prev',
+        },
+        pagination: {
+          el: '.ulta-brand-pagination',
+          clickable: true,
         },
       });
     }
@@ -54,8 +58,8 @@ export default function decorate(block) {
     swiperWrapper.appendChild(slide);
   });
 
-  // Si hay 9 o menos items, centramos los elementos
-  if (items.length <= 9) {
+  // Si hay 5 o menos items, centramos los elementos
+  if (items.length <= 5) {
     swiperWrapper.classList.add('center-items');
   }
 
@@ -63,7 +67,7 @@ export default function decorate(block) {
   const createNavButton = (className, imgAlt) => {
     const button = document.createElement('div');
     button.classList.add('ulta-brand-button', className, `swiper-button-${className.split('-')[2]}`);
-    button.innerHTML = `<img src="https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/icons/arrow.svg" alt="${imgAlt}" class="ulta-brand-arrow">`;
+    button.innerHTML = `<img src="../icons/arrow.svg" alt="${imgAlt}" class="ulta-brand-arrow">`;
     return button;
   };
 
@@ -80,15 +84,18 @@ export default function decorate(block) {
   if (titleParagraph) {
     moveInstrumentation(titleParagraph, titleH2);
   }
-
   titleContainer.appendChild(titleH2);
+
+  // Agregar contenedor de paginación
+  const paginationContainer = document.createElement('div');
+  paginationContainer.classList.add('ulta-brand-pagination');
 
   // Armar la estructura
   swiperContainer.appendChild(swiperWrapper);
   block.innerHTML = '';
-  block.append(titleContainer, prevButton, swiperContainer, nextButton);
+  block.append(titleContainer, prevButton, swiperContainer, nextButton, paginationContainer);
   block.classList.add('ulta-brand');
 
-  // Inicializar Swiper directamente
+  // Inicializar Swiper
   initializeSwiper();
 }
