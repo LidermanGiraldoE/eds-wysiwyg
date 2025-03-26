@@ -1,7 +1,7 @@
 export default function decorate(block) {
-  block.classList.add('button-block');
-  
-  // Suponiendo que el contenido del bloque es un <button>
+  block.classList.add('test-buttom');
+
+  // Se espera que el bloque contenga un elemento <button>.
   const btn = block.querySelector('button');
   if (btn) {
     btn.addEventListener('click', () => {

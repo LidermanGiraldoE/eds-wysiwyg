@@ -71,8 +71,8 @@
   {
     "id": "test-container",
     "components": [
-      "text",
-      "button"
+      "test-text",
+      "test-buttom"
     ]
   },
   {

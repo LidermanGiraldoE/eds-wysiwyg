@@ -1,14 +1,14 @@
 {
   "definitions": [
     {
-      "title": "test-text",
+      "title": "Test Text",
       "id": "test-text",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "name": "test-text",
+              "name": "Test Text",
               "model": "test-text"
             }
           }

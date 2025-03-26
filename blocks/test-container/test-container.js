@@ -1,18 +1,15 @@
-import decorateText from '../text/text.js';
-import decorateButton from '../button/button.js';
+import { decorateBlocks, loadBlock } from '../../scripts/aem.js';
 
 export default function decorate(block) {
-  block.classList.add('container-block');
+  block.classList.add('test-container');
+
+  // Decora de forma automática todos los bloques hijos que ya están marcados
+  decorateBlocks(block);
+
+  // Opcional: Si deseas asegurarte de cargar individualmente ciertos bloques
+  const textBlock = block.querySelector('[data-block-id="test-text"]');
+  if (textBlock) loadBlock(textBlock);
   
-  // Buscar y decorar los bloques de texto dentro del container.
-  const textBlocks = block.querySelectorAll('[data-block-id="test-text"]');
-  textBlocks.forEach((child) => {
-    decorateText(child);
-  });
-  
-  // Buscar y decorar los bloques de botón dentro del container.
-  const buttonBlocks = block.querySelectorAll('[data-block-id="test-buttom"]');
-  buttonBlocks.forEach((child) => {
-    decorateButton(child);
-  });
+  const buttonBlock = block.querySelector('[data-block-id="test-buttom"]');
+  if (buttonBlock) loadBlock(buttonBlock);
 }

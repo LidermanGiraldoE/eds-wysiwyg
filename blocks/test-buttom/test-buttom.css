@@ -1,4 +1,4 @@
-.button-block button {
+.test-buttom button {
   padding: 10px 20px;
   background-color: #007acc;
   color: #fff;
@@ -6,6 +6,6 @@
   cursor: pointer;
 }
 
-.button-block button:hover {
+.test-buttom button:hover {
   background-color: #005fa3;
 }
