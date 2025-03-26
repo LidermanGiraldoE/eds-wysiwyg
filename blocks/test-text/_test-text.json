@@ -1,34 +1,33 @@
 {
-    "definitions": [
-      {
-        "title": "Text Prueba",
-        "id": "test-text",
-        "plugins": {
-          "xwalk": {
-            "page": {
-              "resourceType": "core/franklin/components/block/v1/block/item",
-              "template": {
-                "name": "Text Prueba",
-                "model": "test-text"
-              }
+  "definitions": [
+    {
+      "title": "test-text",
+      "id": "test-text",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "test-text",
+              "model": "test-text"
             }
           }
         }
       }
-    ],
-    "models": [
-      {
-        "id": "test-text",
-        "fields": [
-          {
-            "component": "richtext",
-            "name": "textContent",
-            "label": "Content",
-            "valueType": "string"
-          }
-        ]
-      }
-    ],
-    "filters": []
-  }
-  
+    }
+  ],
+  "models": [
+    {
+      "id": "test-text",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "textContent",
+          "label": "Content",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

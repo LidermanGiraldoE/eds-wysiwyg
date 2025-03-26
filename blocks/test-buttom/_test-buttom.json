@@ -1,14 +1,14 @@
 {
     "definitions": [
       {
-        "title": "Button Prueba",
+        "title": "test-buttom",
         "id": "test-buttom",
         "plugins": {
           "xwalk": {
             "page": {
               "resourceType": "core/franklin/components/block/v1/block/item",
               "template": {
-                "name": "Button Prueba",
+                "name": "test-buttom",
                 "model": "test-buttom"
               }
             }
