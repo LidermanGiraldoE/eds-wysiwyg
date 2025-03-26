@@ -1,0 +1,12 @@
+.button-block button {
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .button-block button:hover {
+    background-color: #005fa3;
+  }
+  

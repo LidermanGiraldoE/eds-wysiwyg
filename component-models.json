@@ -192,6 +192,28 @@
     ]
   },
   {
+    "id": "test-buttom",
+    "fields": [
+      {
+        "component": "text",
+        "name": "buttonText",
+        "label": "Button Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "test-text",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "textContent",
+        "label": "Content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "ulta-404",
     "fields": [
       {
