@@ -1,8 +1,8 @@
 {
     "definitions": [
         {
-            "title": "ulta-promotions-headband",
-            "id": "ulta-promotions-headband",
+            "title": "promotions-headband",
+            "id": "promotions-headband",
             "plugins": {
                 "xwalk": {
                     "page": {
@@ -16,15 +16,15 @@
             }
         },
         {
-            "title": "ulta-promotion-code",
-            "id": "ulta-promotion-code",
+            "title": "promotion-code",
+            "id": "promotion-code",
             "plugins": {
                 "xwalk": {
                     "page": {
                         "resourceType": "core/franklin/components/block/v1/block/item",
                         "template": {
-                            "name": "ulta-promotion-code",
-                            "model": "ulta-promotion-code"
+                            "name": "promotion-code",
+                            "model": "promotion-code"
                         }
                     }
                 }
@@ -33,20 +33,20 @@
     ],
     "models": [
         {
-            "id": "ulta-promotion-code",
+            "id": "promotion-code",
             "fields": [
                 {
                     "component": "text",
                     "valueType": "string",
                     "name": "title",
-                    "label": "Titulo",
+                    "label": "Title",
                     "value": ""
                 },
                 {
                     "component": "text",
                     "valueType": "string",
                     "name": "description",
-                    "label": "Descripción",
+                    "label": "Description",
                     "value": ""
                 },
                 {
@@ -59,9 +59,9 @@
     ],
     "filters": [
         {
-            "id": "ulta-promotions-headband",
+            "id": "promotions-headband",
             "components": [
-                "ulta-promotion-code"
+                "promotion-code"
             ]
         }
     ]

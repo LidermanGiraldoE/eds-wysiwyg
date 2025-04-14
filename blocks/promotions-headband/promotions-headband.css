@@ -1,10 +1,10 @@
-.ulta-promotions-headband-wrapper {
-    .ulta-promotions-headband-container & {
+.promotions-headband-wrapper {
+    .promotions-headband-container & {
         max-width: unset;
         padding: 0;
     }
 
-    .ulta-promotions-headband {
+    .promotions-headband {
         background-color: var(--color-gray-50);
         height: 68px;
         display: flex;
@@ -17,7 +17,7 @@
         }
     }
 
-    .ulta-promotions-headband-list {
+    .promotions-headband-list {
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
@@ -33,7 +33,7 @@
         }
     }
 
-    .ulta-promotions-headband-item {
+    .promotions-headband-item {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -70,7 +70,7 @@
     }
 
     @media (max-width: 900px) {
-        .ulta-promotions-headband {
+        .promotions-headband {
             height: 82px;
             box-sizing: border-box;
 
@@ -102,7 +102,7 @@
             }
         }
 
-        .ulta-promotions-headband-list {
+        .promotions-headband-list {
             display: none;
         }
     }

@@ -30,7 +30,7 @@
       "columns",
       "fragment",
       "ulta-separator",
-      "ulta-promotions-headband",
+      "promotions-headband",
       "ulta-main-banner",
       "ulta-category-purchase",
       "ulta-promotions-carousel",
@@ -131,6 +131,12 @@
     ]
   },
   {
+    "id": "promotions-headband",
+    "components": [
+      "promotion-code"
+    ]
+  },
+  {
     "id": "ulta-article-list",
     "components": [
       "ulta-article-list-block"
@@ -184,12 +190,6 @@
     "id": "ulta-promotions-carousel",
     "components": [
       "ulta-promotion-item"
-    ]
-  },
-  {
-    "id": "ulta-promotions-headband",
-    "components": [
-      "ulta-promotion-code"
     ]
   }
 ]
