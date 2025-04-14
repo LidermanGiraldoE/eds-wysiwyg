@@ -1,0 +1,50 @@
+header nav .nav-tools .nav-cart-button {
+ background-image: url('../../../icons/cart.svg');
+ background-repeat: no-repeat;
+ background-position: center;
+ position: relative;
+ display: block;
+}
+
+header nav .nav-tools .nav-cart-button[data-count]::after {
+ content: attr(data-count);
+ position: absolute;
+ top: -8px;
+ right: -8px;
+ background-color: var(--color-brand-700);
+ color: var(--color-neutral-100);
+ border-radius: 50%;
+ width: 1.75em;
+ height: 1.75em;
+ display: flex;
+ align-items: center;
+ font-size: 0.8em;
+ justify-content: center;
+}
+
+/* Mini Cart  */
+
+.cart-mini-cart:not(:has(.cart-empty-cart)) {
+ max-height: 760px;
+ min-height: 360px;
+}
+
+/* If viewport height is below max, set max height to 90% of viewport */
+@media (height < 820px) {
+ .cart-mini-cart:not(:has(.cart-empty-cart)) {
+  max-height: calc(100vh - var(--nav-height));
+ }
+}
+
+@media (width >= 1024px) {
+ header nav .minicart-panel {
+  width: 398px;
+ }
+}
+
+@media (width < 1024px) {
+ header .minicart-wrapper {
+  order: 1;
+  margin-top: -3px;
+ }
+}

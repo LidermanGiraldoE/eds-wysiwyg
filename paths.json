@@ -1,5 +1,11 @@
 {
   "mappings": [
-    "/content/learning-wysiwyg-con-edge-delivery-services/:/"
-  ]
+    "/content/learning-wysiwyg-con-edge-delivery-services/:/",
+    "/content/learning-wysiwyg-con-edge-delivery-services/headers:/.helix/headers.json",
+    "/content/learning-wysiwyg-con-edge-delivery-services/configs:/configs.json",
+    "/content/learning-wysiwyg-con-edge-delivery-services/configs-stage:/configs-stage.json",
+    "/content/learning-wysiwyg-con-edge-delivery-services/configs-dev:/configs-dev.json",
+    "/content/learning-wysiwyg-con-edge-delivery-services/placeholders:/placeholders.json"
+  ],
+  "includes": ["/content/learning-wysiwyg-con-edge-delivery-services/"]
 }

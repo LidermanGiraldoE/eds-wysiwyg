@@ -1,0 +1,48 @@
+@media (width < 1024px) {
+ header {
+  position: relative;
+ }
+
+ header nav .nav-brand img {
+  max-width: 60px
+ }
+
+ header .nav-wrapper.active,
+ header .nav-wrapper:has(nav[aria-expanded='true']) {
+  width: 100%;
+  height: 100%;
+
+  .nav-links {
+   display: flex;
+   flex-direction: column;
+  }
+
+  .pre-header-container {
+   display: none;
+  }
+ }
+
+ header .nav-wrapper.active nav .nav-hamburger button,
+ header .nav-wrapper:has(nav[aria-expanded='true']) nav .nav-hamburger button {
+  position: fixed;
+  right: 16px;
+  z-index: 5;
+ }
+
+ header nav {
+  position: relative;
+ }
+
+ header nav[aria-expanded='true'] {
+  gap: 32px;
+  width: 100%;
+ }
+
+ header nav[aria-expanded='true'] .nav-tools {
+  display: none;
+ }
+
+ header nav[aria-expanded='true'] .nav-brand {
+  display: none;
+ }
+}

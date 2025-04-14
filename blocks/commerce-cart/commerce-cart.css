@@ -1,0 +1,7 @@
+/**
+ * Copyright © infinite, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* Importing styles from index */
+@import url('../../styles/sources/commerce-cart/_index.css');

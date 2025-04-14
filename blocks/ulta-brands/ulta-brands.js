@@ -1,4 +1,4 @@
-/* global Swiper */
+import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
@@ -66,7 +66,11 @@ export default function decorate(block) {
   // Botones de navegación
   const createNavButton = (className, imgAlt) => {
     const button = document.createElement('div');
-    button.classList.add('ulta-brand-button', className, `swiper-button-${className.split('-')[2]}`);
+    button.classList.add(
+      'ulta-brand-button',
+      className,
+      `swiper-button-${className.split('-')[2]}`
+    );
     button.innerHTML = `<img src="../icons/arrow.svg" alt="${imgAlt}" class="ulta-brand-arrow">`;
     return button;
   };
@@ -93,7 +97,13 @@ export default function decorate(block) {
   // Armar la estructura
   swiperContainer.appendChild(swiperWrapper);
   block.innerHTML = '';
-  block.append(titleContainer, prevButton, swiperContainer, nextButton, paginationContainer);
+  block.append(
+    titleContainer,
+    prevButton,
+    swiperContainer,
+    nextButton,
+    paginationContainer
+  );
   block.classList.add('ulta-brand');
 
   // Inicializar Swiper

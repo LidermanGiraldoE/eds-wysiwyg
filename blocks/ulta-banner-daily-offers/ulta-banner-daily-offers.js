@@ -1,4 +1,4 @@
-/* global Swiper */
+import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
@@ -18,7 +18,10 @@ export default function decorate(block) {
   swiperContainer.classList.add('ulta-banner-daily-offers-swiper', 'swiper');
 
   const swiperWrapper = document.createElement('div');
-  swiperWrapper.classList.add('ulta-banner-daily-offers-wrapper-swiper', 'swiper-wrapper');
+  swiperWrapper.classList.add(
+    'ulta-banner-daily-offers-wrapper-swiper',
+    'swiper-wrapper'
+  );
 
   // Crear los slides de ofertas del día
   items.forEach((item) => {
@@ -62,13 +65,23 @@ export default function decorate(block) {
   // Botones de navegación (fuera del contenedor que oculta el overflow)
   const createNavButton = (className, imgAlt) => {
     const button = document.createElement('div');
-    button.classList.add('ulta-banner-daily-offers-button', className, `swiper-button-${className.split('-')[2]}`);
-    button.innerHTML = `<img src="https://author-p34631-e1321407.adobeaemcloud.com/content/dam/learning-wysiwyg-con-edge-delivery-services/icons/arrow.svg" alt="${imgAlt}" class="ulta-banner-daily-offers-arrow">`;
+    button.classList.add(
+      'ulta-banner-daily-offers-button',
+      className,
+      `swiper-button-${className.split('-')[2]}`
+    );
+    button.innerHTML = `<img src="../../icons/arrow.svg" alt="${imgAlt}" class="ulta-banner-daily-offers-arrow">`;
     return button;
   };
 
-  const prevButton = createNavButton('ulta-banner-daily-offers-button-prev', 'Previous');
-  const nextButton = createNavButton('ulta-banner-daily-offers-button-next', 'Next');
+  const prevButton = createNavButton(
+    'ulta-banner-daily-offers-button-prev',
+    'Previous'
+  );
+  const nextButton = createNavButton(
+    'ulta-banner-daily-offers-button-next',
+    'Next'
+  );
 
   // Contenedor de paginación (bolitas)
   const paginationContainer = document.createElement('div');

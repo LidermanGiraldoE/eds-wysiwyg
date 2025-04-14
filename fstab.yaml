@@ -3,3 +3,6 @@ mountpoints:
     url: "https://author-p34631-e1321407.adobeaemcloud.com/bin/franklin.delivery/lidermangiraldoe/eds-wysiwyg/main"
     type: "markup"
     suffix: ".html"
+folders:
+  /products/: "/products/default"
+  /categories/: "/categories/default"

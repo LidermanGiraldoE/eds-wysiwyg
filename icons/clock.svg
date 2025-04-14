@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_152235" data-name="Rectángulo 152235" width="24" height="24" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Reloj" transform="translate(23990 20119)">
+    <rect id="Rectángulo_152196" data-name="Rectángulo 152196" width="24" height="24" transform="translate(-23990 -20119)" fill="none"/>
+    <g id="clock" transform="translate(-23990 -20119)" clip-path="url(#clip-path)">
+      <path id="Trazado_89548" data-name="Trazado 89548" d="M12,.25A11.75,11.75,0,1,1,.25,12,11.75,11.75,0,0,1,12,.25Zm0,1.5A10.25,10.25,0,1,0,22.25,12,10.25,10.25,0,0,0,12,1.75Zm3.335,3.579a.75.75,0,0,1,.375.912l-.039.094-3,6a.75.75,0,0,1-1.381-.577l.039-.094,3-6A.75.75,0,0,1,15.335,5.329Z"/>
+    </g>
+  </g>
+</svg>

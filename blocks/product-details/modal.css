@@ -1,0 +1,24 @@
+.modal {
+  dialog.slide-right {
+    .modal-content {
+      margin-top: 64px;
+      padding: 24px;
+
+      .modal-title {
+        font: var(--type-display-6-font);
+        letter-spacing: var(--type-price-3-letter-spacing);
+      }
+
+      .modal-subtitle {
+        font: var(--type-body-1-emphasized-font);
+        letter-spacing: var(--type-price-6-letter-spacing);
+        margin-top: 24px;
+      }
+
+      .modal-description {
+        color: var(--color-gray-600);
+        font: var(--type-details-overline-font);
+      }
+    }
+  }
+}

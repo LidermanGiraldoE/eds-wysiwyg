@@ -1,108 +1,131 @@
-export default function decorate(block) {
-  // Limpiamos el contenido existente
-  block.innerHTML = '';
+import {
+  h, render,
+} from '@dropins/tools/preact.js';
+import { events } from '@dropins/tools/event-bus.js';
+import { useRef, useState } from '@dropins/tools/preact-hooks.js';
+import { provider as UI } from '@dropins/tools/components.js';
+import htm from '../../scripts/htm.js';
+import applyHashTagsForDomElement from '../../scripts/api/hashtags/api.js';
+import { GET_CATEGORIES } from './menu/commerce-categories.js';
 
-  // Inyectamos HTML quemado
-  block.innerHTML = `
-    <!-- Barra superior (full-width) -->
-    <div class="ulta-header-topbar">
-      <!-- Contenedor interno limitado a 1360px -->
-      <div class="ulta-header-topbar-inner">
-        <div class="ulta-header-topbar-shipping">
-          <span>Envío gratuito en órdenes mayores a MXN$600</span>
-        </div>
-        <div class="ulta-header-topbar-links">
-          <ul>
-            <li><a href="#">Iniciar sesión</a></li>
-            <li><a href="#">Registrarse</a></li>
-            <li><a href="#">Rastrea una orden</a></li>
-            <li><a href="#">Encuentra una tienda</a></li>
-          </ul>
-        </div>
+import { MainNav } from './menu/main-nav.js';
+import { Minicart } from './nav-tools/mini-cart.js';
+import { SearchBar } from './nav-tools/search-bar.js';
+import { AccountMenu } from './nav-tools/account-menu.js';
+import { WishList } from './nav-tools/wish-list.js';
+import { loadFragment } from '../fragment/fragment.js';
+import { getMetadata, fetchPlaceholders } from '../../scripts/aem.js';
+import { RegisterLogin } from './register-login-link.js';
+import { performMonolithGraphQLQuery } from '../../scripts/commerce.js';
+
+const html = htm.bind(h);
+
+const SiteHeader = ({
+    logo,
+    preHeader,
+    navLinks,
+    labels,
+    categories
+  }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navWrapperRef = useRef();
+  const navRef = useRef();
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+
+    if (navWrapperRef.current) {
+      navWrapperRef.current.classList.toggle('active', !isMenuOpen);
+    }
+
+    if (navRef.current) {
+      navRef.current.setAttribute('aria-expanded', String(!isMenuOpen));
+    }
+  };
+
+  return html`
+  <div class="nav-wrapper" ref=${navWrapperRef}>
+    <div class="pre-header-container" ref=${(el) => el && el.appendChild(preHeader)}></div>
+    <nav aria-expanded="false" ref=${navRef}>
+      <div class="nav-links" ref=${(el) => el && el.appendChild(navLinks)}>
+          <${RegisterLogin} label="${labels?.Custom?.Header?.Menu?.account}"/>
       </div>
-    </div>
-
-    <!-- Contenedor interno (máximo 1360px) para el resto del header -->
-    <div class="ulta-header-inner">
-      <!-- Contenedor principal -->
-      <div class="ulta-header-main">
-        <!-- Logo -->
-        <div class="ulta-header-logo">
-          <a href="#">
-            <img 
-              src="../icons/Logodesktop.svg" 
-              alt="Ulta Beauty Logo"
-            />
-          </a>
-        </div>
-
-        <!-- Navegación principal -->
-        <nav class="ulta-header-nav">
-          <ul>
-            <li><a href="#">Categorías</a></li>
-            <li><a href="#">Novedades</a></li>
-            <li><a href="#">Marcas</a></li>
-            <li><a href="#">Promociones</a></li>
-            <li><a href="#">Orgullosamente mexicano</a></li>
-          </ul>
-        </nav>
-
-        <!-- Buscador -->
-        <div class="ulta-header-search">
-          <input 
-            type="text" 
-            placeholder="Buscar productos y más" 
-            aria-label="Buscar productos"
-          />
-          <button type="button" aria-label="Buscar">
-            <img 
-              src="../icons/Search--Streamline-Streamline--3.0.svg" 
-              alt="Icono de búsqueda"
-            />
-          </button>
-        </div>
-
-        <!-- Íconos (favoritos, cuenta, bolsa) -->
-        <div class="ulta-header-icons">
-          <a href="#" class="ulta-header-icon" aria-label="Favoritos">
-            <img 
-              src="../icons/Grupo200284.svg" 
-              alt="Ícono de favoritos"
-            />
-          </a>
-          <a href="#" class="ulta-header-icon" aria-label="Bolsa de compras">
-            <img 
-              src="../icons/bag.svg" 
-              alt="Ícono de bolsa de compras"
-            />
-          </a>
-          <a href="#" class="ulta-header-icon" aria-label="Mi cuenta">
-            <img 
-              src="../icons/Grupo201637.svg" 
-              alt="Ícono de cuenta"
-            />
-          </a>
-        </div>
+      <div class="nav-hamburger"><button type="button" aria-controls="nav" aria-label="Open navigation" onClick=${toggleMenu}>
+        <span class="nav-hamburger-icon"></span>
+      </button></div>
+      <div class="nav-brand"><a href="/" aria-label="Ulta Beauty" ref=${(el) => el && el.appendChild(logo)}></a></div>
+      <div class="nav-sections">
+        <${MainNav} categories="${categories}" labels=${labels} />
       </div>
-    </div>
+      <div class="nav-tools">
+        <${SearchBar} labels=${labels} />
+        <${WishList} />
+        <${Minicart} />
+        <${AccountMenu} />
+      </div>
+    </nav>
+  </div>
   `;
+};
 
-  // Agrega el listener al botón "Mi cuenta"
-  const accountButton = block.querySelector('.ulta-header-icon[aria-label="Mi cuenta"]');
-  if (accountButton) {
-    // En tu header.js, dentro del eventListener de "Mi cuenta":
-    // Ejemplo en header.js
-    const accountButton = block.querySelector('.ulta-header-icon[aria-label="Mi cuenta"]');
-    if (accountButton) {
-      accountButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Buscamos el overlay del login
-        const overlay = document.querySelector('.ulta-login-cdc-overlay');
-        if (overlay) {
-          overlay.style.display = 'block'; // Muestra el panel
-        }
-      });
+export default async function decorate(block) {
+  // load nav as fragment
+  const navMeta = getMetadata('nav');
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  const fragment = await loadFragment(navPath);
+  const sections = fragment.querySelectorAll('.section');
+  const labels = await fetchPlaceholders();
+  const pictureLogo = sections[1].querySelector('picture');
+  const preHeader = sections[0].querySelector('.columns-2-cols');
+
+  const categoriesResponse = await performMonolithGraphQLQuery(
+    GET_CATEGORIES,
+    {},
+    true
+  );
+  const categories = categoriesResponse.data.categories.items[0].children;
+
+  const ul = sections[0].querySelector('.columns-2-cols > div > div > ul');
+  const registerLoginLi = document.createElement('li');
+  UI.render(
+    RegisterLogin,
+    { label: labels?.Custom?.Header?.Topheader?.account }
+  )(registerLoginLi);
+  ul.insertBefore(registerLoginLi, ul.firstChild);
+
+  const navLinks = document.createDocumentFragment();
+
+  let next = ul.nextElementSibling;
+  while (next) {
+    const toCheck = next;
+    next = next.nextElementSibling;
+
+    if (toCheck.classList.contains('block-image-wrapper')) {
+      navLinks.appendChild(toCheck);
     }
   }
+
+  return new Promise((resolve) => {
+    const app = html`<${SiteHeader} 
+            logo="${pictureLogo}"
+            preHeader="${preHeader}"
+            navLinks="${navLinks}"
+            block=${block}
+            resolve=${resolve}
+            labels=${labels}
+            categories=${categories}
+    />`;
+    render(app, block);
+  });
 }
 
+events.on('cart/initialized', () => {
+  applyHashTagsForDomElement('nav');
+}, { eager: true });
+
+events.on('cart/updated', () => {
+  applyHashTagsForDomElement('nav');
+}, { eager: true });
+
+events.on('cart/reset', () => {
+  applyHashTagsForDomElement('nav');
+}, { eager: true });

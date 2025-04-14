@@ -3,7 +3,7 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const div = document.createElement('div');
-  div.className = 'promotions-headband-list';
+  div.className = 'ulta-promotions-headband-list';
 
   let slides = [];
 
@@ -17,7 +17,7 @@ export default function decorate(block) {
     }
     rows.slice(0, 3).forEach((row) => {
       const a = document.createElement('a');
-      a.className = 'promotions-headband-item';
+      a.className = 'ulta-promotions-headband-item';
 
       const rowChildren = [...row.children];
       rowChildren.forEach((child, index) => {
@@ -57,7 +57,7 @@ export default function decorate(block) {
 
   const initializeSwiper = () => {
     const swiperContainer = document.createElement('div');
-    swiperContainer.className = 'swiper promotions-headband-swiper';
+    swiperContainer.className = 'swiper ulta-promotions-headband-swiper';
     swiperContainer.innerHTML = `
       <div class="swiper-wrapper">
         ${slides.map((slide) => slide.outerHTML).join('')}
@@ -68,7 +68,7 @@ export default function decorate(block) {
     block.append(swiperContainer);
 
     waitForSwiper(() => {
-      swiperInstance = new Swiper('.promotions-headband-swiper', {
+      swiperInstance = new Swiper('.ulta-promotions-headband-swiper', {
         pagination: {
           el: '.swiper-pagination',
           clickable: true,

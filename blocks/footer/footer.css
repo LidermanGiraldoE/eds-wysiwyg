@@ -1,20 +1,10 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
-}
+/**
+ * Copyright © infinite, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
-}
+/* Importing styles from index */
+@import url('../../styles/sources/footer/_index.css');
 
-footer .footer p {
-  margin: 0;
-}
-
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
-  }
-}
+/* block styles export (not auto inherited from block) */
+@import url('../../blocks/block-accordion/block-accordion.css');

@@ -21,7 +21,17 @@
           "component": "reference",
           "name": "image",
           "label": "Image",
-          "multi": false
+          "multi": false,
+          "options": [
+            {
+              "name": "default",
+              "value": ""
+            },
+            {
+              "name": "logo",
+              "value": "logo"
+            }
+          ]
         },
         {
           "component": "text",

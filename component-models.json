@@ -6,7 +6,17 @@
         "component": "reference",
         "name": "image",
         "label": "Image",
-        "multi": false
+        "multi": false,
+        "options": [
+          {
+            "name": "default",
+            "value": ""
+          },
+          {
+            "name": "logo",
+            "value": "logo"
+          }
+        ]
       },
       {
         "component": "text",
@@ -112,8 +122,252 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "footer-top",
+            "value": "footer-top"
+          },
+          {
+            "name": "footer-mid",
+            "value": "footer-mid"
+          },
+          {
+            "name": "copy-right",
+            "value": "copy-right"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "block-accordion",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "multiselect",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "label": "Type Accordion",
+        "name": "containerAccordion",
+        "valueType": "string",
+        "collapsible": false,
+        "fields": [
+          {
+            "component": "multiselect",
+            "name": "mediaAccordion",
+            "label": "Avalible Options",
+            "valueType": "string",
+            "options": [
+              {
+                "name": "Desktop",
+                "value": "desktop"
+              },
+              {
+                "name": "Mobile",
+                "value": "mobile"
+              },
+              {
+                "name": "Open accordion",
+                "value": "open"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Text",
+        "description": "Use list to create the accordion"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
+      }
+    ]
+  },
+  {
+    "id": "block-copyright",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "copyRight",
+        "label": "Copyright"
+      },
+      {
+        "component": "richtext",
+        "name": "optionsLinks",
+        "label": "Copyright Links"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
+      }
+    ]
+  },
+  {
+    "id": "block-image",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "reference",
+        "label": "Desktop Image",
+        "name": "desktopImage",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "reference",
+        "label": "Mobile Image",
+        "name": "mobileImage",
+        "value": "",
+        "multi": false
+      },
+      {
+        "component": "number",
+        "label": "IMG Width",
+        "name": "blockWidth",
+        "description": "0 = auto",
+        "value": 0,
+        "required": true,
+        "placeholder": null,
+        "validation": {
+          "numberMin": 0,
+          "customErrorMsg": "must be greater than 0"
+        }
+      },
+      {
+        "component": "number",
+        "label": "IMG Height",
+        "name": "blockHeight",
+        "description": "0 = auto",
+        "value": 0,
+        "required": true,
+        "placeholder": null,
+        "validation": {
+          "numberMin": 0,
+          "customErrorMsg": "must be greater than 0"
+        }
+      },
+      {
+        "component": "text",
+        "label": "Alt Text",
+        "name": "desktopAlt",
+        "value": "",
+        "required": true,
+        "validation": {
+          "minLength": 3
+        }
+      },
+      {
+        "component": "aem-content",
+        "label": "Image Link",
+        "name": "desktopUrl",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
+      }
+    ]
+  },
+  {
+    "id": "block-title",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "name": "blockTitle",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "label": "Span container",
+        "name": "spanContainer",
+        "valueType": "boolean",
+        "description": "SEO option for Footer",
+        "condition": {
+          "!==": [
+            {
+              "var": "titleType"
+            },
+            "h1"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
       }
     ]
   },
@@ -156,6 +410,235 @@
     ]
   },
   {
+    "id": "commerce-cart-info",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title"
+      },
+      {
+        "component": "text",
+        "label": "Subtitle",
+        "name": "subtitle"
+      },
+      {
+        "component": "text",
+        "label": "Phone",
+        "name": "phone"
+      },
+      {
+        "component": "text",
+        "label": "Phone complete",
+        "name": "phoneComplete"
+      },
+      {
+        "component": "aem-content",
+        "label": "Phone link",
+        "name": "phoneLink"
+      },
+      {
+        "component": "text",
+        "label": "Masage",
+        "name": "massage"
+      },
+      {
+        "component": "aem-content",
+        "label": "Masage link",
+        "name": "massageLink"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
+      }
+    ]
+  },
+  {
+    "id": "commerce-cart-banner",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "label": "Background color (HEX)",
+        "name": "backgroundColor"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title"
+      },
+      {
+        "component": "text",
+        "label": "Subtitle",
+        "name": "subtitle"
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
+      }
+    ]
+  },
+  {
+    "id": "commerce-cartlist-banner",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "label": "Background color (HEX)",
+        "name": "backgroundColor"
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title"
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
+      }
+    ]
+  },
+  {
+    "id": "commerce-cartlist-where",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "label": "Title",
+        "name": "title"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image1",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText1"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link1"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image2",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText2"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link2"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image3",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText3"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link3"
+      },
+      {
+        "component": "reference",
+        "label": "Image",
+        "name": "Image4",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "label": "Link text",
+        "name": "linkText4"
+      },
+      {
+        "component": "aem-content",
+        "label": "Link",
+        "name": "link4"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
@@ -187,28 +670,6 @@
         "name": "text",
         "value": "",
         "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "test-buttom",
-    "fields": [
-      {
-        "component": "text",
-        "name": "buttonText",
-        "label": "Button Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "test-text",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "textContent",
-        "label": "Content",
         "valueType": "string"
       }
     ]
@@ -381,6 +842,23 @@
         "name": "logoFlecha",
         "label": "Imagen del Logo de Flecha",
         "multi": false
+      }
+    ]
+  },
+  {
+    "id": "ulta-beauty-newsletter-cdc",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockName",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "blockEnd",
+        "hidden": true
       }
     ]
   },
@@ -809,6 +1287,38 @@
     ]
   },
   {
+    "id": "ulta-products-carousel",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Block Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Block Description"
+      },
+      {
+        "component": "text",
+        "valueType": "array",
+        "name": "tag",
+        "label": "Enter tags",
+        "placeholder": "Enter tags separated by commas"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "button-text",
+        "label": "Button label",
+        "value": "",
+        "placeholder": "ex: Add to Cart"
+      }
+    ]
+  },
+  {
     "id": "ulta-promotions-carousel",
     "fields": [
       {
@@ -873,20 +1383,20 @@
     ]
   },
   {
-    "id": "promotion-code",
+    "id": "ulta-promotion-code",
     "fields": [
       {
         "component": "text",
         "valueType": "string",
         "name": "title",
-        "label": "Title",
+        "label": "Titulo",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "description",
-        "label": "Description",
+        "label": "Descripción",
         "value": ""
       },
       {
@@ -918,17 +1428,6 @@
         "valueType": "string",
         "name": "separatorColor",
         "label": "Separator Color (Hex Code)"
-      }
-    ]
-  },
-  {
-    "id": "ulta-test-learning",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Block Title"
       }
     ]
   },

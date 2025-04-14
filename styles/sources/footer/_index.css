@@ -1,0 +1,10 @@
+/**
+ * Copyright © infinite, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* file imports default styles */
+@import url('default.css');
+
+/* Common */
+@import url('_common.css');

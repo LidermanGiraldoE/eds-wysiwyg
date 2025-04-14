@@ -1,30 +1,19 @@
-// @ts-ignore
 import { h } from '@dropins/tools/preact.js';
-import { useEffect, useState } from '@dropins/tools/preact-hooks.js';
-import htm from '../../../scripts/htm.js';
+import { render as provider } from '@dropins/storefront-cart/render.js';
+import { Home } from '../../design-system/pages/home/home.js';
+import htm from '../../scripts/htm.js';
 
 const html = htm.bind(h);
-/**
- *
- * @param {*} param0
- * @returns
- *
- */
-
-export const CustomeIcon = ({ icon = 'arrow-up', color = 'black' }) => {
-  const [svgContent, setSvgContent] = useState('');
-
-  useEffect(() => {
-    fetch(`./icons/ultaIcons/${icon}.svg`)
-      .then((res) => res.text())
-      .then(setSvgContent);
-  }, [icon]);
-
+const CustomeHome = () => {
   return html`
-    <div className="${['customeWrapper', `color-${color}`].join(' ')}">
-      <h1>Hola soy el home</h1>
+    <div className="${['home-wrapper'].join(' ')}">
+      <${Home} />
     </div>
   `;
 };
 
-export default CustomeIcon;
+export default async function decorate(block) {
+  block.innerHTML = '';
+
+  await provider.render(CustomeHome, {})(block);
+}
