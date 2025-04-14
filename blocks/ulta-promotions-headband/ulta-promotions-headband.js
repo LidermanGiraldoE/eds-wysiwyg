@@ -1,9 +1,9 @@
-/* global Swiper */
+import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   const div = document.createElement('div');
-  div.className = 'ulta-promotions-headband-list';
+  div.className = 'promotions-headband-list';
 
   let slides = [];
 
@@ -17,7 +17,7 @@ export default function decorate(block) {
     }
     rows.slice(0, 3).forEach((row) => {
       const a = document.createElement('a');
-      a.className = 'ulta-promotions-headband-item';
+      a.className = 'promotions-headband-item';
 
       const rowChildren = [...row.children];
       rowChildren.forEach((child, index) => {
@@ -57,7 +57,7 @@ export default function decorate(block) {
 
   const initializeSwiper = () => {
     const swiperContainer = document.createElement('div');
-    swiperContainer.className = 'swiper ulta-promotions-headband-swiper';
+    swiperContainer.className = 'swiper promotions-headband-swiper';
     swiperContainer.innerHTML = `
       <div class="swiper-wrapper">
         ${slides.map((slide) => slide.outerHTML).join('')}
@@ -68,7 +68,7 @@ export default function decorate(block) {
     block.append(swiperContainer);
 
     waitForSwiper(() => {
-      swiperInstance = new Swiper('.ulta-promotions-headband-swiper', {
+      swiperInstance = new Swiper('.promotions-headband-swiper', {
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
@@ -89,7 +89,7 @@ export default function decorate(block) {
   const renderLayout = () => {
     block.innerHTML = '';
 
-    if (window.innerWidth <= 1024) {
+    if (window.innerWidth <= 900) {
       initializeSwiper();
     } else {
       destroySwiper();

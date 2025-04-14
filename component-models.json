@@ -873,20 +873,20 @@
     ]
   },
   {
-    "id": "ulta-promotion-code",
+    "id": "promotion-code",
     "fields": [
       {
         "component": "text",
         "valueType": "string",
         "name": "title",
-        "label": "Titulo",
+        "label": "Title",
         "value": ""
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "description",
-        "label": "Descripción",
+        "label": "Description",
         "value": ""
       },
       {

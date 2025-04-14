@@ -1,113 +1,109 @@
-.ulta-promotions-headband-container .ulta-promotions-headband-wrapper {
-    max-width: unset;
-    padding: 0;
-}
-
-.ulta-promotions-headband {
-    background-color: #f6f6f6;
-    height: 68px;
-    display: flex;
-    align-items: center;
-}
-
-.ulta-promotions-headband-list {
-    align-items: center;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 1360px;
-    padding: 0;
-    width: 100%;
-}
-
-.ulta-promotions-headband-list a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.ulta-promotions-headband-item {
-    align-items: center;
-    border-right: 1px solid #d4d4d4;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    flex: 0 1 424px;
-    justify-content: center;
-    max-width: 424px;
-    min-width: 200px;
-    padding: 0 20px;
-    text-align: center;
-    text-decoration: none !important;
-}
-
-.ulta-promotions-headband-item:last-child {
-    border-right: none;
-}
-
-.ulta-promotions-headband p {
-    font-size: 12px;
-    margin: 0;
-    text-align: center;
-}
-
-.ulta-promotions-headband-item div:first-child p {
-    color: #000;
-    font-weight: var(--font-weight-bold);
-    letter-spacing: 0.3px;
-}
-
-.ulta-promotions-headband-item div:last-child p {
-    color: #505050;
-    letter-spacing: 0.36px;
-}
-
-@media (width <= 1024px) {
-    .ulta-promotions-headband {
-        height: 82px;
-        box-sizing: border-box;
-    }
-
-    .ulta-promotions-headband-list {
-        display: none;
-    }
-
-    .ulta-promotions-headband-swiper {
-        width: 100%;
-        padding: 16px;
-    }
-
-    .ulta-promotions-headband .swiper-slide {
-        display: flex;
-        justify-content: center;
-    }
-
-    .ulta-promotions-headband-item {
-        flex: 1;
+.promotions-headband-wrapper {
+    .promotions-headband-container & {
+        max-width: unset;
         padding: 0;
-        max-width: 100%;
-        min-width: auto;
     }
 
-    .ulta-promotions-headband .swiper-pagination {
-        position: static;
+    .promotions-headband {
+        background-color: var(--color-gray-50);
+        height: 68px;
         display: flex;
+        align-items: center;
+
+        p {
+            font-size: 12px;
+            margin: 0;
+            text-align: center;
+        }
+    }
+
+    .promotions-headband-list {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
         justify-content: center;
-        gap: 16px;
-        padding: 2px;
-        margin-top: 8px;
+        margin: 0 auto;
+        max-width: 1360px;
+        padding: 0;
+        width: 100%;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
     }
 
-    .ulta-promotions-headband .swiper-pagination-bullet {
-        width: 8px;
-        height: 8px;
-        border: 0.5px solid #000;
-        background: transparent;
-        border-radius: 50%;
-        opacity: 100;
+    .promotions-headband-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 0 1 424px;
+        max-width: 424px;
+        min-width: 200px;
+        padding: 0 20px;
+        text-align: center;
+        box-sizing: border-box;
+        border-right: 1px solid var(--color-gray-300);
+        text-decoration: none !important;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        div {
+            &:first-child {
+                p {
+                    font: var(--type-details-caption-1-font);
+                    letter-spacing: var(--type-display-3-letter-spacing);
+                    font-weight: bold;
+                }
+            }
+
+            &:last-child {
+                p {
+                    color: var(--color-gray-700);
+                    letter-spacing: 0.36px;
+                }
+            }
+        }
     }
 
-    .ulta-promotions-headband .swiper-pagination-bullet-active {
-        background: #000;
+    @media (max-width: 900px) {
+        .promotions-headband {
+            height: 82px;
+            box-sizing: border-box;
+
+            .swiper-slide {
+                display: flex;
+                justify-content: center;
+            }
+
+            .swiper-pagination {
+                position: static;
+                display: flex;
+                justify-content: center;
+                gap: 16px;
+                padding: 2px;
+                margin-top: 8px;
+            }
+
+            .swiper-pagination-bullet {
+                width: 8px;
+                height: 8px;
+                border: 0.5px solid #000;
+                background: transparent;
+                border-radius: 50%;
+                opacity: 100;
+            }
+
+            .swiper-pagination-bullet-active {
+                background: #000;
+            }
+        }
+
+        .promotions-headband-list {
+            display: none;
+        }
     }
 }

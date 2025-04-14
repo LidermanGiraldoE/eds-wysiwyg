@@ -133,9 +133,9 @@
     ]
   },
   {
-    "id": "ulta-promotions-headband",
+    "id": "promotions-headband",
     "components": [
-      "ulta-promotion-code"
+      "promotion-code"
     ]
   }
 ]
