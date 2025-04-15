@@ -434,9 +434,13 @@
         "name": "autoplayDelay",
         "label": "Autoplay Delay (ms)",
         "value": 3000,
-        "showIf": {
-          "field": "autoplay",
-          "equals": true
+        "condition": {
+          "===": [
+            {
+              "var": "autoplay"
+            },
+            true
+          ]
         }
       },
       {
