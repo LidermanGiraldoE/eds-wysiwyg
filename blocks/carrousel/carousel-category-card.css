@@ -1,0 +1,30 @@
+.custom-carousel .carousel-category-card {
+    width: 122px;
+    text-align: center;
+  }
+  
+  .custom-carousel .carousel-category-card__image {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  
+  .custom-carousel .carousel-category-card__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .custom-carousel .carousel-category-card__title {
+    font: var(--type-details-caption-1-font);
+    color: var(--color-black);
+    margin: 0;
+    text-align: center;
+  }
+  
+  @media (max-width: 900px) {
+    .custom-carousel .carousel-category-card {
+      width: 76px;
+    }
+  }

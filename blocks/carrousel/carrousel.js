@@ -87,7 +87,7 @@ export default function decorate(block) {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
     const group = temp.firstElementChild;
-    if (group && group.children.length >= 8) {
+    if (group) {
       const cardType = group.children[0].textContent.trim();
       if (cardType === 'carrousel-card') {
         return buildCarouselCard(group);

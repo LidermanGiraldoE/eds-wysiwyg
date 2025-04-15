@@ -1,0 +1,45 @@
+.custom-carousel .carousel-card {
+    width: 328px;
+  }
+  
+  .custom-carousel .carousel-card__image {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .custom-carousel .carousel-card__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .custom-carousel .carousel-card__brand {
+    font: var(--type-details-caption-1-font);
+    color: var(--color-black-100);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.12px;
+  }
+  
+  .custom-carousel .carousel-card__title {
+    font: var(--type-display-2-font);
+    color: var(--color-black);
+    margin: 0 0 4px;
+  }
+  
+  .custom-carousel .carousel-card__description {
+    font: var(--type-body-1-default-font);
+    color: var(--color-black-100);
+    margin: 0;
+  }
+  
+  @media (max-width: 900px) {
+    .custom-carousel .carousel-card {
+      width: 224px;
+    }
+    .custom-carousel .carousel-card__title {
+      font: var(--type-display-3-font);
+    }
+  }
+  
