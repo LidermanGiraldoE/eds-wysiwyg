@@ -278,7 +278,24 @@
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "name": "carrousel-item",
-                  "model": "carrousel-item"
+                  "model": "carrousel-item",
+                  "itemName": "carrousel-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "carrousel-item-category",
+          "id": "carrousel-item-category",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "carrousel-item-category",
+                  "model": "carrousel-item-category",
+                  "itemName": "carrousel-card-category"
                 }
               }
             }

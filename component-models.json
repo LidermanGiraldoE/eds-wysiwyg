@@ -457,6 +457,12 @@
     "id": "carrousel-item",
     "fields": [
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "itemName",
+        "hidden": true
+      },
+      {
         "component": "reference",
         "label": "Desktop Image",
         "name": "desktopImage",
@@ -503,6 +509,44 @@
         "name": "targetBlank",
         "label": "Open in new tab?",
         "value": ""
+      }
+    ]
+  },
+  {
+    "id": "carrousel-item-category",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "itemName",
+        "hidden": true
+      },
+      {
+        "component": "reference",
+        "label": "Desktop Image",
+        "name": "desktopImage",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "reference",
+        "label": "Mobile Image",
+        "name": "mobileImage",
+        "value": "",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "linkUrl",
+        "label": "Link URL"
       }
     ]
   },

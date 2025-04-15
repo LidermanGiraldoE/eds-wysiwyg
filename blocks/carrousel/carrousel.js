@@ -6,12 +6,8 @@ import htm from '../../../../scripts/htm.js';
 const html = htm.bind(h);
 
 export default function decorate(block) {
-  // Convierte todos los hijos del bloque en un arreglo.
   const children = Array.from(block.children);
 
-  // Se asume que los primeros 7 hijos contienen la configuración:
-  // [0]: slidesPerView, [1]: spaceBetween, [2]: navigation,
-  // [3]: pagination, [4]: autoplay, [5]: autoplayDelay, [6]: loop.
   const configFields = children.slice(0, 7).map(child =>
     child.textContent.trim()
   );
@@ -26,39 +22,41 @@ export default function decorate(block) {
   const loop = configFields[6].toLowerCase() === 'true';
 
   // Extrae los slides (a partir del índice 7) y los transforma a la estructura deseada.
-  // Asumimos que cada "carousel item" tiene la siguiente estructura interna:
-  // [0] Desktop Image
-  // [1] Mobile Image (se ignora en este ejemplo, se usa la de desktop)
-  // [2] Tag (marca)
-  // [3] Title
-  // [4] Description
-  // [5] Link URL (obligatorio para envolver la tarjeta)
-  // [6] TargetBlank (booleano, "true" o "false")
   const slides = children.slice(7).map(child => {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
     const group = temp.firstElementChild;
-
     if (group && group.children.length >= 6) {
-      // Extraemos la información
-      const imageMarkup = group.children[0] ? group.children[0].outerHTML : '';
+      // Extrae la imagen de escritorio
+      const desktopImageMarkup = group.children[0] 
+        ? group.children[0].outerHTML 
+        : '';
+
+      // Extrae la imagen móvil y verifica si está vacía:
+      const mobileImageMarkupRaw = group.children[1] 
+        ? group.children[1].innerHTML.trim() 
+        : '';
+      const mobileImageMarkup = mobileImageMarkupRaw ? group.children[1].outerHTML : '';
+
+      // Usa la imagen móvil si existe contenido; de lo contrario, la desktop.
+      const imageMarkup = (window.innerWidth <= 900 && mobileImageMarkup)
+        ? mobileImageMarkup
+        : desktopImageMarkup;
+      
       const brandText = group.children[2] ? group.children[2].textContent.trim() : '';
       const titleText = group.children[3] ? group.children[3].textContent.trim() : '';
       const descriptionText = group.children[4] ? group.children[4].textContent.trim() : '';
-
-      // El Link URL se espera en el sexto hijo (índice 5)
+      
       let linkUrl = '';
       if (group.children.length >= 6) {
         linkUrl = group.children[5].querySelector('p')?.textContent.trim() || '';
       }
-
-      // Se extrae el valor de targetBlank del séptimo hijo (índice 6) si existe.
+      
       let targetBlank = false;
       if (group.children.length >= 7) {
         targetBlank = group.children[6].textContent.trim().toLowerCase() === 'true';
       }
-
-      // Se construye la tarjeta
+      
       const card = html`
         <div class="carousel-card">
           <div class="carousel-card__image" dangerouslySetInnerHTML=${{ __html: imageMarkup }}></div>
@@ -67,16 +65,13 @@ export default function decorate(block) {
           <p class="carousel-card__description">${descriptionText}</p>
         </div>
       `;
-
-      // Si se extrajo un link, envolvemos la tarjeta completa en un <a> 
-      // usando target="_blank" si targetBlank es true.
+      
       return linkUrl ? html`
         <a class="carousel-card__link-wrapper" href=${linkUrl} target=${targetBlank ? '_blank' : '_self'}>
           ${card}
         </a>
       ` : card;
     } else {
-      // Si la estructura no es la esperada, retorna el contenido original envuelto en .carousel-card.
       return html`
         <div class="carousel-card" dangerouslySetInnerHTML=${{ __html: child.outerHTML }}></div>
       `;
