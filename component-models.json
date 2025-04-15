@@ -396,10 +396,55 @@
       {
         "component": "number",
         "valueType": "number",
-        "key-value": true,
         "name": "slidesPerView",
         "label": "Slides Per View",
-        "value": 1
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "spaceBetween",
+        "label": "Space Between (px)",
+        "value": ""
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "navigation",
+        "label": "Enable Navigation",
+        "value": ""
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "pagination",
+        "label": "Enable Pagination",
+        "value": ""
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "autoplay",
+        "label": "Enable Autoplay",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "autoplayDelay",
+        "label": "Autoplay Delay (ms)",
+        "value": 3000,
+        "showIf": {
+          "field": "autoplay",
+          "equals": true
+        }
+      },
+      {
+        "component": "boolean",
+        "valueType": "boolean",
+        "name": "loop",
+        "label": "Loop Carousel",
+        "value": ""
       }
     ]
   },
