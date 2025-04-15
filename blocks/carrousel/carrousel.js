@@ -1,13 +1,13 @@
 // @ts-ignore
 import { h, render } from '@dropins/tools/preact.js';
-import CustomCarousel from '../../../atoms/customCarousel/customCarousel.js';
+import CustomCarousel from '../../design-system/molecules/customCarousel/customCarousel.js';
 import htm from '../../../../scripts/htm.js';
 
 const html = htm.bind(h);
 
 export default function decorate(block) {
-  // Definimos un array de slides estáticos (cada slide representa una tarjeta simple)
-  const staticSlides = [
+  // Definición de slides (cada slide es un string de HTML)
+  const slides = [
     `<div style="display: flex; justify-content: center; height: 50px;">
          Card 1
      </div>`,
@@ -22,14 +22,14 @@ export default function decorate(block) {
      </div>`
   ];
 
-  // Configuración "quemada" para Swiper
-  const carouselData = {
+  // Configuración del Swiper (propiedades "quemadas")
+  const carouselProps = {
     swiperConfigs: {
       slidesPerView: 'auto',
       spaceBetween: 16,
       navigation: {
         nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        prevEl: '.swiper-button-prev',
       },
       pagination: {
         el: '.swiper-pagination',
@@ -41,10 +41,10 @@ export default function decorate(block) {
       },
       loop: true,
     },
-    slides: staticSlides,
+    slides: slides,
   };
 
-  // Limpia el bloque y renderiza CustomCarousel en él
+  // Limpiamos el bloque y renderizamos el CustomCarousel
   block.innerHTML = '';
-  render(h(CustomCarousel, { props: carouselData }), block);
+  render(html`<${CustomCarousel} props=${carouselProps} />`, block);
 }
