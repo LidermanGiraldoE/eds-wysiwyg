@@ -139,7 +139,14 @@
                     "valueType": "string",
                     "name": "linkUrl",
                     "label": "Link URL"
-                }
+                },
+                {
+                    "component": "boolean",
+                    "valueType": "boolean",
+                    "name": "targetBlank",
+                    "label": "Open in new tab?",
+                    "value": ""
+                  }
             ]
         }
     ],
