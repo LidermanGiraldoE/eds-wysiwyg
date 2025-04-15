@@ -103,6 +103,12 @@
     ]
   },
   {
+    "id": "carrousel",
+    "components": [
+      "carousel-item"
+    ]
+  },
+  {
     "id": "columns",
     "components": [
       "column"
