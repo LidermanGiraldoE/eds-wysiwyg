@@ -398,59 +398,8 @@
         "valueType": "number",
         "name": "slidesPerView",
         "label": "Slides Per View",
-        "value": 1
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "spaceBetween",
-        "label": "Space Between (px)",
-        "value": 16
-      },
-      {
-        "component": "checkbox",
-        "valueType": "boolean",
-        "name": "navigation",
-        "label": "Enable Navigation",
-        "value": true
-      },
-      {
-        "component": "checkbox",
-        "valueType": "boolean",
-        "name": "pagination",
-        "label": "Enable Pagination",
-        "value": true
-      },
-      {
-        "component": "checkbox",
-        "valueType": "boolean",
-        "name": "autoplay",
-        "label": "Enable Autoplay",
-        "value": false
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "autoplayDelay",
-        "label": "Autoplay Delay (ms)",
-        "value": 3000,
-        "showIf": {
-          "field": "autoplay",
-          "equals": true
-        }
-      },
-      {
-        "component": "checkbox",
-        "valueType": "boolean",
-        "name": "loop",
-        "label": "Loop Carousel",
-        "value": true
-      },
-      {
-        "component": "aem-content",
-        "valueType": "array",
-        "name": "slides",
-        "label": "Slides Content"
+        "value": 1,
+        "key-value": true
       }
     ]
   },
