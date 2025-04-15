@@ -1,0 +1,36 @@
+div.swiper-slide a.carousel-card__link-wrapper {
+    text-decoration: none;
+}
+
+.carousel-card__image {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.carousel-card__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.carousel-card__brand {
+    font: var(--type-details-caption-1-font);
+    color: var(--color-black-100);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.12px;
+}
+
+.carousel-card__title {
+    font: var(--type-display-2-font);
+    color: var(--color-black);
+    margin: 0 0 4px;
+}
+
+.carousel-card__description {
+    font: var(--type-body-1-default-font);
+    color: var(--color-black-100);
+    margin: 0;
+}
