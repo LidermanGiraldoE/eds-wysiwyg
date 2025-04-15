@@ -183,30 +183,31 @@
                 },
                 {
                     "component": "reference",
-                    "label": "Desktop Image",
-                    "name": "desktopImage",
+                    "label": "Icon Image",
+                    "name": "iconImage",
                     "multi": false,
                     "required": true
-                },
-                {
-                    "component": "reference",
-                    "label": "Mobile Image",
-                    "name": "mobileImage",
-                    "value": "",
-                    "multi": false
                 },
                 {
                     "component": "text",
                     "valueType": "string",
                     "name": "title",
-                    "label": "Title",
+                    "label": "Category Title",
                     "value": ""
                 },
                 {
-                    "component": "aem-content",
+                    "component": "text",
                     "valueType": "string",
                     "name": "linkUrl",
-                    "label": "Link URL"
+                    "label": "Link URL",
+                    "value": ""
+                },
+                {
+                    "component": "boolean",
+                    "valueType": "boolean",
+                    "name": "targetBlank",
+                    "label": "Open in new tab?",
+                    "value": ""
                 }
             ]
         }

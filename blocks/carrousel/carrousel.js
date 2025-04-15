@@ -36,26 +36,35 @@ function buildCarouselCard(group) {
 }
 
 function buildCarouselCategoryCard(group) {
-  const desktopImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
-  const mobileImageMarkupRaw = group.children[2] ? group.children[2].innerHTML.trim() : '';
-  const mobileImageMarkup = mobileImageMarkupRaw ? group.children[2].outerHTML : '';
-  const imageMarkup = (window.innerWidth <= 900 && mobileImageMarkup)
-    ? mobileImageMarkup
-    : desktopImageMarkup;
-  const titleText = group.children[3] ? group.children[3].textContent.trim() : '';
-  let linkUrl = group.children[4] ? group.children[4].querySelector('p')?.textContent.trim() || '' : '';
+  // Extrae el ícono. Usamos la imagen de desktop (en este modelo solo se define Icon Image)
+  const iconImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
+
+  // Extrae el título de la categoría.
+  const titleText = group.children[2] ? group.children[2].textContent.trim() : '';
+
+  // Extrae el Link URL (dentro de un párrafo)
+  let linkUrl = group.children[3] ? group.children[3].querySelector('p')?.textContent.trim() || '' : '';
+
+  // Extrae el valor targetBlank (valor booleano) del quinto elemento.
+  let targetBlank = false;
+  if (group.children.length >= 5) {
+    targetBlank = group.children[4].textContent.trim().toLowerCase() === 'true';
+  }
+
   const card = html`
     <div class="carousel-category-card">
-      <div class="carousel-category-card__image" dangerouslySetInnerHTML=${{ __html: imageMarkup }}></div>
-      <h4 class="carousel-category-card__title">${titleText}</h4>
+      <div class="carousel-category-card__image" dangerouslySetInnerHTML=${{ __html: iconImageMarkup }}></div>
+      <span class="carousel-category-card__title">${titleText}</span>
     </div>
   `;
+
   return linkUrl ? html`
-    <a class="carousel-category-card__link-wrapper" href=${linkUrl} target="_self">
+    <a class="carousel-category-card__link-wrapper" href=${linkUrl} target=${targetBlank ? '_blank' : '_self'}>
       ${card}
     </a>
   ` : card;
 }
+
 
 export default function decorate(block) {
   const children = Array.from(block.children);
