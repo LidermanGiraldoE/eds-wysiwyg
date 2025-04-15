@@ -107,7 +107,8 @@
     "id": "carrousel",
     "components": [
       "carrousel-item",
-      "carrousel-item-category"
+      "carrousel-item-category",
+      "carrousel-item-promo"
     ]
   },
   {

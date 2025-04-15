@@ -302,6 +302,22 @@
           }
         },
         {
+          "title": "carrousel-item-promo",
+          "id": "carrousel-item-promo",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "carrousel-item-promo",
+                  "model": "carrousel-item-promo",
+                  "itemName": "carrousel-card-promo"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Columns",
           "id": "columns",
           "plugins": {
