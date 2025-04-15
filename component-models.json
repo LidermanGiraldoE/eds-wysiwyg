@@ -457,39 +457,44 @@
     "fields": [
       {
         "component": "reference",
-        "valueType": "string",
-        "name": "promotionImage",
-        "label": "Promotion image",
+        "label": "Desktop Image",
+        "name": "desktopImage",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "reference",
+        "label": "Mobile Image",
+        "name": "mobileImage",
+        "value": "",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "promotionImageAlt",
-        "label": "Promotion image Alt"
+        "name": "brand",
+        "label": "Brand / Category",
+        "value": ""
       },
       {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "brandName",
-        "label": "Brand name"
-      },
-      {
-        "component": "richtext",
+        "component": "text",
         "valueType": "string",
         "name": "title",
-        "label": "Promotion title"
+        "label": "Main Title",
+        "value": ""
       },
       {
-        "component": "richtext",
+        "component": "text",
         "valueType": "string",
         "name": "description",
-        "label": "Promotion description"
+        "label": "Description",
+        "value": ""
       },
       {
         "component": "aem-content",
-        "name": "promotionLinkUrl",
-        "label": "Promotion link URL"
+        "valueType": "string",
+        "name": "linkUrl",
+        "label": "Link URL"
       }
     ]
   },
