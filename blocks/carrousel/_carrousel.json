@@ -119,8 +119,7 @@
                 {
                     "component": "text",
                     "valueType": "string",
-                    "name": "itemName",
-                    "hidden": true
+                    "name": "itemName"
                 },
                 {
                     "component": "reference",
@@ -178,8 +177,7 @@
                 {
                     "component": "text",
                     "valueType": "string",
-                    "name": "itemName",
-                    "hidden": true
+                    "name": "itemName"
                 },
                 {
                     "component": "reference",
@@ -215,7 +213,8 @@
         {
             "id": "carrousel",
             "components": [
-                "carrousel-item"
+                "carrousel-item",
+                "carrousel-item-category"
             ]
         }
     ]

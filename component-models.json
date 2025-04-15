@@ -459,8 +459,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "itemName",
-        "hidden": true
+        "name": "itemName"
       },
       {
         "component": "reference",
@@ -518,8 +517,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "itemName",
-        "hidden": true
+        "name": "itemName"
       },
       {
         "component": "reference",
