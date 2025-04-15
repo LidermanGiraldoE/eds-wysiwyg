@@ -39,10 +39,10 @@
                 {
                     "component": "number",
                     "valueType": "number",
+                    "key-value": true,
                     "name": "slidesPerView",
                     "label": "Slides Per View",
-                    "value": 1,
-                    "key-value": true
+                    "value": 1
                 }
             ]
         },

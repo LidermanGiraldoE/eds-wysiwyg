@@ -6,8 +6,9 @@ import htm from '../../../../scripts/htm.js';
 const html = htm.bind(h);
 
 export default function decorate(block) {
+  console.log('Carrousel block loaded', block);
   // Definición de slides (cada slide es un string de HTML)
-  const slides = [
+  /* const slides = [
     `<div style="display: flex; justify-content: center; height: 50px;">
          Card 1
      </div>`,
@@ -46,5 +47,5 @@ export default function decorate(block) {
 
   // Limpiamos el bloque y renderizamos el CustomCarousel
   block.innerHTML = '';
-  render(html`<${CustomCarousel} props=${carouselProps} />`, block);
+  render(html`<${CustomCarousel} props=${carouselProps} />`, block); */
 }
