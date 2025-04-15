@@ -17,15 +17,15 @@
             }
         },
         {
-            "title": "carousel-item",
-            "id": "carousel-item",
+            "title": "carrousel-item",
+            "id": "carrousel-item",
             "plugins": {
                 "xwalk": {
                     "page": {
                         "resourceType": "core/franklin/components/block/v1/block/item",
                         "template": {
-                            "name": "carousel-item",
-                            "model": "carousel-item"
+                            "name": "carrousel-item",
+                            "model": "carrousel-item"
                         }
                     }
                 }
@@ -37,29 +37,63 @@
             "id": "carrousel",
             "fields": [
                 {
-                    "component": "number",
-                    "label": "IMG Width",
-                    "name": "blockWidth",
-                    "description": "0 = auto",
-                    "value": 0,
-                    "required": true,
-                    "placeholder": null,
-                    "validation": {
-                        "numberMin": 0,
-                        "customErrorMsg": "must be greater than 0"
-                    }
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "title",
+                    "label": "Block Title"
+                },
+                {
+                    "component": "text",
+                    "valueType": "string",
+                    "name": "buttontext",
+                    "label": "Button text",
+                    "value": ""
+                },
+                {
+                    "component": "aem-content",
+                    "name": "buttonlink",
+                    "label": "Button link URL"
                 }
             ]
         },
         {
-            "id": "carousel-item",
+            "id": "carrousel-item",
             "fields": [
+                {
+                    "component": "reference",
+                    "valueType": "string",
+                    "name": "promotionImage",
+                    "label": "Promotion image",
+                    "multi": false
+                },
                 {
                     "component": "text",
                     "valueType": "string",
+                    "name": "promotionImageAlt",
+                    "label": "Promotion image Alt"
+                },
+                {
+                    "component": "richtext",
+                    "valueType": "string",
+                    "name": "brandName",
+                    "label": "Brand name"
+                },
+                {
+                    "component": "richtext",
+                    "valueType": "string",
                     "name": "title",
-                    "label": "Title",
-                    "value": ""
+                    "label": "Promotion title"
+                },
+                {
+                    "component": "richtext",
+                    "valueType": "string",
+                    "name": "description",
+                    "label": "Promotion description"
+                },
+                {
+                    "component": "aem-content",
+                    "name": "promotionLinkUrl",
+                    "label": "Promotion link URL"
                 }
             ]
         }
@@ -68,7 +102,7 @@
         {
             "id": "carrousel",
             "components": [
-                "carousel-item"
+                "carrousel-item"
             ]
         }
     ]

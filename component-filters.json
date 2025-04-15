@@ -106,7 +106,7 @@
   {
     "id": "carrousel",
     "components": [
-      "carousel-item"
+      "carrousel-item"
     ]
   },
   {
