@@ -413,24 +413,6 @@
         "name": "navigation",
         "label": "Enable Navigation",
         "value": true
-      },
-      {
-        "component": "checkbox",
-        "valueType": "boolean",
-        "name": "pagination",
-        "label": "Enable Pagination",
-        "value": true
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "autoplayDelay",
-        "label": "Autoplay Delay (ms)",
-        "value": 3000,
-        "showIf": {
-          "field": "autoplay",
-          "equals": true
-        }
       }
     ]
   },
