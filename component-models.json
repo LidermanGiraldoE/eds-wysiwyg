@@ -395,24 +395,16 @@
     "fields": [
       {
         "component": "number",
-        "valueType": "number",
-        "name": "slidesPerView",
-        "label": "Slides Per View",
-        "value": 1
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "spaceBetween",
-        "label": "Space Between (px)",
-        "value": 16
-      },
-      {
-        "component": "checkbox",
-        "valueType": "boolean",
-        "name": "navigation",
-        "label": "Enable Navigation",
-        "value": true
+        "label": "IMG Width",
+        "name": "blockWidth",
+        "description": "0 = auto",
+        "value": 0,
+        "required": true,
+        "placeholder": null,
+        "validation": {
+          "numberMin": 0,
+          "customErrorMsg": "must be greater than 0"
+        }
       }
     ]
   },
