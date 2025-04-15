@@ -6,22 +6,28 @@ import htm from '../../../../scripts/htm.js';
 const html = htm.bind(h);
 
 export default function decorate(block) {
-  // Extraer los valores de configuración desde los hijos del bloque
-  const fields = Array.from(block.children).map(child =>
-    child.textContent.trim()
-  );
+  // Convierte todos los hijos del bloque en un arreglo.
+  const children = Array.from(block.children);
 
-  // Asumimos el siguiente orden:
-  // fields[0]: slidesPerView, fields[1]: spaceBetween, fields[2]: navigation,
-  // fields[3]: pagination, fields[4]: autoplay, fields[5]: autoplayDelay, fields[6]: loop
+  // Suponemos que los primeros 7 hijos contienen la configuración:
+  // [0]: slidesPerView, [1]: spaceBetween, [2]: navigation,
+  // [3]: pagination, [4]: autoplay, [5]: autoplayDelay, [6]: loop.
+  const configFields = children.slice(0, 7).map(child => child.textContent.trim());
 
-  const slidesPerView = parseFloat(fields[0]) || 1;
-  const spaceBetween = parseFloat(fields[1]) || 0;
-  const navigation = fields[2].toLowerCase() === 'true';
-  const pagination = fields[3].toLowerCase() === 'true';
-  const autoplay = fields[4].toLowerCase() === 'true';
-  const autoplayDelay = parseInt(fields[5], 10) || 3000;
-  const loop = fields[6].toLowerCase() === 'true';
+  const rawSlidesPerView = parseFloat(configFields[0]);
+  const slidesPerView = rawSlidesPerView === 0 ? 'auto' : (rawSlidesPerView || 1);
+  const spaceBetween = parseFloat(configFields[1]) || 0;
+  const navigation = configFields[2].toLowerCase() === 'true';
+  const pagination = configFields[3].toLowerCase() === 'true';
+  const autoplay = configFields[4].toLowerCase() === 'true';
+  const autoplayDelay = parseInt(configFields[5], 10) || 3000;
+  const loop = configFields[6].toLowerCase() === 'true';
+
+  // Los elementos restantes son los items del carrusel.
+  // Cada hijo representa un "carousel item" configurado desde AEM.
+  /* const slides = children.slice(7).map(child => html`${child.outerHTML}`); */
+  const slides = children.slice(7).map(child => html` 
+    <div className=${['star-icon-container-filled'].join(' ')}dangerouslySetInnerHTML=${{ __html: child.outerHTML }}></div>`);
 
   const carouselProps = {
     swiperConfigs: {
@@ -30,55 +36,9 @@ export default function decorate(block) {
       navigation: navigation ? { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } : false,
       pagination: pagination ? { el: '.swiper-pagination', clickable: true } : false,
       autoplay: autoplay ? { delay: autoplayDelay, disableOnInteraction: false } : false,
-      loop: loop,
+      loop: loop
     },
-    slides: [
-      html`<div
-        style=${{
-          display: 'flex',
-          'justify-content': 'center',
-          height: '50px',
-        }}
-      >
-        slide 1
-      </div>`,
-      html`<div
-        style=${{
-          display: 'flex',
-          'justify-content': 'center',
-          height: '50px',
-        }}
-      >
-        slide 2
-      </div>`,
-      html`<div
-        style=${{
-          display: 'flex',
-          'justify-content': 'center',
-          height: '50px',
-        }}
-      >
-        slide 3
-      </div>`,
-      html`<div
-        style=${{
-          display: 'flex',
-          'justify-content': 'center',
-          height: '50px',
-        }}
-      >
-        slide 4
-      </div>`,
-      html`<div
-        style=${{
-          display: 'flex',
-          'justify-content': 'center',
-          height: '50px',
-        }}
-      >
-        slide 5
-      </div>`
-    ],
+    slides: slides
   };
 
   console.log('Carousel Props:', carouselProps);

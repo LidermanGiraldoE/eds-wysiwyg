@@ -398,6 +398,7 @@
         "valueType": "number",
         "name": "slidesPerView",
         "label": "Slides Per View",
+        "description": "0 = auto",
         "value": ""
       },
       {
