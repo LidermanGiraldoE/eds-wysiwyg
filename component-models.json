@@ -479,6 +479,13 @@
       {
         "component": "text",
         "valueType": "string",
+        "name": "altImg",
+        "label": "Alt Image",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
         "name": "tag",
         "label": "Tag",
         "value": ""
