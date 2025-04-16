@@ -37,16 +37,9 @@ function buildCarouselCard(group) {
 }
 
 function buildCarouselCategoryCard(group) {
-  // Extrae el ícono. Usamos la imagen de desktop (en este modelo solo se define Icon Image)
   const iconImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
-
-  // Extrae el título de la categoría.
   const titleText = group.children[2] ? group.children[2].textContent.trim() : '';
-
-  // Extrae el Link URL (dentro de un párrafo)
   let linkUrl = group.children[3] ? group.children[3].querySelector('p')?.textContent.trim() || '' : '';
-
-  // Extrae el valor targetBlank (valor booleano) del quinto elemento.
   let targetBlank = false;
   if (group.children.length >= 5) {
     targetBlank = group.children[4].textContent.trim().toLowerCase() === 'true';
@@ -67,35 +60,21 @@ function buildCarouselCategoryCard(group) {
 }
 
 function buildCarouselCardPromo(group) {
-  // Extrae la imagen del índice 1
   let imageSrc = "";
   if (group.children[1]) {
     const imgEl = group.children[1].querySelector('img');
     imageSrc = imgEl ? imgEl.getAttribute('src') : "";
   }
   
-  // Extrae el Urgency Tag (índice 2)
   const urgencyTag = group.children[2] ? group.children[2].textContent.trim() : "";
-  
-  // Extrae la etiqueta (tag) (índice 3)
   const tagText = group.children[3] ? group.children[3].textContent.trim() : "";
-  
-  // Extrae el título (índice 4)
   const titleText = group.children[4] ? group.children[4].textContent.trim() : "";
-  
-  // Extrae la descripción (índice 5)
   const descriptionText = group.children[5] ? group.children[5].textContent.trim() : "";
-  
-  // Extrae el Button Text (índice 6)
   const buttonText = group.children[6] ? group.children[6].textContent.trim() : "";
-  
-  // Extrae el Link URL, se espera que el <p> esté dentro del contenedor en índice 7
   let linkUrl = "";
   if (group.children[7]) {
     linkUrl = group.children[7].querySelector('p')?.textContent.trim() || "";
   }
-  
-  // Extrae el valor de targetBlank (índice 8)
   const targetBlank = group.children[8]
     ? group.children[8].textContent.trim().toLowerCase() === 'true'
     : false;
@@ -133,7 +112,6 @@ export default function decorate(block) {
   const autoplayDelay = parseInt(configFields[5], 10) || 3000;
   const loop = configFields[6].toLowerCase() === 'true';
 
-  // Extrae los slides (a partir del índice 7) y aplica la función según el tipo de tarjeta.
   const slides = children.slice(7).map(child => {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
