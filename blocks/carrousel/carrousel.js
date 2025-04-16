@@ -6,7 +6,7 @@ import htm from '../../../../scripts/htm.js';
  
 const html = htm.bind(h);
  
-let promoFound = false; // Bandera para detectar si se encontró al menos una tarjeta promo
+let promoFound = false;
  
 function buildCarouselCard(group) {
   const desktopImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
@@ -49,29 +49,34 @@ function buildCarouselCard(group) {
  
 function buildCarouselCategoryCard(group) {
   const iconImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
-  const titleText = group.children[2] ? group.children[2].textContent.trim() : '';
-  let linkUrl = group.children[3]
-    ? group.children[3].querySelector('p')?.textContent.trim() || ''
+  const altText = group.children[2] ? group.children[2].textContent.trim() : 'Imagen de categoría';
+  const iconImageWithAlt = iconImageMarkup.replace('<img', `<img alt="${altText}"`);
+  const titleText = group.children[3] ? group.children[3].textContent.trim() : '';
+
+  let linkUrl = group.children[4]
+    ? group.children[4].querySelector('p')?.textContent.trim() || ''
     : '';
+  
   let targetBlank = false;
-  if (group.children.length >= 5) {
-    targetBlank = group.children[4].textContent.trim().toLowerCase() === 'true';
+  if (group.children.length >= 6) {
+    targetBlank = group.children[5].textContent.trim().toLowerCase() === 'true';
   }
+  
   const card = html`
     <div class="carousel-category-card">
-      <div class="carousel-category-card__image" dangerouslySetInnerHTML=${{ __html: iconImageMarkup }}></div>
+      <div class="carousel-category-card__image" dangerouslySetInnerHTML=${{ __html: iconImageWithAlt }}></div>
       <span class="carousel-category-card__title">${titleText}</span>
     </div>
   `;
+  
   return linkUrl ? html`
     <a class="carousel-category-card__link-wrapper" aria-label=${titleText} href=${linkUrl} target=${targetBlank ? '_blank' : '_self'}>
       ${card}
     </a>
   ` : card;
 }
- 
+
 function buildCarouselCardPromo(group) {
-  // Se marca que se encontró una tarjeta promo
   promoFound = true;
  
   let imageSrc = "";
