@@ -1,9 +1,17 @@
 @import "carousel-card.css";
 @import "carousel-category-card.css";
+@import "carousel-promo-card";
 
 .custom-carousel div.swiper-slide a {
     text-decoration: none;
 }
+
+@media (min-width: 900px) {
+    .custom-carousel .swiper-pagination {
+        display: none;
+    }
+}
+
 
 @media (max-width: 900px) {
     div div.carrousel-wrapper {

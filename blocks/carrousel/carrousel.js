@@ -48,6 +48,7 @@ function buildCarouselCard(group) {
 }
  
 function buildCarouselCategoryCard(group) {
+  console.log('Building carousel category card', group);
   const iconImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
   const altText = group.children[2] ? group.children[2].textContent.trim() : 'Imagen de categoría';
   const iconImageWithAlt = iconImageMarkup.replace('<img', `<img alt="${altText}"`);
