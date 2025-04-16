@@ -1,7 +1,7 @@
 // @ts-ignore
 import { h, render } from '@dropins/tools/preact.js';
 import CustomCarousel from '../../design-system/molecules/customCarousel/customCarousel.js';
-import CustomCards from '../../design-system/atoms/customCards/customCards.js'
+import CustomCards from '../../design-system/atoms/customCards/customCards.js';
 import htm from '../../../../scripts/htm.js';
 
 const html = htm.bind(h);
@@ -37,28 +37,19 @@ function buildCarouselCard(group) {
 }
 
 function buildCarouselCategoryCard(group) {
-  // Extrae el ícono. Usamos la imagen de desktop (en este modelo solo se define Icon Image)
   const iconImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
-
-  // Extrae el título de la categoría.
   const titleText = group.children[2] ? group.children[2].textContent.trim() : '';
-
-  // Extrae el Link URL (dentro de un párrafo)
   let linkUrl = group.children[3] ? group.children[3].querySelector('p')?.textContent.trim() || '' : '';
-
-  // Extrae el valor targetBlank (valor booleano) del quinto elemento.
   let targetBlank = false;
   if (group.children.length >= 5) {
     targetBlank = group.children[4].textContent.trim().toLowerCase() === 'true';
   }
-
   const card = html`
     <div class="carousel-category-card">
       <div class="carousel-category-card__image" dangerouslySetInnerHTML=${{ __html: iconImageMarkup }}></div>
       <span class="carousel-category-card__title">${titleText}</span>
     </div>
   `;
-
   return linkUrl ? html`
     <a class="carousel-category-card__link-wrapper" href=${linkUrl} target=${targetBlank ? '_blank' : '_self'}>
       ${card}
@@ -67,35 +58,18 @@ function buildCarouselCategoryCard(group) {
 }
 
 function buildCarouselCardPromo(group) {
-  // Extrae la imagen del índice 1
   let imageSrc = "";
   if (group.children[1]) {
     const imgEl = group.children[1].querySelector('img');
     imageSrc = imgEl ? imgEl.getAttribute('src') : "";
   }
   
-  // Extrae el Urgency Tag (índice 2)
   const urgencyTag = group.children[2] ? group.children[2].textContent.trim() : "";
-  
-  // Extrae la etiqueta (tag) (índice 3)
   const tagText = group.children[3] ? group.children[3].textContent.trim() : "";
-  
-  // Extrae el título (índice 4)
   const titleText = group.children[4] ? group.children[4].textContent.trim() : "";
-  
-  // Extrae la descripción (índice 5)
   const descriptionText = group.children[5] ? group.children[5].textContent.trim() : "";
-  
-  // Extrae el Button Text (índice 6)
   const buttonText = group.children[6] ? group.children[6].textContent.trim() : "";
-  
-  // Extrae el Link URL, se espera que el <p> esté dentro del contenedor en índice 7
-  let linkUrl = "";
-  if (group.children[7]) {
-    linkUrl = group.children[7].querySelector('p')?.textContent.trim() || "";
-  }
-  
-  // Extrae el valor de targetBlank (índice 8)
+  let linkUrl = group.children[7] ? group.children[7].textContent.trim() : "";
   const targetBlank = group.children[8]
     ? group.children[8].textContent.trim().toLowerCase() === 'true'
     : false;
@@ -120,7 +94,8 @@ function buildCarouselCardPromo(group) {
 export default function decorate(block) {
   const children = Array.from(block.children);
 
-  const configFields = children.slice(0, 7).map(child =>
+  // Usamos los primeros 8 elementos para la configuración
+  const configFields = children.slice(0, 8).map(child =>
     child.textContent.trim()
   );
 
@@ -134,19 +109,23 @@ export default function decorate(block) {
   const loop = configFields[6].toLowerCase() === 'true';
   const centeredSlides = configFields[7].toLowerCase() === 'true';
 
-  // Extrae los slides (a partir del índice 7) y aplica la función según el tipo de tarjeta.
+  // Extrae los slides a partir del índice 8
   const slides = children.slice(8).map(child => {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
     const group = temp.firstElementChild;
     if (group) {
-      const cardType = group.children[0].textContent.trim();
-      if (cardType === 'carrousel-card') {
+      const itemName = group.children[0].textContent.trim();
+      if (itemName === 'carrousel-card') {
         return buildCarouselCard(group);
-      } else if (cardType === 'carrousel-card-category') {
+      } else if (itemName === 'carrousel-card-category') {
         return buildCarouselCategoryCard(group);
-      } else if (cardType === 'carrousel-card-promo') {
+      } else if (itemName === 'carrousel-card-promo') {
         return buildCarouselCardPromo(group);
+      } else {
+        return html`
+          <div class="carousel-card" dangerouslySetInnerHTML=${{ __html: child.outerHTML }}></div>
+        `;
       }
     } else {
       return html`

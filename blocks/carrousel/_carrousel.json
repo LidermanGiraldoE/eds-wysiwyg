@@ -132,7 +132,7 @@
                     "valueType": "boolean",
                     "name": "centeredSlides",
                     "label": "Centered slides",
-                    "value": ""
+                    "value": false
                 }
             ]
         },
