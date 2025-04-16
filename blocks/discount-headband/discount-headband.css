@@ -1,84 +1,57 @@
-.ulta-discount-headband-wrapper {
-    display: flex;    
-    justify-content: center;
-    max-width: 1130px !important;
-    padding: 0 !important;
+div div.discount-headband-wrapper {
+    max-width: 1130px;
 }
 
-.ulta-discount-headband {
+.discount-headband {
+    width: 100%;
+    padding: 27px 52px;
+    box-sizing: border-box;
+}
+
+.discount-headband-content {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-block: 13.5px;
+    justify-content: space-between;
+}
+
+.discount-headband-info {
+    display: flex;
     gap: 52px;
 }
 
-.ulta-discount-headband p {
+.discount-headband p {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.ulta-discount-headband-text {
-    font-size: 16px;
+.discount-headband-text {
+    font: var(--type-headline-1-font);
     font-weight: bold;
     letter-spacing: 0.4px;
 }
 
-.ulta-discount-headband-code {
-    font-size: 14px;
-    color: #090808;
+.discount-headband-code {
+    font: var(--type-body-1-default-font);
+    color: var(--color-black-110);
     letter-spacing: 0.35px;
-    margin-right: 435px;
 }
 
-.ulta-discount-headband-link {
-    font-size: 14px;
+.discount-headband-content a.discount-headband-link {
+    text-underline-offset: 6px;
     text-decoration: underline;
-    letter-spacing: 0.35px;
-    color: #090808;
 }
 
-@media (width <=1025px) {
-    .ulta-discount-headband-wrapper {
-        margin: 0 32px !important;
+@media (width <=900px) {
+    .discount-headband {
+        padding: 16px;
+    }
+
+    .discount-headband-content {
         flex-direction: column;
+        gap: 16px;
     }
 
-    .ulta-discount-headband {
+    .discount-headband-info {
         flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-        padding-block: 16px;
-        padding-inline: 16px;
-    }
-
-    .ulta-discount-headband-code {
-        margin-right: 0;
-    }
-}
-
-
-@media (width <=768px) {
-    .ulta-discount-headband-wrapper {
-        flex-direction: column;
-        text-align: center;
-        margin: 0 16px !important;
-    }
-
-    .ulta-discount-headband {
-        flex-direction: column;
-        gap: 0px;
-        align-items: flex-start;
-        padding-block: 8px;
-        padding-inline: 8px;
-    }
-
-    .ulta-discount-headband-text {
-        margin-bottom: 4px;
-    }
-
-    .ulta-discount-headband-code {
-        margin-right: 0;
-        margin-bottom: 16px;
+        gap: 4px;
     }
 }
