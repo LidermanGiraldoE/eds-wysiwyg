@@ -1,10 +1,12 @@
 // @ts-ignore
 import { h, render } from '@dropins/tools/preact.js';
 import CustomCarousel from '../../design-system/molecules/customCarousel/customCarousel.js';
-import CustomCards from '../../design-system/atoms/customCards/customCards.js'
+import CustomCards from '../../design-system/atoms/customCards/customCards.js';
 import htm from '../../../../scripts/htm.js';
 
 const html = htm.bind(h);
+
+let promoFound = false; // Bandera para detectar si se encontró al menos una tarjeta promo
 
 function buildCarouselCard(group) {
   const desktopImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
@@ -16,7 +18,9 @@ function buildCarouselCard(group) {
   const brandText = group.children[3] ? group.children[3].textContent.trim() : '';
   const titleText = group.children[4] ? group.children[4].textContent.trim() : '';
   const descriptionText = group.children[5] ? group.children[5].textContent.trim() : '';
-  let linkUrl = group.children[6] ? group.children[6].querySelector('p')?.textContent.trim() || '' : '';
+  let linkUrl = group.children[6]
+    ? group.children[6].querySelector('p')?.textContent.trim() || ''
+    : '';
   let targetBlank = false;
   if (group.children.length >= 8) {
     targetBlank = group.children[7].textContent.trim().toLowerCase() === 'true';
@@ -39,19 +43,19 @@ function buildCarouselCard(group) {
 function buildCarouselCategoryCard(group) {
   const iconImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
   const titleText = group.children[2] ? group.children[2].textContent.trim() : '';
-  let linkUrl = group.children[3] ? group.children[3].querySelector('p')?.textContent.trim() || '' : '';
+  let linkUrl = group.children[3]
+    ? group.children[3].querySelector('p')?.textContent.trim() || ''
+    : '';
   let targetBlank = false;
   if (group.children.length >= 5) {
     targetBlank = group.children[4].textContent.trim().toLowerCase() === 'true';
   }
-
   const card = html`
     <div class="carousel-category-card">
       <div class="carousel-category-card__image" dangerouslySetInnerHTML=${{ __html: iconImageMarkup }}></div>
       <span class="carousel-category-card__title">${titleText}</span>
     </div>
   `;
-
   return linkUrl ? html`
     <a class="carousel-category-card__link-wrapper" href=${linkUrl} target=${targetBlank ? '_blank' : '_self'}>
       ${card}
@@ -60,6 +64,9 @@ function buildCarouselCategoryCard(group) {
 }
 
 function buildCarouselCardPromo(group) {
+  // Se marca que se encontró una tarjeta promo
+  promoFound = true;
+
   let imageSrc = "";
   if (group.children[1]) {
     const imgEl = group.children[1].querySelector('img');
@@ -88,7 +95,7 @@ function buildCarouselCardPromo(group) {
       bodyText=${descriptionText}
       linkText=${buttonText}
       linkUrl=${linkUrl}
-      showUrgencyTag=${urgencyTag ? true : false}
+      showUrgencyTag=${!!urgencyTag}
       urgencyTagText=${urgencyTag}
       clickableWholeCard=${false}
       cardVariant="horizontal"
@@ -97,11 +104,12 @@ function buildCarouselCardPromo(group) {
 }
 
 export default function decorate(block) {
-  const children = Array.from(block.children);
+  const children = Array.from(block.children).filter(child => child.nodeType === 1);
 
-  const configFields = children.slice(0, 7).map(child =>
-    child.textContent.trim()
-  );
+  // Los primeros 7 elementos son para la configuración:
+  // [0]: slidesPerView, [1]: spaceBetween, [2]: navigation, [3]: pagination,
+  // [4]: autoplay, [5]: autoplayDelay, [6]: loop
+  const configFields = children.slice(0, 7).map(child => child.textContent.trim());
 
   const rawSlidesPerView = parseFloat(configFields[0]);
   const slidesPerView = rawSlidesPerView === 0 ? 'auto' : (rawSlidesPerView || 1);
@@ -112,6 +120,7 @@ export default function decorate(block) {
   const autoplayDelay = parseInt(configFields[5], 10) || 3000;
   const loop = configFields[6].toLowerCase() === 'true';
 
+  // Los slides comienzan a partir del índice 7.
   const slides = children.slice(7).map(child => {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
@@ -124,6 +133,10 @@ export default function decorate(block) {
         return buildCarouselCategoryCard(group);
       } else if (cardType === 'carrousel-card-promo') {
         return buildCarouselCardPromo(group);
+      } else {
+        return html`
+          <div class="carousel-card" dangerouslySetInnerHTML=${{ __html: child.outerHTML }}></div>
+        `;
       }
     } else {
       return html`
@@ -132,19 +145,27 @@ export default function decorate(block) {
     }
   });
 
+  // Configuración de Swiper
+  // Se inyecta centeredSlides solo en desktop (>= 901px) y solo si se encontró alguna tarjeta promo.
+  const centeredSlides = (window.innerWidth >= 901 && promoFound) ? true : false;
+
+  const swiperConfigs = {
+    slidesPerView: slidesPerView,
+    spaceBetween: spaceBetween,
+    navigation: navigation ? { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } : false,
+    pagination: pagination ? { el: '.swiper-pagination', clickable: true } : false,
+    autoplay: autoplay ? { delay: autoplayDelay, disableOnInteraction: false } : false,
+    loop: loop,
+    centeredSlides: centeredSlides
+  };
+
   const carouselProps = {
-    swiperConfigs: {
-      slidesPerView: slidesPerView,
-      spaceBetween: spaceBetween,
-      navigation: navigation ? { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } : false,
-      pagination: pagination ? { el: '.swiper-pagination', clickable: true } : false,
-      autoplay: autoplay ? { delay: autoplayDelay, disableOnInteraction: false } : false,
-      loop: loop
-    },
+    swiperConfigs: swiperConfigs,
     slides: slides
   };
 
   console.log('Carousel Props:', carouselProps);
+  promoFound = false;
 
   block.innerHTML = '';
   render(html`<${CustomCarousel} props=${carouselProps} />`, block);
