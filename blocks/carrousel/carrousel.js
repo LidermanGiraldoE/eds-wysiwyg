@@ -1,6 +1,7 @@
 // @ts-ignore
 import { h, render } from '@dropins/tools/preact.js';
 import CustomCarousel from '../../design-system/molecules/customCarousel/customCarousel.js';
+import CustomCards from '../../design-system/atoms/customCards/customCards.js'
 import htm from '../../../../scripts/htm.js';
 
 const html = htm.bind(h);
@@ -65,6 +66,56 @@ function buildCarouselCategoryCard(group) {
   ` : card;
 }
 
+function buildCarouselCardPromo(group) {
+  // Extrae la imagen del índice 1
+  let imageSrc = "";
+  if (group.children[1]) {
+    const imgEl = group.children[1].querySelector('img');
+    imageSrc = imgEl ? imgEl.getAttribute('src') : "";
+  }
+  
+  // Extrae el Urgency Tag (índice 2)
+  const urgencyTag = group.children[2] ? group.children[2].textContent.trim() : "";
+  
+  // Extrae la etiqueta (tag) (índice 3)
+  const tagText = group.children[3] ? group.children[3].textContent.trim() : "";
+  
+  // Extrae el título (índice 4)
+  const titleText = group.children[4] ? group.children[4].textContent.trim() : "";
+  
+  // Extrae la descripción (índice 5)
+  const descriptionText = group.children[5] ? group.children[5].textContent.trim() : "";
+  
+  // Extrae el Button Text (índice 6)
+  const buttonText = group.children[6] ? group.children[6].textContent.trim() : "";
+  
+  // Extrae el Link URL, se espera que el <p> esté dentro del contenedor en índice 7
+  let linkUrl = "";
+  if (group.children[7]) {
+    linkUrl = group.children[7].querySelector('p')?.textContent.trim() || "";
+  }
+  
+  // Extrae el valor de targetBlank (índice 8)
+  const targetBlank = group.children[8]
+    ? group.children[8].textContent.trim().toLowerCase() === 'true'
+    : false;
+  
+  return html`
+    <${CustomCards}
+      imageSrc=${imageSrc}
+      imageAlt=""
+      labelText=${tagText}
+      titleText=${titleText}
+      bodyText=${descriptionText}
+      linkText=${buttonText}
+      linkUrl=${linkUrl}
+      showUrgencyTag=${urgencyTag ? true : false}
+      urgencyTagText=${urgencyTag}
+      clickableWholeCard=${false}
+      cardVariant="horizontal"
+    />
+  `;
+}
 
 export default function decorate(block) {
   const children = Array.from(block.children);
@@ -81,9 +132,10 @@ export default function decorate(block) {
   const autoplay = configFields[4].toLowerCase() === 'true';
   const autoplayDelay = parseInt(configFields[5], 10) || 3000;
   const loop = configFields[6].toLowerCase() === 'true';
+  const centeredSlides = configFields[7].toLowerCase() === 'true';
 
   // Extrae los slides (a partir del índice 7) y aplica la función según el tipo de tarjeta.
-  const slides = children.slice(7).map(child => {
+  const slides = children.slice(8).map(child => {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
     const group = temp.firstElementChild;
@@ -93,6 +145,8 @@ export default function decorate(block) {
         return buildCarouselCard(group);
       } else if (cardType === 'carrousel-card-category') {
         return buildCarouselCategoryCard(group);
+      } else if (cardType === 'carrousel-card-promo') {
+        return buildCarouselCardPromo(group);
       }
     } else {
       return html`
@@ -108,7 +162,8 @@ export default function decorate(block) {
       navigation: navigation ? { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } : false,
       pagination: pagination ? { el: '.swiper-pagination', clickable: true } : false,
       autoplay: autoplay ? { delay: autoplayDelay, disableOnInteraction: false } : false,
-      loop: loop
+      loop: loop,
+      centeredSlides: centeredSlides
     },
     slides: slides
   };
