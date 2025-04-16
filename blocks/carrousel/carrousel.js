@@ -58,6 +58,7 @@ function buildCarouselCategoryCard(group) {
 }
 
 function buildCarouselCardPromo(group) {
+  // Para la tarjeta promo, se asume que el modelo tiene solo una imagen (no desktop/mobile diferenciado)
   let imageSrc = "";
   if (group.children[1]) {
     const imgEl = group.children[1].querySelector('img');
@@ -94,8 +95,7 @@ function buildCarouselCardPromo(group) {
 export default function decorate(block) {
   const children = Array.from(block.children);
 
-  // Usamos los primeros 8 elementos para la configuración
-  const configFields = children.slice(0, 8).map(child =>
+  const configFields = children.slice(0, 7).map(child =>
     child.textContent.trim()
   );
 
@@ -107,20 +107,20 @@ export default function decorate(block) {
   const autoplay = configFields[4].toLowerCase() === 'true';
   const autoplayDelay = parseInt(configFields[5], 10) || 3000;
   const loop = configFields[6].toLowerCase() === 'true';
-  const centeredSlides = configFields[7].toLowerCase() === 'true';
 
-  // Extrae los slides a partir del índice 8
-  const slides = children.slice(8).map(child => {
+  let promoFound = false;
+  const slides = children.slice(7).map(child => {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
     const group = temp.firstElementChild;
     if (group) {
-      const itemName = group.children[0].textContent.trim();
-      if (itemName === 'carrousel-card') {
+      const cardType = group.children[0].textContent.trim();
+      if (cardType === 'carrousel-card') {
         return buildCarouselCard(group);
-      } else if (itemName === 'carrousel-card-category') {
+      } else if (cardType === 'carrousel-card-category') {
         return buildCarouselCategoryCard(group);
-      } else if (itemName === 'carrousel-card-promo') {
+      } else if (cardType === 'carrousel-card-promo') {
+        promoFound = true;
         return buildCarouselCardPromo(group);
       } else {
         return html`
@@ -134,16 +134,22 @@ export default function decorate(block) {
     }
   });
 
+  const swiperConfigs = {
+    slidesPerView: slidesPerView,
+    spaceBetween: spaceBetween,
+    navigation: navigation ? { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } : false,
+    pagination: pagination ? { el: '.swiper-pagination', clickable: true } : false,
+    autoplay: autoplay ? { delay: autoplayDelay, disableOnInteraction: false } : false,
+    loop: loop
+  };
+
+  // Si se ha encontrado al menos una tarjeta promo, agrega centeredSlides: true
+  if (promoFound) {
+    swiperConfigs.centeredSlides = true;
+  }
+
   const carouselProps = {
-    swiperConfigs: {
-      slidesPerView: slidesPerView,
-      spaceBetween: spaceBetween,
-      navigation: navigation ? { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } : false,
-      pagination: pagination ? { el: '.swiper-pagination', clickable: true } : false,
-      autoplay: autoplay ? { delay: autoplayDelay, disableOnInteraction: false } : false,
-      loop: loop,
-      centeredSlides: centeredSlides
-    },
+    swiperConfigs: swiperConfigs,
     slides: slides
   };
 

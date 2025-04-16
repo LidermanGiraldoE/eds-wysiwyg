@@ -450,13 +450,6 @@
         "name": "loop",
         "label": "Loop Carousel",
         "value": ""
-      },
-      {
-        "component": "boolean",
-        "valueType": "boolean",
-        "name": "centeredSlides",
-        "label": "Centered slides",
-        "value": false
       }
     ]
   },
