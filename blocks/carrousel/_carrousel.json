@@ -130,7 +130,7 @@
                 {
                     "component": "boolean",
                     "valueType": "boolean",
-                    "name": "loop",
+                    "name": "centeredSlides",
                     "label": "Centered slides",
                     "value": ""
                 }
