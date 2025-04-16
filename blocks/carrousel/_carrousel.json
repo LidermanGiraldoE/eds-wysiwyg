@@ -206,16 +206,16 @@
                 },
                 {
                     "component": "reference",
-                    "label": "Icon Image",
-                    "name": "iconImage",
-                    "multi": false,
-                    "required": true
+                    "valueType": "string",
+                    "name": "image",
+                    "label": "Image",
+                    "multi": false
                 },
                 {
                     "component": "text",
                     "valueType": "string",
-                    "name": "altImg",
-                    "label": "Alt Image",
+                    "name": "imageAlt",
+                    "label": "Alt",
                     "value": ""
                 },
                 {
