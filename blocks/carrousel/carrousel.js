@@ -34,7 +34,7 @@ function buildCarouselCard(group) {
     </div>
   `;
   return linkUrl ? html`
-    <a class="carousel-card__link-wrapper" href=${linkUrl} target=${targetBlank ? '_blank' : '_self'}>
+    <a class="carousel-card__link-wrapper" aria-label=${titleText} href=${linkUrl} target=${targetBlank ? '_blank' : '_self'}>
       ${card}
     </a>
   ` : card;
@@ -57,7 +57,7 @@ function buildCarouselCategoryCard(group) {
     </div>
   `;
   return linkUrl ? html`
-    <a class="carousel-category-card__link-wrapper" href=${linkUrl} target=${targetBlank ? '_blank' : '_self'}>
+    <a class="carousel-category-card__link-wrapper" aria-label=${titleText} href=${linkUrl} target=${targetBlank ? '_blank' : '_self'}>
       ${card}
     </a>
   ` : card;
@@ -105,10 +105,6 @@ function buildCarouselCardPromo(group) {
 
 export default function decorate(block) {
   const children = Array.from(block.children).filter(child => child.nodeType === 1);
-
-  // Los primeros 7 elementos son para la configuración:
-  // [0]: slidesPerView, [1]: spaceBetween, [2]: navigation, [3]: pagination,
-  // [4]: autoplay, [5]: autoplayDelay, [6]: loop
   const configFields = children.slice(0, 7).map(child => child.textContent.trim());
 
   const rawSlidesPerView = parseFloat(configFields[0]);
@@ -120,7 +116,6 @@ export default function decorate(block) {
   const autoplayDelay = parseInt(configFields[5], 10) || 3000;
   const loop = configFields[6].toLowerCase() === 'true';
 
-  // Los slides comienzan a partir del índice 7.
   const slides = children.slice(7).map(child => {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
@@ -145,8 +140,6 @@ export default function decorate(block) {
     }
   });
 
-  // Configuración de Swiper
-  // Se inyecta centeredSlides solo en desktop (>= 901px) y solo si se encontró alguna tarjeta promo.
   const centeredSlides = (window.innerWidth >= 901 && promoFound) ? true : false;
 
   const swiperConfigs = {
