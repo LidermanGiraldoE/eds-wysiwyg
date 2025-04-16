@@ -540,7 +540,7 @@
         "valueType": "string",
         "name": "imageAlt",
         "label": "Alt",
-        "value": ""
+        "value": "prueba"
       },
       {
         "component": "text",
