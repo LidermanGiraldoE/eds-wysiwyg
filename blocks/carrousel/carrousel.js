@@ -3,28 +3,35 @@ import { h, render } from '@dropins/tools/preact.js';
 import CustomCarousel from '../../design-system/molecules/customCarousel/customCarousel.js';
 import CustomCards from '../../design-system/atoms/customCards/customCards.js';
 import htm from '../../../../scripts/htm.js';
-
+ 
 const html = htm.bind(h);
-
+ 
 let promoFound = false; // Bandera para detectar si se encontró al menos una tarjeta promo
-
+ 
 function buildCarouselCard(group) {
   const desktopImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
   const mobileImageMarkupRaw = group.children[2] ? group.children[2].innerHTML.trim() : '';
   const mobileImageMarkup = mobileImageMarkupRaw ? group.children[2].outerHTML : '';
+ 
+  const altText = group.children[3] ? group.children[3].textContent.trim() : 'Imagen promocional';
+  const desktopImageWithAlt = desktopImageMarkup.replace('<img', `<img alt="${altText}"`);
+  const mobileImageWithAlt = mobileImageMarkup.replace('<img', `<img alt="${altText}"`);
+ 
   const imageMarkup = (window.innerWidth <= 900 && mobileImageMarkup)
-    ? mobileImageMarkup
-    : desktopImageMarkup;
-  const brandText = group.children[3] ? group.children[3].textContent.trim() : '';
-  const titleText = group.children[4] ? group.children[4].textContent.trim() : '';
-  const descriptionText = group.children[5] ? group.children[5].textContent.trim() : '';
-  let linkUrl = group.children[6]
-    ? group.children[6].querySelector('p')?.textContent.trim() || ''
+    ? mobileImageWithAlt
+    : desktopImageWithAlt;
+ 
+  const brandText = group.children[4] ? group.children[4].textContent.trim() : '';
+  const titleText = group.children[5] ? group.children[5].textContent.trim() : '';
+  const descriptionText = group.children[6] ? group.children[6].textContent.trim() : '';
+  let linkUrl = group.children[7]
+    ? group.children[7].querySelector('p')?.textContent.trim() || ''
     : '';
   let targetBlank = false;
-  if (group.children.length >= 8) {
-    targetBlank = group.children[7].textContent.trim().toLowerCase() === 'true';
+  if (group.children.length >= 9) {
+    targetBlank = group.children[8].textContent.trim().toLowerCase() === 'true';
   }
+  
   const card = html`
     <div class="carousel-card">
       <div class="carousel-card__image" dangerouslySetInnerHTML=${{ __html: imageMarkup }}></div>
@@ -39,7 +46,7 @@ function buildCarouselCard(group) {
     </a>
   ` : card;
 }
-
+ 
 function buildCarouselCategoryCard(group) {
   const iconImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
   const titleText = group.children[2] ? group.children[2].textContent.trim() : '';
@@ -62,11 +69,11 @@ function buildCarouselCategoryCard(group) {
     </a>
   ` : card;
 }
-
+ 
 function buildCarouselCardPromo(group) {
   // Se marca que se encontró una tarjeta promo
   promoFound = true;
-
+ 
   let imageSrc = "";
   if (group.children[1]) {
     const imgEl = group.children[1].querySelector('img');
@@ -102,11 +109,11 @@ function buildCarouselCardPromo(group) {
     />
   `;
 }
-
+ 
 export default function decorate(block) {
   const children = Array.from(block.children).filter(child => child.nodeType === 1);
   const configFields = children.slice(0, 7).map(child => child.textContent.trim());
-
+ 
   const rawSlidesPerView = parseFloat(configFields[0]);
   const slidesPerView = rawSlidesPerView === 0 ? 'auto' : (rawSlidesPerView || 1);
   const spaceBetween = parseFloat(configFields[1]) || 0;
@@ -115,7 +122,7 @@ export default function decorate(block) {
   const autoplay = configFields[4].toLowerCase() === 'true';
   const autoplayDelay = parseInt(configFields[5], 10) || 3000;
   const loop = configFields[6].toLowerCase() === 'true';
-
+ 
   const slides = children.slice(7).map(child => {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
@@ -139,9 +146,9 @@ export default function decorate(block) {
       `;
     }
   });
-
+ 
   const centeredSlides = (window.innerWidth >= 901 && promoFound) ? true : false;
-
+ 
   const swiperConfigs = {
     slidesPerView: slidesPerView,
     spaceBetween: spaceBetween,
@@ -151,15 +158,15 @@ export default function decorate(block) {
     loop: loop,
     centeredSlides: centeredSlides
   };
-
+ 
   const carouselProps = {
     swiperConfigs: swiperConfigs,
     slides: slides
   };
-
+ 
   console.log('Carousel Props:', carouselProps);
   promoFound = false;
-
+ 
   block.innerHTML = '';
   render(html`<${CustomCarousel} props=${carouselProps} />`, block);
 }
