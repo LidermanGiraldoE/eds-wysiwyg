@@ -214,9 +214,9 @@
                 {
                     "component": "text",
                     "valueType": "string",
-                    "name": "imageAlt",
-                    "label": "Alt",
-                    "value": "prueba"
+                    "name": "altImg",
+                    "label": "Alt Image",
+                    "value": ""
                 },
                 {
                     "component": "text",

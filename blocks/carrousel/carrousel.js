@@ -3,12 +3,12 @@ import { h, render } from '@dropins/tools/preact.js';
 import CustomCarousel from '../../design-system/molecules/customCarousel/customCarousel.js';
 import CustomCards from '../../design-system/atoms/customCards/customCards.js';
 import htm from '../../../../scripts/htm.js';
-import { moveInstrumentation } from '../../../../scripts/scripts.js';
- 
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
 const html = htm.bind(h);
 let promoFound = false;
 
-function buildCarouselCard(group) {
+function buildCarouselCard(group, slideIndex) {
   const desktopImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
   const mobileImageMarkupRaw = group.children[2] ? group.children[2].innerHTML.trim() : '';
   const mobileImageMarkup = mobileImageMarkupRaw ? group.children[2].outerHTML : '';
@@ -31,10 +31,10 @@ function buildCarouselCard(group) {
     targetBlank = group.children[8].textContent.trim().toLowerCase() === 'true';
   }
 
-  const card = html`
+  const cardHtml = html`
     <div
       class="carousel-card"
-      oncreate=${el => moveInstrumentation(el, { component: 'carousel-card', title: titleText })}
+      data-slide-index="${slideIndex}"
     >
       <div class="carousel-card__image" dangerouslySetInnerHTML=${{ __html: imageMarkup }}></div>
       <p class="carousel-card__brand">${brandText}</p>
@@ -50,15 +50,16 @@ function buildCarouselCard(group) {
         aria-label=${titleText}
         href=${linkUrl}
         target=${targetBlank ? '_blank' : '_self'}
-        oncreate=${el => moveInstrumentation(el, { component: 'carousel-card-link', title: titleText })}
+        data-slide-index="${slideIndex}"
       >
-        ${card}
+        ${cardHtml}
       </a>
     `
-    : card;
+    : cardHtml;
 }
 
-function buildCarouselCategoryCard(group) {
+function buildCarouselCategoryCard(group, slideIndex) {
+  console.log('buildCarouselCategoryCard', group);
   const iconImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
   const altText = group.children[2] ? group.children[2].textContent.trim() : 'Imagen de categoría';
   const iconImageWithAlt = iconImageMarkup.replace('<img', `<img alt="${altText}"`);
@@ -72,10 +73,10 @@ function buildCarouselCategoryCard(group) {
     targetBlank = group.children[5].textContent.trim().toLowerCase() === 'true';
   }
 
-  const card = html`
+  const cardHtml = html`
     <div
       class="carousel-category-card"
-      oncreate=${el => moveInstrumentation(el, { component: 'carousel-category-card', title: titleText })}
+      data-slide-index="${slideIndex}"
     >
       <div class="carousel-category-card__image" dangerouslySetInnerHTML=${{ __html: iconImageWithAlt }}></div>
       <span class="carousel-category-card__title">${titleText}</span>
@@ -89,15 +90,15 @@ function buildCarouselCategoryCard(group) {
         aria-label=${titleText}
         href=${linkUrl}
         target=${targetBlank ? '_blank' : '_self'}
-        oncreate=${el => moveInstrumentation(el, { component: 'carousel-category-card-link', title: titleText })}
+        data-slide-index="${slideIndex}"
       >
-        ${card}
+        ${cardHtml}
       </a>
     `
-    : card;
+    : cardHtml;
 }
 
-function buildCarouselCardPromo(group) {
+function buildCarouselCardPromo(group, slideIndex) {
   promoFound = true;
 
   let imageSrc = '';
@@ -105,7 +106,6 @@ function buildCarouselCardPromo(group) {
     const imgEl = group.children[1].querySelector('img');
     imageSrc = imgEl ? imgEl.getAttribute('src') : '';
   }
-
   const urgencyTag = group.children[2] ? group.children[2].textContent.trim() : '';
   const tagText = group.children[3] ? group.children[3].textContent.trim() : '';
   const titleText = group.children[4] ? group.children[4].textContent.trim() : '';
@@ -120,10 +120,10 @@ function buildCarouselCardPromo(group) {
     ? group.children[8].textContent.trim().toLowerCase() === 'true'
     : false;
 
-  const card = html`
+  return html`
     <${CustomCards}
       imageSrc=${imageSrc}
-      imageAlt="${altText}"
+      imageAlt=""
       labelText=${tagText}
       titleText=${titleText}
       bodyText=${descriptionText}
@@ -133,48 +133,48 @@ function buildCarouselCardPromo(group) {
       urgencyTagText=${urgencyTag}
       clickableWholeCard=${false}
       cardVariant="horizontal"
-      oncreate=${el => moveInstrumentation(el, { component: 'carousel-card-promo', title: titleText })}
+      data-slide-index="${slideIndex}"
     />
   `;
-
-  return card;
 }
 
 export default function decorate(block) {
-  const children = Array.from(block.children).filter(child => child.nodeType === 1);
-  const configFields = children.slice(0, 7).map(child => child.textContent.trim());
+  // Guardamos los elementos originales con atributos data-aue-*
+  const allChildren = Array.from(block.children).filter(c => c.nodeType === 1);
+  const configChildren = allChildren.slice(0, 7);
+  const originalSlides = allChildren.slice(7);
 
-  const rawSlidesPerView = parseFloat(configFields[0]);
-  const slidesPerView = rawSlidesPerView === 0 ? 'auto' : (rawSlidesPerView || 1);
-  const spaceBetween = parseFloat(configFields[1]) || 0;
-  const navigation = configFields[2].toLowerCase() === 'true';
-  const pagination = configFields[3].toLowerCase() === 'true';
-  const autoplay = configFields[4].toLowerCase() === 'true';
-  const autoplayDelay = parseInt(configFields[5], 10) || 3000;
-  const loop = configFields[6].toLowerCase() === 'true';
+  // Leemos configuración
+  const [rawSlidesPerView, rawSpaceBetween, rawNav, rawPag, rawAuto, rawDelay, rawLoop] =
+    configChildren.map(c => c.textContent.trim());
+  const slidesPerView = parseFloat(rawSlidesPerView) === 0 ? 'auto' : (parseFloat(rawSlidesPerView) || 1);
+  const spaceBetween = parseFloat(rawSpaceBetween) || 0;
+  const navigation = rawNav.toLowerCase() === 'true';
+  const pagination = rawPag.toLowerCase() === 'true';
+  const autoplay = rawAuto.toLowerCase() === 'true';
+  const autoplayDelay = parseInt(rawDelay, 10) || 3000;
+  const loop = rawLoop.toLowerCase() === 'true';
 
-  const slides = children.slice(7).map(child => {
+  // Construimos slides con índices para luego instrumentar
+  const slides = originalSlides.map((child, idx) => {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
     const group = temp.firstElementChild;
-    if (group) {
-      const cardType = group.children[0].textContent.trim();
-      switch (cardType) {
-        case 'carrousel-card':
-          return buildCarouselCard(group);
-        case 'carrousel-card-category':
-          return buildCarouselCategoryCard(group);
-        case 'carrousel-card-promo':
-          return buildCarouselCardPromo(group);
-        default:
-          return html`<div class="carousel-card" dangerouslySetInnerHTML=${{ __html: child.outerHTML }}></div>`;
-      }
+    if (!group) return html`<div />`;
+    const cardType = group.children[0].textContent.trim();
+    switch (cardType) {
+      case 'carrousel-card':
+        return buildCarouselCard(group, idx);
+      case 'carrousel-card-category':
+        return buildCarouselCategoryCard(group, idx);
+      case 'carrousel-card-promo':
+        return buildCarouselCardPromo(group, idx);
+      default:
+        return html`<div class="carousel-card" data-slide-index="${idx}" dangerouslySetInnerHTML=${{ __html: child.outerHTML }} />`;
     }
-    return html`<div class="carousel-card" dangerouslySetInnerHTML=${{ __html: child.outerHTML }}></div>`;
   });
 
-  const centeredSlides = (window.innerWidth >= 901 && promoFound);
-
+  const centeredSlides = window.innerWidth >= 901 && promoFound;
   const swiperConfigs = {
     slidesPerView,
     spaceBetween,
@@ -184,12 +184,20 @@ export default function decorate(block) {
     loop,
     centeredSlides
   };
-
   const carouselProps = { swiperConfigs, slides };
 
-  console.log('Carousel Props:', carouselProps);
-  promoFound = false;
-
+  // Renderizamos el carrusel
   block.innerHTML = '';
   render(html`<${CustomCarousel} props=${carouselProps} />`, block);
+
+  // Movemos los atributos data-aue-* y data-richtext-* de los originales a los generados
+  originalSlides.forEach((orig, idx) => {
+    const slideEl = block.querySelector(`[data-slide-index="${idx}"]`);
+    if (slideEl) {
+      moveInstrumentation(orig, slideEl);
+      slideEl.removeAttribute('data-slide-index');
+    }
+  });
+  // Reset flag
+  promoFound = false;
 }
