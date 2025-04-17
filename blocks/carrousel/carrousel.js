@@ -45,21 +45,20 @@ function buildCarouselCard(group, slideIndex) {
 
   return linkUrl
     ? html`
-      <a
-        class="carousel-card__link-wrapper"
-        aria-label=${titleText}
-        href=${linkUrl}
-        target=${targetBlank ? '_blank' : '_self'}
-        data-slide-index="${slideIndex}"
-      >
-        ${cardHtml}
-      </a>
-    `
+        <a
+          class="carousel-card__link-wrapper"
+          aria-label=${titleText}
+          href=${linkUrl}
+          target=${targetBlank ? '_blank' : '_self'}
+          data-slide-index="${slideIndex}"
+        >
+          ${cardHtml}
+        </a>
+      `
     : cardHtml;
 }
 
 function buildCarouselCategoryCard(group, slideIndex) {
-  console.log('buildCarouselCategoryCard', group);
   const iconImageMarkup = group.children[1] ? group.children[1].outerHTML : '';
   const altText = group.children[2] ? group.children[2].textContent.trim() : 'Imagen de categoría';
   const iconImageWithAlt = iconImageMarkup.replace('<img', `<img alt="${altText}"`);
@@ -85,16 +84,16 @@ function buildCarouselCategoryCard(group, slideIndex) {
 
   return linkUrl
     ? html`
-      <a
-        class="carousel-category-card__link-wrapper"
-        aria-label=${titleText}
-        href=${linkUrl}
-        target=${targetBlank ? '_blank' : '_self'}
-        data-slide-index="${slideIndex}"
-      >
-        ${cardHtml}
-      </a>
-    `
+        <a
+          class="carousel-category-card__link-wrapper"
+          aria-label=${titleText}
+          href=${linkUrl}
+          target=${targetBlank ? '_blank' : '_self'}
+          data-slide-index="${slideIndex}"
+        >
+          ${cardHtml}
+        </a>
+      `
     : cardHtml;
 }
 
@@ -139,23 +138,43 @@ function buildCarouselCardPromo(group, slideIndex) {
 }
 
 export default function decorate(block) {
-  // Guardamos los elementos originales con atributos data-aue-*
-  const allChildren = Array.from(block.children).filter(c => c.nodeType === 1);
-  const configChildren = allChildren.slice(0, 7);
-  const originalSlides = allChildren.slice(7);
+  const allChildren = Array.from(block.children).filter((c) => c.nodeType === 1);
 
-  // Leemos configuración
-  const [rawSlidesPerView, rawSpaceBetween, rawNav, rawPag, rawAuto, rawDelay, rawLoop] =
-    configChildren.map(c => c.textContent.trim());
-  const slidesPerView = parseFloat(rawSlidesPerView) === 0 ? 'auto' : (parseFloat(rawSlidesPerView) || 1);
+  // Detectar primer índice de slide válido
+  const cardTypes = ['carrousel-card', 'carrousel-card-category', 'carrousel-card-promo'];
+  const firstSlideIndex = allChildren.findIndex((el) => {
+    const type = el.children?.[0]?.textContent?.trim();
+    return cardTypes.includes(type);
+  });
+
+  if (firstSlideIndex === -1) {
+    console.warn('No se encontraron tarjetas válidas dentro del carrusel.');
+    return;
+  }
+
+  const configChildren = allChildren.slice(0, firstSlideIndex);
+  const originalSlides = allChildren.slice(firstSlideIndex);
+
+  const [
+    rawSlidesPerView,
+    rawSpaceBetween,
+    rawNav,
+    rawPag,
+    rawAuto,
+    rawDelay,
+    rawLoop,
+    rawMobileGrid,
+  ] = configChildren.map((c) => c.textContent.trim());
+
+  const slidesPerView = parseFloat(rawSlidesPerView) === 0 ? 'auto' : parseFloat(rawSlidesPerView) || 1;
   const spaceBetween = parseFloat(rawSpaceBetween) || 0;
-  const navigation = rawNav.toLowerCase() === 'true';
-  const pagination = rawPag.toLowerCase() === 'true';
-  const autoplay = rawAuto.toLowerCase() === 'true';
+  const navigation = rawNav?.toLowerCase() === 'true';
+  const pagination = rawPag?.toLowerCase() === 'true';
+  const autoplay = rawAuto?.toLowerCase() === 'true';
   const autoplayDelay = parseInt(rawDelay, 10) || 3000;
-  const loop = rawLoop.toLowerCase() === 'true';
+  const loop = rawLoop?.toLowerCase() === 'true';
+  const mobileGrid = rawMobileGrid?.toLowerCase() === 'true';
 
-  // Construimos slides con índices para luego instrumentar
   const slides = originalSlides.map((child, idx) => {
     const temp = document.createElement('div');
     temp.innerHTML = child.outerHTML;
@@ -182,7 +201,7 @@ export default function decorate(block) {
     pagination: pagination ? { el: '.swiper-pagination', clickable: true } : false,
     autoplay: autoplay ? { delay: autoplayDelay, disableOnInteraction: false } : false,
     loop,
-    centeredSlides
+    centeredSlides,
   };
   const carouselProps = { swiperConfigs, slides };
 
@@ -190,7 +209,15 @@ export default function decorate(block) {
   block.innerHTML = '';
   render(html`<${CustomCarousel} props=${carouselProps} />`, block);
 
-  // Movemos los atributos data-aue-* y data-richtext-* de los originales a los generados
+  // Si está habilitada la grilla móvil, aplicar clase
+  setTimeout(() => {
+    if (mobileGrid && window.innerWidth <= 900) {
+      const wrapper = block.querySelector('.swiper-wrapper');
+      if (wrapper) wrapper.classList.add('mobile-grid');
+    }
+  }, 0);
+
+  // Instrumentación
   originalSlides.forEach((orig, idx) => {
     const slideEl = block.querySelector(`[data-slide-index="${idx}"]`);
     if (slideEl) {
@@ -198,6 +225,6 @@ export default function decorate(block) {
       slideEl.removeAttribute('data-slide-index');
     }
   });
-  // Reset flag
+
   promoFound = false;
 }

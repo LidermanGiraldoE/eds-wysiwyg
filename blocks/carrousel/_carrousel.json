@@ -126,6 +126,13 @@
                     "name": "loop",
                     "label": "Loop Carousel",
                     "value": ""
+                },
+                {
+                    "component": "boolean",
+                    "valueType": "boolean",
+                    "name": "mobileGrid",
+                    "label": "Mobile grid",
+                    "value": ""
                 }
             ]
         },
