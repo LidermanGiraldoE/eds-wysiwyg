@@ -23,9 +23,16 @@
         {
           "component": "reference",
           "valueType": "string",
-          "name": "image",
-          "label": "Image",
-          "multi": true
+          "name": "imageDesktop",
+          "label": "Image desktop",
+          "multi": false
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "imageMobile",
+          "label": "Image mobile",
+          "multi": false
         },
         {
           "component": "text",
