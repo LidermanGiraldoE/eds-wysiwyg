@@ -141,7 +141,8 @@
         "ulta-beauty-update-profile-cdc",
         "base-components",
         "block-product-list-page",
-        "carrousel"
+        "carrousel",
+        "main-banner"
       ]
     }
   ]
