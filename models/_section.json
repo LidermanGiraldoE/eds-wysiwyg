@@ -142,7 +142,8 @@
         "base-components",
         "block-product-list-page",
         "carrousel",
-        "main-banner"
+        "main-banner",
+        "static-banner"
       ]
     }
   ]

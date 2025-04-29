@@ -166,8 +166,14 @@
     --type-display-5-font: normal normal normal 1.4rem/1.6rem var(--type-base-font-family);
     --type-display-5-letter-spacing: 0;
     --type-display-6-font: normal normal 500 2.4rem/2rem var(--type-base-font-family);
+    --type-display-xxl-strong-font: normal normal 900 4rem/4.4rem var(--type-base-font-family);
+    --type-display-26-strong-font: normal normal 700 2.6rem/3rem var(--type-base-font-family);
+    --type-display-28-medium-font: normal normal 500 2.8rem/3.2rem var(--type-base-font-family);
+    --type-display-28-strong-font: normal normal 700 2.8rem/3.2rem var(--type-base-font-family);
     --type-headline-1-font: normal normal 500 1.6rem/2rem var(--type-base-font-family);
     --type-headline-1-letter-spacing: .04em;
+    --type-display-2-strong-font: normal normal 700 2.4rem/2.8rem var(--type-base-font-family);
+    --type-headline-1-default-font: normal normal 400 1.6rem/2rem var(--type-base-font-family);
     --type-headline-2-default-font: normal normal normal 2rem/2.4rem var(--type-base-font-family);
     --type-headline-2-default-letter-spacing: .03em;
     --type-headline-2-strong-font: normal normal 700 2rem/2.4rem var(--type-base-font-family);/* TODO */
@@ -204,8 +210,12 @@
     --type-details-caption-1-letter-spacing: 0.08em;
     --type-details-caption-2-font: normal normal 300 1.2rem/1.6rem var(--type-base-font-family);
     --type-details-caption-2-letter-spacing: 0.08em;
+    --type-details-caption-3-font: normal normal 500 1rem/2rem var(--type-base-font-family);
     --type-details-overline-font: normal normal 400 1.2rem/2rem var(--type-base-font-family);
     --type-details-overline-letter-spacing: 0.16em;
+    --type-caption-medium-font: normal normal 500 1.2rem/2rem var(--type-base-font-family);
+    
+
 
     /* Additional tokens */
     --type-fixed-font-family: 'Circular Std', "Roboto Mono", menlo, consolas, "Liberation Mono", monospace, system-ui, sans-serif;
