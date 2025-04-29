@@ -56,14 +56,14 @@
           "value": ""
         },
         {
-          "component": "color",
+          "component": "text",
           "valueType": "string",
           "name": "contentBackgroundColor",
           "label": "Content background color",
           "value": "#FFFFFF"
         },
         {
-          "component": "color",
+          "component": "text",
           "valueType": "string",
           "name": "contentBorderColor",
           "label": "Content border (bottom) color",
