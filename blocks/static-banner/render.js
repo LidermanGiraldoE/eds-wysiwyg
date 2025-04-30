@@ -12,20 +12,27 @@ export const StaticBanner = ({
   contentBackgroundColor,
   contentBorderColor,
 }) => html`
-  <section class="static-banner">
-    <picture class="static-banner__image">
+  <section class="static-banner-box">
+    <picture class="static-banner-box__image">
       <source srcset=${imageMobile} media="(max-width: 900px)" />
       <img src=${imageDesktop} alt=${imageAlt} loading="lazy" />
     </picture>
-    <div
-      class="static-banner__content"
-      style=${{
-        backgroundColor: contentBackgroundColor,
-        boxShadow: `0 8px 0 ${contentBorderColor}`,
-      }}
-    >
-      <h2 class="static-banner__title">${title}</h2>
-      <p class="static-banner__description" dangerouslySetInnerHTML=${{ __html: description }} />
+    <div class="static-banner-box__content-wrapper">
+      <div
+        class="static-banner-box__border static-banner-box__border--bottom"
+        style=${{ backgroundColor: contentBorderColor }}
+      ></div>
+      <div
+        class="static-banner-box__border static-banner-box__border--right"
+        style=${{ backgroundColor: contentBorderColor }}
+      ></div>
+      <div
+        class="static-banner-box__content"
+        style=${{ backgroundColor: contentBackgroundColor }}
+      >
+        <h1 class="static-banner-box__title">${title}</h1>
+        <p class="static-banner-box__description" dangerouslySetInnerHTML=${{ __html: description }} />
+      </div>
     </div>
   </section>
 `;

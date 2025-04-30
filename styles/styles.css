@@ -214,7 +214,11 @@
     --type-details-overline-font: normal normal 400 1.2rem/2rem var(--type-base-font-family);
     --type-details-overline-letter-spacing: 0.16em;
     --type-caption-medium-font: normal normal 500 1.2rem/2rem var(--type-base-font-family);
-    
+    --type-headline-6-strong-font: normal normal 700 4.8rem/5.2rem var(--type-base-font-family);
+    --type-display-6xl-bold-font: normal normal 700 6rem/6.4rem var(--type-base-font-family); 
+    --type-headline-4-medium-font: normal normal normal 2rem/3.2rem var(--type-secondary-font-family);
+    --type-body-3-wide-font: normal normal normal 1.6rem/2.8rem var(--type-secondary-font-family);
+    --type-secondary-font-family: 'Chronicle Deck', sans-serif;
 
 
     /* Additional tokens */
